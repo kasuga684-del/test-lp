@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>スマート求人公式LINE | 店舗向け採用効率化ツール</title>
     <style>
-        /* --- 基本設定 --- */
+        /* --- 基本設定（モダン・グラデーション） --- */
         :root {
-            --primary-color: #06c755; /* LINE風グリーン */
-            --primary-dark: #05a546;
-            --accent-color: #1e3a8a; /* 信頼のネイビー */
-            --form-accent: #d81b60;  /* フォーム用ピンク */
-            --bg-light: #f3f4f6;
-            --text-main: #222222;    /* 文字を少し濃く */
+            /* メインのグラデーション（紫〜青） */
+            --main-gradient: linear-gradient(135deg, #8a2be2 0%, #4169e1 100%);
+            /* ボタン用の少し明るいグラデーション */
+            --btn-gradient: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+            
+            --accent-color: #4169e1; /* テキストのアクセント色（青） */
+            --form-accent: #8a2be2;  /* フォームのアクセント色（紫） */
+            
+            --bg-light: #f8faff;     /* 背景を少し青みがかった白に */
+            --text-main: #222222;
             --white: #ffffff;
+            
+            /* スプレッドシート用（変更なし） */
             --sheet-green: #107c41;
-            /* リッチメニュー用カラー */
+            /* リッチメニュー用（変更なし） */
             --rich-brown: #6d5656; 
             --rich-pink-bg: linear-gradient(135deg, #fff5f0 0%, #fcece8 100%);
         }
@@ -28,9 +34,9 @@
 
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            line-height: 1.5;
+            line-height: 1.6;
             color: var(--text-main);
-            background-color: #eeeeee;
+            background-color: #f0f2f5; /* 全体背景を少し明るく */
             font-size: 16px;
         }
 
@@ -38,90 +44,149 @@
             max-width: 600px;
             margin: 0 auto;
             background-color: var(--white);
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1); /* 影を少しリッチに */
             padding-bottom: 90px;
         }
 
-        section { padding: 30px 15px; border-bottom: 1px solid #eeeeee; }
+        section { padding: 35px 15px; border-bottom: 1px solid #f0f2f5; }
         
         h2 {
-            font-size: 22px; 
+            font-size: 24px; 
             text-align: center; 
-            margin-bottom: 20px; 
-            color: var(--accent-color);
+            margin-bottom: 25px; 
+            color: #333;
             position: relative; 
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             line-height: 1.4;
+            font-weight: bold;
         }
         h2::after {
             content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 50px; height: 3px; background-color: var(--primary-color);
+            width: 60px; height: 4px; 
+            background: var(--main-gradient); /* 下線をグラデーションに */
+            border-radius: 2px;
         }
 
         h3 {
             font-size: 18px; 
-            margin-bottom: 10px; 
-            color: var(--accent-color);
-            border-left: 5px solid var(--primary-color); 
-            padding-left: 10px;
+            margin-bottom: 15px; 
+            color: #333;
+            border-left: 5px solid;
+            border-image: var(--main-gradient) 1; /* 左線をグラデーションに */
+            padding-left: 12px;
             margin-top: 5px;
+            font-weight: bold;
         }
 
         p { margin-bottom: 1em; font-size: 15px; }
         
         ul { list-style: none; padding: 0; }
-        li { margin-bottom: 8px; position: relative; padding-left: 1.4em; font-size: 15px; }
-        li::before { content: "✔"; color: var(--primary-color); font-weight: bold; position: absolute; left: 0; top: 0; }
+        li { margin-bottom: 8px; position: relative; padding-left: 1.5em; font-size: 15px; }
+        li::before { 
+            content: "✔"; 
+            background: var(--main-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold; position: absolute; left: 0; top: 0; 
+        }
         
         .bg-gray { background-color: var(--bg-light); }
         .text-center { text-align: center; }
         .text-red { color: #ef4444; font-weight: bold; }
 
-        /* --- ファーストビュー --- */
-        .hero { background: var(--accent-color); color: var(--white); padding: 40px 15px; text-align: center; }
-        .hero h1 { font-size: 26px; font-weight: bold; line-height: 1.4; margin-bottom: 15px; }
-        .hero-tag { display: inline-block; background-color: var(--primary-color); color: var(--white); padding: 4px 12px; border-radius: 20px; font-size: 13px; margin-bottom: 10px; font-weight: bold; }
+        /* --- ファーストビュー（グラデーション適用） --- */
+        .hero { 
+            background: var(--main-gradient); 
+            color: var(--white); 
+            padding: 50px 15px; 
+            text-align: center; 
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .hero h1 { font-size: 26px; font-weight: bold; line-height: 1.4; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .hero-tag { 
+            display: inline-block; 
+            background: rgba(255,255,255,0.2); /* 半透明の白 */
+            border: 1px solid rgba(255,255,255,0.4);
+            color: var(--white); 
+            padding: 5px 15px; 
+            border-radius: 20px; 
+            font-size: 13px; 
+            margin-bottom: 15px; 
+            font-weight: bold; 
+            backdrop-filter: blur(5px);
+        }
 
-        /* --- CTAボタン --- */
+        /* --- CTAボタン（グラデーション適用） --- */
         .btn-cta {
             display: block; width: 100%; max-width: 400px; margin: 0 auto;
-            background-color: var(--primary-color); color: var(--white); text-align: center;
+            background: var(--btn-gradient); 
+            color: var(--white); text-align: center;
             padding: 16px; font-size: 18px; font-weight: bold; border-radius: 50px; text-decoration: none;
-            box-shadow: 0 4px 10px rgba(6, 199, 85, 0.4); border: 2px solid var(--white);
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4); /* 影にも色を付ける */
+            border: 2px solid rgba(255,255,255,0.8);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .btn-sub-text { font-size: 12px; margin-top: 2px; display: block; color: var(--white); opacity: 0.9; }
+        .btn-cta:active { transform: translateY(2px); box-shadow: 0 4px 10px rgba(138, 43, 226, 0.4); }
+        .btn-sub-text { font-size: 12px; margin-top: 4px; display: block; color: rgba(255,255,255,0.9); }
 
         /* --- Before（悩み） --- */
-        .problem-box { background-color: var(--white); border: 2px solid #ddd; padding: 15px; border-radius: 10px; margin-top: 15px; }
-        .problem-list li::before { content: "✖"; color: #888; }
+        .problem-box { background-color: var(--white); border: 2px solid #eee; padding: 20px; border-radius: 15px; margin-top: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .problem-list li::before { 
+            content: "✖"; 
+            background: none; -webkit-text-fill-color: #888; color: #888;
+        }
 
         /* --- 比較表 --- */
-        .comparison-table { width: 100%; border-collapse: collapse; margin: 15px 0; background: var(--white); }
-        .comparison-table th, .comparison-table td { border: 1px solid #ddd; padding: 10px; font-size: 13px; text-align: left; }
-        .comparison-table th { background-color: #f8f9fa; width: 25%; white-space: nowrap; }
-        .comparison-table td:last-child { background-color: #e8f5e9; font-weight: bold; color: var(--text-main); font-size: 14px; }
+        .comparison-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 20px 0; background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .comparison-table th, .comparison-table td { border-bottom: 1px solid #eee; padding: 12px; font-size: 14px; text-align: left; }
+        .comparison-table th { background-color: #f8faff; width: 30%; white-space: nowrap; color: var(--accent-color); }
+        .comparison-table td:last-child { background: linear-gradient(to right, rgba(138, 43, 226, 0.05), rgba(65, 105, 225, 0.05)); font-weight: bold; color: #333; }
+        .comparison-table tr:last-child th, .comparison-table tr:last-child td { border-bottom: none; }
 
         /* --- 料金 --- */
-        .pricing-box { background-color: var(--white); border: 3px solid var(--primary-color); border-radius: 15px; padding: 20px; text-align: center; position: relative; overflow: hidden; }
-        .price-label { background: var(--primary-color); color: white; position: absolute; top: 0; right: 0; padding: 4px 12px; border-bottom-left-radius: 8px; font-size: 11px; }
-        .price-amount { font-size: 36px; font-weight: bold; color: var(--accent-color); line-height: 1.2; }
+        .pricing-box { 
+            background-color: var(--white); 
+            border: 3px solid transparent;
+            background-image: linear-gradient(var(--white), var(--white)), var(--main-gradient);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border-radius: 20px; padding: 30px; text-align: center; position: relative; overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .price-label { 
+            background: var(--main-gradient); 
+            color: white; position: absolute; top: 0; right: 0; padding: 5px 15px; border-bottom-left-radius: 15px; font-size: 12px; font-weight: bold;
+        }
+        .price-amount { 
+            font-size: 40px; font-weight: bold; 
+            background: var(--main-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2; 
+        }
 
         /* --- FAQ --- */
-        .faq-item { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
-        .faq-q { font-weight: bold; color: var(--accent-color); margin-bottom: 5px; display: flex; font-size: 16px; }
-        .faq-q::before { content: "Q."; margin-right: 8px; color: var(--primary-color); }
-        .faq-a { font-size: 14px; color: var(--text-main); padding-left: 22px; }
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .faq-q { font-weight: bold; color: #333; margin-bottom: 8px; display: flex; font-size: 16px; align-items: center; }
+        .faq-q::before { 
+            content: "Q."; margin-right: 10px; 
+            color: white; background: var(--main-gradient);
+            width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; font-size: 14px;
+        }
+        .faq-a { font-size: 15px; color: var(--text-main); padding-left: 34px; }
 
         /* --- スマホモックアップ --- */
         .phone-mockup {
             width: 100%; 
             max-width: 280px; 
             height: 480px;
-            margin: 20px auto;
-            border: 8px solid #333;
-            border-radius: 20px; 
+            margin: 30px auto;
+            border: 10px solid #333;
+            border-radius: 30px; 
             background: #fff; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
             font-family: sans-serif; 
             position: relative;
             display: flex;
@@ -130,23 +195,23 @@
         }
         .phone-mockup::before {
             content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-            width: 30%; height: 16px; background: #333;
-            border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; z-index: 10;
+            width: 40%; height: 18px; background: #333;
+            border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; z-index: 10;
         }
 
         /* --- トーク画面・リッチメニュー --- */
         .chat-screen {
-            background-color: #7294c2;
+            background-color: #7294c2; /* LINE画面はあえてそのまま */
             flex-grow: 1;
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-        .chat-msg-area { padding: 35px 10px 10px; }
+        .chat-msg-area { padding: 40px 10px 10px; }
         .chat-bubble {
-            background: white; padding: 8px 12px; border-radius: 10px; font-size: 12px;
-            position: relative; margin-bottom: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            background: white; padding: 10px 14px; border-radius: 12px; font-size: 13px;
+            position: relative; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .chat-bubble::after {
             content: ""; position: absolute; top: 10px; left: -6px;
@@ -163,52 +228,45 @@
         /* --- フォーム画面 --- */
         .mockup-header {
             flex-shrink: 0; background: #fff; border-bottom: 1px solid #eee;
-            padding: 25px 10px 8px; text-align: center; font-size: 12px; color: var(--form-accent); font-weight: bold;
+            padding: 30px 10px 10px; text-align: center; font-size: 13px; color: var(--form-accent); font-weight: bold;
         }
-        .mockup-body { padding: 10px; background: #fff0f5; flex-grow: 1; overflow-y: auto; padding-bottom: 50px; }
+        .mockup-body { padding: 15px; background: #f8faff; flex-grow: 1; overflow-y: auto; padding-bottom: 50px; }
         
-        .mockup-input-group { margin-bottom: 10px; background: white; padding: 8px; border-radius: 6px; border: 1px solid #fce4ec; }
-        .mockup-label { font-size: 11px; font-weight: bold; color: var(--form-accent); margin-bottom: 3px; display: flex; align-items: center; }
+        .mockup-input-group { margin-bottom: 15px; background: white; padding: 12px; border-radius: 10px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .mockup-label { font-size: 12px; font-weight: bold; color: var(--form-accent); margin-bottom: 5px; display: flex; align-items: center; }
         
         .mockup-input, .mockup-select, .mockup-textarea { 
-            width: 100%; padding: 6px; border: 1px solid #ddd; border-radius: 4px; 
-            font-size: 12px; 
-            background: white; color: #333; box-sizing: border-box;
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; 
+            font-size: 13px; 
+            background: #fdfdfd; color: #333; box-sizing: border-box;
+            transition: border-color 0.2s;
         }
-        .mockup-textarea { height: 50px; resize: none; font-family: sans-serif; }
-        .date-range { font-size: 11px; }
-        .mockup-btn { background: var(--form-accent); color: white; border: none; width: 100%; padding: 10px; border-radius: 6px; font-weight: bold; margin-top: 10px; font-size: 14px; }
+        .mockup-input:focus, .mockup-select:focus, .mockup-textarea:focus { outline: none; border-color: var(--accent-color); }
+        .mockup-textarea { height: 60px; resize: none; font-family: sans-serif; }
+        .date-range { font-size: 12px; }
+        .mockup-btn { 
+            background: var(--btn-gradient); 
+            color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; margin-top: 15px; font-size: 15px; 
+            box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3);
+        }
         
-        .radio-group { font-size: 12px; }
-        .mockup-note { font-size: 10px; }
-        .mockup-note-red { font-size: 10px; padding: 5px; }
+        .radio-group { font-size: 13px; }
+        .mockup-note { font-size: 11px; color: #666; }
+        .mockup-note-red { font-size: 11px; padding: 8px; background: #ffebeb; border-radius: 6px; color: #ef4444; }
+        input[type="radio"] { accent-color: var(--form-accent); }
 
-        /* --- スプレッドシート（修正：文字崩れ防止） --- */
+        /* --- スプレッドシート --- */
         .sheet-mockup { 
-            margin: 15px 0; 
-            border: 1px solid #ddd; border-radius: 8px; overflow: hidden; 
-            background: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            margin: 20px 0; 
+            border: 1px solid #ddd; border-radius: 10px; overflow: hidden; 
+            background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
         }
-        .sheet-header-bar { background-color: var(--sheet-green); color: white; padding: 10px 15px; font-weight: bold; font-size: 14px; display: flex; align-items: center; }
+        .sheet-header-bar { background-color: var(--sheet-green); color: white; padding: 12px 15px; font-weight: bold; font-size: 14px; display: flex; align-items: center; }
         .sheet-icon { display: inline-block; width: 20px; height: 20px; background: white; color: var(--sheet-green); text-align: center; line-height: 20px; border-radius: 3px; margin-right: 10px; font-weight: bold; font-size: 12px; }
         
-        /* 横スクロールエリア */
         .sheet-scroll-area { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 5px; }
-        
-        /* テーブル本体 */
-        .sheet-table { 
-            width: 100%; 
-            border-collapse: collapse; 
-            font-size: 12px; 
-            min-width: 800px; /* ここを広げて余裕を持たせる */
-        }
-        .sheet-table th, .sheet-table td { 
-            border: 1px solid #e0e0e0; 
-            padding: 8px 10px; 
-            white-space: nowrap; /* これで勝手な改行を禁止 */
-            text-align: left;
-            color: #333;
-        }
+        .sheet-table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 800px; }
+        .sheet-table th, .sheet-table td { border: 1px solid #e0e0e0; padding: 8px 10px; white-space: nowrap; text-align: left; color: #333; }
         .sheet-table th { background-color: #f3f3f3; color: #555; font-weight: bold; }
         
         .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 10px; color: white; }
@@ -219,7 +277,7 @@
         /* スクロール誘導のヒント */
         .scroll-hint {
             position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-            background: rgba(0,0,0,0.8); color: white; padding: 4px 10px;
+            background: rgba(0,0,0,0.8); color: white; padding: 6px 12px;
             border-radius: 20px; font-size: 11px; z-index: 20;
             display: flex; align-items: center; gap: 5px; white-space: nowrap;
             animation: bounce 2s infinite; pointer-events: none;
@@ -231,19 +289,20 @@
         }
 
         /* 固定フッター */
-        .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); padding: 12px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1000; display: flex; justify-content: center; }
+        .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); padding: 15px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1000; display: flex; justify-content: center; backdrop-filter: blur(5px); }
         .sticky-footer .btn-cta { margin: 0; width: 100%; max-width: 600px; font-size: 18px; padding: 14px; }
 
-        /* --- シナリオ図解 --- */
-        .scenario-section { background: #eefbf3; text-align: center; padding: 25px 10px; }
+        /* --- シナリオ図解（モダン風） --- */
+        .scenario-section { background: #f0f2f5; text-align: center; padding: 30px 10px; }
         .scenario-container {
-            display: flex; justify-content: space-between; gap: 10px; margin-bottom: 15px;
+            display: flex; justify-content: space-between; gap: 10px; margin-bottom: 20px;
         }
         .scenario-box {
-            background: white; border: 2px solid #ddd; border-radius: 10px; padding: 10px; width: 48%;
+            background: white; border: 2px solid #eee; border-radius: 15px; padding: 15px 10px; width: 48%;
             position: relative; display: flex; flex-direction: column; align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .scenario-title { font-size: 13px; font-weight: bold; margin-bottom: 8px; color: #555; }
+        .scenario-title { font-size: 13px; font-weight: bold; margin-bottom: 10px; color: #555; }
         
         .scenario-img-area {
             display: flex; justify-content: center; align-items: flex-end; 
@@ -252,32 +311,45 @@
         
         /* 簡易スマホアイコン */
         .mini-phone {
-            width: 36px; height: 60px; background: #333; border-radius: 5px; position: relative;
+            width: 36px; height: 60px; background: #333; border-radius: 8px; position: relative;
             display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         .mini-phone::before { width: 30%; height: 3px; top: 2px; }
         .mini-phone-screen {
-            width: 30px; height: 52px; background: white; border-radius: 2px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+            width: 30px; height: 52px; background: white; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
         }
-        .app-icon { width: 18px; height: 18px; border-radius: 4px; font-size: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .app-icon { width: 18px; height: 18px; border-radius: 5px; font-size: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
         .icon-green { background-color: #06c755; }
         .icon-pink { background-color: #d81b60; }
         .icon-blue { background-color: #1e3a8a; }
 
-        .scenario-arrow { font-size: 24px; color: var(--primary-color); margin: 5px 0; font-weight: bold; }
+        .scenario-arrow { 
+            font-size: 24px; font-weight: bold; margin: 5px 0;
+            background: var(--main-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         
         /* 解決後のボックス */
         .solution-box {
-            background: white; border: 3px solid var(--primary-color); border-radius: 12px; padding: 15px;
+            background: white; 
+            border: 3px solid transparent;
+            background-image: linear-gradient(var(--white), var(--white)), var(--main-gradient);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border-radius: 15px; padding: 20px 15px;
             width: 100%; margin: 0 auto; position: relative;
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.15);
         }
         .solution-tag {
-            background: var(--primary-color); color: white; padding: 3px 12px; border-radius: 12px; font-size: 12px;
-            position: absolute; top: -14px; left: 50%; transform: translateX(-50%); font-weight: bold;
+            background: var(--main-gradient); color: white; padding: 4px 15px; border-radius: 15px; font-size: 12px;
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-weight: bold;
+            box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3);
         }
         .strong-message {
             font-size: 15px; font-weight: bold; color: #ef4444; background: #ffebeb;
-            padding: 8px; border-radius: 6px; margin-top: 12px; border: 2px solid #ef4444; line-height: 1.4;
+            padding: 10px; border-radius: 8px; margin-top: 15px; border: 2px solid #ef4444; line-height: 1.4;
         }
     </style>
 </head>
@@ -451,7 +523,7 @@
                             <span>〜</span>
                             <div class="date-box">年/月/日</div>
                         </div>
-                        <div style="text-align:right; font-size:11px; color:#d81b60; margin-top:5px;">計 0 日間</div>
+                        <div style="text-align:right; font-size:11px; color:var(--form-accent); margin-top:5px;">計 0 日間</div>
                     </div>
 
                     <div class="mockup-input-group">
@@ -654,10 +726,10 @@
 
         <section class="bg-gray">
             <h2>導入後の変化（実績例）</h2>
-            <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+            <div style="background: white; padding: 15px; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
                 <p><strong>■ 応募対応の手間が約70%減少</strong><br>情報の確認と日程調整のみになり、1人あたり数分で完了するようになりました。</p>
             </div>
-            <div style="background: white; padding: 15px; border-radius: 8px;">
+            <div style="background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
                 <p><strong>■ キャンセル率が大幅に低下</strong><br>リマインド通知のおかげで、「忘れていた」という当日キャンセルがゼロに。</p>
             </div>
         </section>
@@ -675,9 +747,9 @@
             <h2>料金プラン</h2>
             <div class="pricing-box">
                 <span class="price-label">Web限定</span>
-                <div style="margin-bottom: 15px; border-bottom: 1px dashed #ddd; padding-bottom: 10px;">
+                <div style="margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px;">
                     <p style="font-size:14px; margin-bottom:5px;">初期導入費（構築・設定費）</p>
-                    <p class="price-amount text-red">0円</p>
+                    <p class="price-amount">0円</p>
                     <p style="font-size: 13px; color: #666;">通常5万円〜の構築費が無料</p>
                 </div>
                 <div>
@@ -707,8 +779,8 @@
             <div style="height: 20px;"></div>
         </section>
 
-        <footer style="background: #333; color: white; padding: 20px; text-align: center; margin-bottom: 60px;">
-            <p style="font-size: 12px;">&copy; スマート求人公式LINE All Rights Reserved.</p>
+        <footer style="background: #333; color: white; padding: 30px 20px; text-align: center; margin-bottom: 60px;">
+            <p style="font-size: 13px; opacity: 0.8;">&copy; スマート求人公式LINE All Rights Reserved.</p>
         </footer>
 
         <div class="sticky-footer" id="contact">
