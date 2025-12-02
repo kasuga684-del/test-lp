@@ -30,16 +30,14 @@
             background-color: #eeeeee;
         }
 
-        /* --- コンテナ（スマホ表示シミュレーション） --- */
         .container {
             max-width: 600px;
             margin: 0 auto;
             background-color: var(--white);
             box-shadow: 0 0 20px rgba(0,0,0,0.05);
-            padding-bottom: 80px; /* フッターボタン用余白 */
+            padding-bottom: 80px;
         }
 
-        /* --- 共通スタイル --- */
         section {
             padding: 40px 20px;
             border-bottom: 1px solid #eeeeee;
@@ -97,11 +95,6 @@
             left: 0;
         }
 
-        .highlight {
-            background: linear-gradient(transparent 60%, #ffeb3b 60%);
-            font-weight: bold;
-        }
-
         .text-center { text-align: center; }
         .text-red { color: var(--alert-red); font-weight: bold; }
         .bg-gray { background-color: var(--bg-light); }
@@ -119,12 +112,6 @@
             font-weight: bold;
             line-height: 1.4;
             margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 16px;
-            margin-bottom: 30px;
-            opacity: 0.9;
         }
 
         .hero-tag {
@@ -231,12 +218,6 @@
             font-size: 12px;
         }
 
-        .price-row {
-            margin-bottom: 20px;
-            border-bottom: 1px dashed #ddd;
-            padding-bottom: 10px;
-        }
-
         .price-amount {
             font-size: 32px;
             font-weight: bold;
@@ -274,6 +255,96 @@
             padding-left: 25px;
         }
 
+        /* --- スマホモックアップ（CSSで描画） --- */
+        .phone-mockup {
+            width: 100%;
+            max-width: 320px;
+            margin: 30px auto;
+            border: 12px solid #333;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            font-family: sans-serif;
+            position: relative;
+        }
+        
+        /* ノッチ */
+        .phone-mockup::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 20px;
+            background: #333;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            z-index: 10;
+        }
+
+        .mockup-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 35px 15px 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .mockup-body {
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .mockup-input-group {
+            margin-bottom: 15px;
+        }
+
+        .mockup-label {
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .mockup-tag {
+            background: #ff4d4f;
+            color: white;
+            font-size: 10px;
+            padding: 2px 5px;
+            border-radius: 3px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        .mockup-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 13px;
+            background: white;
+            color: #555;
+        }
+
+        .mockup-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 14px;
+            display: block;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
         /* --- 固定フッター --- */
         .sticky-footer {
             position: fixed;
@@ -298,7 +369,6 @@
             border: none;
         }
 
-        /* レスポンシブ調整 */
         @media (max-width: 400px) {
             .hero h1 { font-size: 24px; }
             h2 { font-size: 22px; }
@@ -322,8 +392,6 @@
 
         <section class="bg-gray">
             <h2>こんな「求人の悩み」<br>抱えていませんか？</h2>
-            <p class="text-center">せっかく広告費をかけて応募が来ても、対応の遅れや手間でチャンスを逃していませんか？</p>
-            
             <div class="problem-box">
                 <ul class="problem-list">
                     <li>友達追加されても、<strong>忙しくて「最初の一言」をすぐに送れず</strong>離脱される</li>
@@ -334,7 +402,6 @@
                     <li>応募情報がLINEスクショ地獄で管理できない</li>
                 </ul>
             </div>
-            <p class="text-center" style="margin-top:20px; font-weight:bold;">もし一つでも当てはまるなら、<br>あなたの店舗の採用フローには<br>「穴」があります。</p>
         </section>
 
         <section>
@@ -359,6 +426,28 @@
             <h3>2. 応募フォームで必要事項を一括取得</h3>
             <p>名前、年齢、希望日時など、採用に必要な情報をフォームで一括回収。ちまちまとLINEで聞き出す手間をゼロにします。</p>
 
+            <div class="phone-mockup">
+                <div class="mockup-header">求人応募フォーム</div>
+                <div class="mockup-body">
+                    <div class="mockup-input-group">
+                        <label class="mockup-label">お名前<span class="mockup-tag">必須</span></label>
+                        <div class="mockup-input">例：山田 太郎</div>
+                    </div>
+                    <div class="mockup-input-group">
+                        <label class="mockup-label">ご年齢<span class="mockup-tag">必須</span></label>
+                        <div class="mockup-input">例：25歳</div>
+                    </div>
+                    <div class="mockup-input-group">
+                        <label class="mockup-label">電話番号<span class="mockup-tag">必須</span></label>
+                        <div class="mockup-input">例：090-1234-5678</div>
+                    </div>
+                    <div class="mockup-input-group">
+                        <label class="mockup-label">面接希望日時 (第1希望)</label>
+                        <div class="mockup-input">📅 2025/12/10 14:00</div>
+                    </div>
+                    <button class="mockup-btn">送信する</button>
+                </div>
+            </div>
             <h3>3. 店舗専用にフォームを自由カスタム</h3>
             <p>「経験の有無」「写真の添付」など、お店の採用基準に合わせて項目を自由に設定可能です。</p>
 
@@ -400,123 +489,4 @@
                     <td>最短10分・即日</td>
                 </tr>
                 <tr>
-                    <th>フォーム</th>
-                    <td>固定項目</td>
-                    <td>自由カスタム</td>
-                </tr>
-                <tr>
-                    <th>ツール</th>
-                    <td>高額ツールが必要</td>
-                    <td>LINEのみで完結</td>
-                </tr>
-                <tr>
-                    <th>コスト</th>
-                    <td>構築費が高い</td>
-                    <td>初期0円</td>
-                </tr>
-            </table>
-            <p class="text-center">ITに詳しくなくても問題ありません。<br>忙しい店舗でも使いやすい設計です。</p>
-        </section>
-
-        <section>
-            <h2>こんな店舗様に最適です</h2>
-            <ul>
-                <li>飲食店</li>
-                <li>キャバクラ・ラウンジ・スナック</li>
-                <li>風俗店</li>
-                <li>バー・ガールズバー</li>
-                <li>エステ・リラクゼーションサロン</li>
-                <li>美容室・ネイルサロン</li>
-                <li>その他、スタッフ募集中の小規模店</li>
-            </ul>
-        </section>
-
-        <section class="bg-gray">
-            <h2>導入後の変化（実績例）</h2>
-            <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
-                <p><strong>■ 応募対応の手間が約70%減少</strong><br>
-                情報の確認と日程調整のみになり、1人あたり数分で完了するように。</p>
-            </div>
-            <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
-                <p><strong>■ キャンセル率が大幅に低下</strong><br>
-                リマインド通知のおかげで、「忘れていた」という当日キャンセルがゼロに。</p>
-            </div>
-            <div style="background: white; padding: 15px; border-radius: 8px;">
-                <p><strong>■ 忙しい週末の返信漏れ解消</strong><br>
-                ピークタイムの応募にも自動案内。週明けに「他で決まりました」と言われることがなくなりました。</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>導入までの流れ</h2>
-            <ol style="padding-left: 20px;">
-                <li style="margin-bottom: 20px;"><strong>STEP 1：お申し込み</strong><br>店舗名や、フォームに入れたい項目をLINEでお送りください。</li>
-                <li style="margin-bottom: 20px;"><strong>STEP 2：設定（弊社作業）</strong><br>頂いた情報をもとに弊社で設定します。最短10分、難しい作業は不要です。</li>
-                <li><strong>STEP 3：運用スタート</strong><br>すぐにお使いいただけます。応募が来たらスマホで確認し、面接日時を決めるだけ。</li>
-            </ol>
-        </section>
-
-        <section class="bg-gray" id="price">
-            <h2>料金プラン</h2>
-            <div class="pricing-box">
-                <span class="price-label">Web限定</span>
-                <div class="price-row">
-                    <p>初期導入費（構築・設定費）</p>
-                    <p class="price-amount text-red">0円</p>
-                    <p class="price-sub">通常5万円〜の構築費が無料</p>
-                </div>
-                <div>
-                    <p>月額費用</p>
-                    <p class="price-amount">8,800円<span style="font-size:16px; color:#333;">(税込)</span></p>
-                    <p class="price-sub">契約期間の縛りなし</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>なぜ、導入費が無料なのか？</h2>
-            <p>「システムを作って終わり」ではなく、<strong>「長くお付き合いできるパートナー」</strong>でありたいと考えているからです。</p>
-            <p>まずは初期費用なしで使っていただき、その「便利さ」と「楽さ」を実感していただきたいのです。</p>
-            <p>あなたの店舗の採用活動がスムーズになり、売上が上がることが私たちの喜びです。自信があるからこそ、導入費はいただきません。</p>
-        </section>
-
-        <section class="bg-gray">
-            <h2>よくあるご質問</h2>
-            
-            <div class="faq-item">
-                <div class="faq-q">完全自動ですか？</div>
-                <div class="faq-a">いいえ。信頼関係構築のため、最終的な「面接確定」は手動です。あくまで「事務作業」を自動化するツールです。</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">PCは必要ですか？</div>
-                <div class="faq-a">不要です。スマホだけですべて管理できます。</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">すぐ使えますか？</div>
-                <div class="faq-a">はい。情報受領後、最短10分で設定完了します。</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">項目は変更できますか？</div>
-                <div class="faq-a">はい、可能です。採用状況に合わせて柔軟に対応いたします。</div>
-            </div>
-        </section>
-
-        <section style="padding-bottom: 40px; text-align: center;">
-            <h2 style="border: none;">あなたの店舗の求人対応を、<br>今日からラクにしませんか？</h2>
-            <p>まずは初期費用0円で、その効果を体感してください。</p>
-            <div style="height: 20px;"></div> </section>
-
-        <footer style="background: #333; color: white; padding: 20px; text-align: center; margin-bottom: 60px;">
-            <p style="font-size: 12px;">&copy; 求人専用 自動公式LINE All Rights Reserved.</p>
-        </footer>
-
-        <div class="sticky-footer">
-            <a href="#contact" class="btn-cta">
-                導入費0円で今すぐスタート
-            </a>
-        </div>
-
-    </div>
-
-</body>
-</html>
+                    <th>フォーム
