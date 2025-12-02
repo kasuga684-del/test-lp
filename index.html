@@ -19,9 +19,9 @@
             --text-main: #222222;
             --white: #ffffff;
             
-            /* スプレッドシート用（変更なし） */
+            /* スプレッドシート用 */
             --sheet-green: #107c41;
-            /* リッチメニュー用（変更なし） */
+            /* リッチメニュー用 */
             --rich-brown: #6d5656; 
             --rich-pink-bg: linear-gradient(135deg, #fff5f0 0%, #fcece8 100%);
         }
@@ -36,7 +36,7 @@
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
             line-height: 1.6;
             color: var(--text-main);
-            background-color: #f0f2f5; /* 全体背景を少し明るく */
+            background-color: #f0f2f5; 
             font-size: 16px;
         }
 
@@ -44,7 +44,7 @@
             max-width: 600px;
             margin: 0 auto;
             background-color: var(--white);
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1); /* 影を少しリッチに */
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1); 
             padding-bottom: 90px;
         }
 
@@ -63,7 +63,7 @@
         h2::after {
             content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
             width: 60px; height: 4px; 
-            background: var(--main-gradient); /* 下線をグラデーションに */
+            background: var(--main-gradient); 
             border-radius: 2px;
         }
 
@@ -72,9 +72,9 @@
             margin-bottom: 15px; 
             color: #333;
             border-left: 5px solid;
-            border-image: var(--main-gradient) 1; /* 左線をグラデーションに */
+            border-image: var(--main-gradient) 1; 
             padding-left: 12px;
-            margin-top: 5px;
+            margin-top: 25px; /* 各機能の見出し間隔を調整 */
             font-weight: bold;
         }
 
@@ -94,7 +94,7 @@
         .text-center { text-align: center; }
         .text-red { color: #ef4444; font-weight: bold; }
 
-        /* --- ファーストビュー（グラデーション適用） --- */
+        /* --- ファーストビュー --- */
         .hero { 
             background: var(--main-gradient); 
             color: var(--white); 
@@ -106,7 +106,7 @@
         .hero h1 { font-size: 26px; font-weight: bold; line-height: 1.4; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
         .hero-tag { 
             display: inline-block; 
-            background: rgba(255,255,255,0.2); /* 半透明の白 */
+            background: rgba(255,255,255,0.2); 
             border: 1px solid rgba(255,255,255,0.4);
             color: var(--white); 
             padding: 5px 15px; 
@@ -117,18 +117,78 @@
             backdrop-filter: blur(5px);
         }
 
-        /* --- CTAボタン（グラデーション適用） --- */
+        /* --- CTAボタン --- */
         .btn-cta {
             display: block; width: 100%; max-width: 400px; margin: 0 auto;
             background: var(--btn-gradient); 
             color: var(--white); text-align: center;
             padding: 16px; font-size: 18px; font-weight: bold; border-radius: 50px; text-decoration: none;
-            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4); /* 影にも色を付ける */
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4);
             border: 2px solid rgba(255,255,255,0.8);
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .btn-cta:active { transform: translateY(2px); box-shadow: 0 4px 10px rgba(138, 43, 226, 0.4); }
         .btn-sub-text { font-size: 12px; margin-top: 4px; display: block; color: rgba(255,255,255,0.9); }
+
+        /* --- シナリオ図解（モダン風） --- */
+        .scenario-section { background: #f0f2f5; text-align: center; padding: 30px 10px; }
+        .scenario-container {
+            display: flex; justify-content: space-between; gap: 10px; margin-bottom: 20px;
+        }
+        .scenario-box {
+            background: white; border: 2px solid #eee; border-radius: 15px; padding: 15px 10px; width: 48%;
+            position: relative; display: flex; flex-direction: column; align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .scenario-title { font-size: 13px; font-weight: bold; margin-bottom: 10px; color: #555; }
+        
+        .scenario-img-area {
+            display: flex; justify-content: center; align-items: flex-end; 
+            gap: 8px; height: auto; margin-top: 5px; margin-bottom: 10px;
+        }
+        
+        /* 簡易スマホアイコン */
+        .mini-phone {
+            width: 36px; height: 60px; background: #333; border-radius: 8px; position: relative;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .mini-phone::before { width: 30%; height: 3px; top: 2px; }
+        .mini-phone-screen {
+            width: 30px; height: 52px; background: white; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+        }
+        .app-icon { width: 18px; height: 18px; border-radius: 5px; font-size: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .icon-green { background-color: #06c755; }
+        .icon-pink { background-color: #d81b60; }
+        .icon-blue { background-color: #1e3a8a; }
+
+        .scenario-arrow { 
+            font-size: 24px; font-weight: bold; margin: 5px 0;
+            background: var(--main-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* 解決後のボックス */
+        .solution-box {
+            background: white; 
+            border: 3px solid transparent;
+            background-image: linear-gradient(var(--white), var(--white)), var(--main-gradient);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border-radius: 15px; padding: 20px 15px;
+            width: 100%; margin: 0 auto; position: relative;
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.15);
+        }
+        .solution-tag {
+            background: var(--main-gradient); color: white; padding: 4px 15px; border-radius: 15px; font-size: 12px;
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-weight: bold;
+            box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3);
+        }
+        .strong-message {
+            font-size: 15px; font-weight: bold; color: #ef4444; background: #ffebeb;
+            padding: 10px; border-radius: 8px; margin-top: 15px; border: 2px solid #ef4444; line-height: 1.4;
+        }
 
         /* --- Before（悩み） --- */
         .problem-box { background-color: var(--white); border: 2px solid #eee; padding: 20px; border-radius: 15px; margin-top: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
@@ -201,7 +261,7 @@
 
         /* --- トーク画面・リッチメニュー --- */
         .chat-screen {
-            background-color: #7294c2; /* LINE画面はあえてそのまま */
+            background-color: #7294c2;
             flex-grow: 1;
             position: relative;
             display: flex;
@@ -292,65 +352,6 @@
         .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); padding: 15px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1000; display: flex; justify-content: center; backdrop-filter: blur(5px); }
         .sticky-footer .btn-cta { margin: 0; width: 100%; max-width: 600px; font-size: 18px; padding: 14px; }
 
-        /* --- シナリオ図解（モダン風） --- */
-        .scenario-section { background: #f0f2f5; text-align: center; padding: 30px 10px; }
-        .scenario-container {
-            display: flex; justify-content: space-between; gap: 10px; margin-bottom: 20px;
-        }
-        .scenario-box {
-            background: white; border: 2px solid #eee; border-radius: 15px; padding: 15px 10px; width: 48%;
-            position: relative; display: flex; flex-direction: column; align-items: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        .scenario-title { font-size: 13px; font-weight: bold; margin-bottom: 10px; color: #555; }
-        
-        .scenario-img-area {
-            display: flex; justify-content: center; align-items: flex-end; 
-            gap: 8px; height: auto; margin-top: 5px; margin-bottom: 10px;
-        }
-        
-        /* 簡易スマホアイコン */
-        .mini-phone {
-            width: 36px; height: 60px; background: #333; border-radius: 8px; position: relative;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .mini-phone::before { width: 30%; height: 3px; top: 2px; }
-        .mini-phone-screen {
-            width: 30px; height: 52px; background: white; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
-        }
-        .app-icon { width: 18px; height: 18px; border-radius: 5px; font-size: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
-        .icon-green { background-color: #06c755; }
-        .icon-pink { background-color: #d81b60; }
-        .icon-blue { background-color: #1e3a8a; }
-
-        .scenario-arrow { 
-            font-size: 24px; font-weight: bold; margin: 5px 0;
-            background: var(--main-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        /* 解決後のボックス */
-        .solution-box {
-            background: white; 
-            border: 3px solid transparent;
-            background-image: linear-gradient(var(--white), var(--white)), var(--main-gradient);
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
-            border-radius: 15px; padding: 20px 15px;
-            width: 100%; margin: 0 auto; position: relative;
-            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.15);
-        }
-        .solution-tag {
-            background: var(--main-gradient); color: white; padding: 4px 15px; border-radius: 15px; font-size: 12px;
-            position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-weight: bold;
-            box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3);
-        }
-        .strong-message {
-            font-size: 15px; font-weight: bold; color: #ef4444; background: #ffebeb;
-            padding: 10px; border-radius: 8px; margin-top: 15px; border: 2px solid #ef4444; line-height: 1.4;
-        }
     </style>
 </head>
 <body>
@@ -366,30 +367,6 @@
                 <span class="btn-sub-text">※まずは無料でご相談ください</span>
             </a>
         </header>
-
-        <section>
-            <h2>直感的なリッチメニューで<br>迷わず応募フォームへ</h2>
-            <p class="text-center">友達追加後の「何をしていいかわからない」を解消。<br>目的別のボタンでスムーズに応募へ誘導します。</p>
-            
-            <div class="phone-mockup" style="height: 400px;"> 
-                <div class="chat-screen">
-                    <div class="chat-msg-area">
-                        <div class="chat-bubble">友達追加ありがとうございます！✨</div>
-                        <div class="chat-bubble">ご希望の働き方を、下のメニューから選んでください👇</div>
-                    </div>
-                    <div class="rich-menu">
-                        <div class="rich-btn-left">
-                            <span class="rich-title-left">在籍希望の方</span>
-                            <span class="rich-btn-inner-brown">面接予約はこちら</span>
-                        </div>
-                        <div class="rich-btn-right">
-                            <span class="rich-title-right">出稼ぎ希望の方</span>
-                            <span class="rich-btn-inner-white">面接予約はこちら</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section class="scenario-section">
             <h2>そのLINE運用、<br>もっと「安く・楽に」なります</h2>
@@ -495,42 +472,48 @@
         <section class="bg-gray">
             <h2>主な機能</h2>
             
-            <h3>1. 友達追加 → 自動あいさつ</h3>
-            <p>LINE追加した瞬間、自動でエントリーフォームを送信。応募者の熱が冷める前に対応を開始します。</p>
+            <h3>1. 直感的なリッチメニュー</h3>
+            <p>友達追加後の「何をしていいかわからない」を解消。目的別のボタンでスムーズに応募フォームへ誘導します。</p>
+            <div class="phone-mockup" style="height: 380px;"> 
+                <div class="chat-screen">
+                    <div class="chat-msg-area">
+                        <div class="chat-bubble">友達追加ありがとうございます！✨</div>
+                        <div class="chat-bubble">ご希望の働き方を、下のメニューから選んでください👇</div>
+                    </div>
+                    <div class="rich-menu">
+                        <div class="rich-btn-left">
+                            <span class="rich-title-left">在籍希望の方</span>
+                            <span class="rich-btn-inner-brown">面接予約はこちら</span>
+                        </div>
+                        <div class="rich-btn-right">
+                            <span class="rich-title-right">出稼ぎ希望の方</span>
+                            <span class="rich-btn-inner-white">面接予約はこちら</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <h3>2. 応募フォームで必要事項を一括取得</h3>
             <p>名前、年齢、サイズ、希望期間など、採用に必要な情報をフォームで一括回収。ちまちまとLINEで聞き出す手間をゼロにします。</p>
 
             <div class="phone-mockup">
                 <div class="mockup-header">〇〇 〇〇 様 ログイン中</div>
-                
                 <div class="mockup-body">
-                    
                     <div class="mockup-input-group">
                         <label class="mockup-label"><i>🔍</i>どの求人サイトを見ましたか？</label>
                         <select class="mockup-select"><option>選択してください</option></select>
                     </div>
-
                     <div class="mockup-input-group">
                         <label class="mockup-label"><i>👤</i>お名前</label>
                         <input type="text" class="mockup-input" placeholder="仮名でもOK">
                     </div>
-
                     <div class="mockup-input-group">
                         <label class="mockup-label"><i>📅</i>出稼ぎ期間</label>
                         <div class="date-range">
-                            <div class="date-box">年/月/日</div>
-                            <span>〜</span>
-                            <div class="date-box">年/月/日</div>
+                            <div class="date-box">年/月/日</div><span>〜</span><div class="date-box">年/月/日</div>
                         </div>
                         <div style="text-align:right; font-size:11px; color:var(--form-accent); margin-top:5px;">計 0 日間</div>
                     </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>📍</i>お住まい（県・市まで）</label>
-                        <input type="text" class="mockup-input" placeholder="例：大阪府大阪市">
-                    </div>
-
                     <div class="mockup-row">
                         <div class="mockup-col mockup-input-group">
                             <label class="mockup-label"><i>🎂</i>年齢</label>
@@ -544,165 +527,40 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="mockup-row">
-                        <div class="mockup-col mockup-input-group">
-                            <label class="mockup-label"><i>⚖️</i>体重</label>
-                            <div style="display:flex; align-items:center;">
-                                <select class="mockup-select"><option>選択</option></select>
-                                <span style="font-size:11px; margin-left:2px;">kg</span>
-                            </div>
-                        </div>
-                        <div class="mockup-col mockup-input-group">
-                            <label class="mockup-label"><i>❤️</i>カップ</label>
-                            <select class="mockup-select"><option>選択</option></select>
-                        </div>
-                    </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>💰</i>1日の希望金額</label>
-                        <select class="mockup-select"><option>選択してください</option></select>
-                    </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>💆‍♀️</i>エステ経験</label>
-                        <div class="radio-group">
-                            <label class="radio-item"><input type="radio" name="esthe"> 有る</label>
-                            <label class="radio-item"><input type="radio" name="esthe" checked> 無し</label>
-                        </div>
-                        <div class="mockup-note">※メンズエステ・風俗エステなど</div>
-                    </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>🧳</i>出稼ぎ経験</label>
-                        <div class="radio-group">
-                            <label class="radio-item"><input type="radio" name="dekasegi"> 有る</label>
-                            <label class="radio-item"><input type="radio" name="dekasegi" checked> 無し</label>
-                        </div>
-                        <input type="text" class="mockup-input" style="margin-top:5px;" placeholder="有る場合は高知での経験をご記入下さい">
-                    </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>🕒</i>希望待機時間</label>
-                        <select class="mockup-select"><option>選択してください</option></select>
-                    </div>
-
                     <div class="mockup-input-group">
                         <label class="mockup-label"><i>🖌️</i>刺青・傷・妊娠線</label>
                         <div class="radio-group">
                             <label class="radio-item"><input type="radio" name="tattoo"> 有る</label>
                             <label class="radio-item"><input type="radio" name="tattoo" checked> 無し</label>
                         </div>
-                        <div class="mockup-note" style="color:#ef4444; background:#fff0f0; padding:4px; border-radius:4px; margin-top:5px;">
-                            ※有る方は、送信後にLINEで写真の添付をお願いします。
-                        </div>
                     </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>🌟</i>長所・性格・ご質問など</label>
-                        <textarea class="mockup-textarea" placeholder="明るい性格です、マッサージが得意です。&#10;お給料のことや寮のことで質問があります。&#10;など、ご自由にどうぞ♪"></textarea>
-                    </div>
-
-                    <div class="mockup-note-red">
-                        ※今の正確な体重を記入ください。<br>
-                        ※誤差が±3kg以上あると保証の対象外となります。
-                    </div>
-
+                    <div class="mockup-note-red">※今の正確な体重を記入ください。</div>
                     <button class="mockup-btn">送信する</button>
-                    
                 </div>
-                
-                <div class="scroll-hint">
-                    <span>👇 スクロールして確認</span>
-                </div>
-                </div>
+                <div class="scroll-hint"><span>👇 スクロールして確認</span></div>
+            </div>
 
-            <h3>3. 店舗専用にフォームを自由カスタム</h3>
-            <p>「経験の有無」「写真の添付」など、お店の採用基準に合わせて項目を自由に設定可能です。</p>
-
-            <h3>4. スプレッドシート(Excel)へ自動保存</h3>
-            <p>情報は自動的にGoogleスプレッドシート(Excel)へ蓄積。過去ログを遡って探す必要はありません。</p>
-
+            <h3>3. Excel(スプレッドシート)へ自動保存</h3>
+            <p>情報は自動的にExcel（Googleスプレッドシート）へ蓄積。過去ログを遡って探す必要はありません。</p>
             <div class="sheet-mockup">
                 <div class="sheet-header-bar">
-                    <span class="sheet-icon">田</span>
-                    応募者管理シート
+                    <span class="sheet-icon">田</span>応募者管理シート
                 </div>
                 <div class="sheet-scroll-area">
                     <table class="sheet-table">
-                        <tr>
-                            <th>タイムスタンプ</th>
-                            <th>サイト</th>
-                            <th>お名前</th>
-                            <th>期間</th>
-                            <th>お住まい</th>
-                            <th>年齢/サイズ</th>
-                            <th>希望金額</th>
-                            <th>経験(エステ/出稼ぎ)</th>
-                            <th>刺青</th>
-                            <th>PR・質問</th>
-                            <th>ステータス</th>
-                        </tr>
-                        <tr>
-                            <td>12/10 10:05</td>
-                            <td>〇〇求人</td>
-                            <td>〇〇 〇〇</td>
-                            <td>12/20〜</td>
-                            <td>大阪市</td>
-                            <td>22/160/D</td>
-                            <td>3万〜</td>
-                            <td>無 / 無</td>
-                            <td>無</td>
-                            <td>特になし</td>
-                            <td><span class="badge badge-red">未対応</span></td>
-                        </tr>
-                        <tr>
-                            <td>12/10 12:30</td>
-                            <td>バニラ</td>
-                            <td>△△ △△</td>
-                            <td>12/28〜</td>
-                            <td>新宿区</td>
-                            <td>24/158/E</td>
-                            <td>5万〜</td>
-                            <td>有 / 有</td>
-                            <td>有(背中)</td>
-                            <td>寮について...</td>
-                            <td><span class="badge badge-blue">対応済</span></td>
-                        </tr>
-                        <tr>
-                            <td>12/11 09:15</td>
-                            <td>ナイト</td>
-                            <td>□□ □□</td>
-                            <td>1/10〜</td>
-                            <td>福岡市</td>
-                            <td>20/162/C</td>
-                            <td>お任せ</td>
-                            <td>無 / 有</td>
-                            <td>無</td>
-                            <td>頑張ります</td>
-                            <td><span class="badge badge-gray">面接確</span></td>
-                        </tr>
+                        <tr><th>タイムスタンプ</th><th>サイト</th><th>お名前</th><th>期間</th><th>年齢/サイズ</th><th>ステータス</th></tr>
+                        <tr><td>12/10 10:05</td><td>〇〇求人</td><td>〇〇 〇〇</td><td>12/20〜</td><td>22/160/D</td><td><span class="badge badge-red">未対応</span></td></tr>
+                        <tr><td>12/10 12:30</td><td>バニラ</td><td>△△ △△</td><td>12/28〜</td><td>24/158/E</td><td><span class="badge badge-blue">対応済</span></td></tr>
+                        <tr><td>12/11 09:15</td><td>ナイト</td><td>□□ □□</td><td>1/10〜</td><td>20/162/C</td><td><span class="badge badge-gray">面接確</span></td></tr>
                     </table>
                 </div>
             </div>
-            <h3>5. 面接2時間前のリマインド通知</h3>
-            <p>うっかり忘れやドタキャンを防ぐため、当日の2時間前に自動でリマインドメッセージを送信します。</p>
 
-            <h3>6. PC不要、スマホ1台で管理</h3>
-            <p>設定から日々の運用までパソコンは一切不要です。</p>
+            <h3>4. 面接2時間前のリマインド通知</h3>
+            <p>うっかり忘れやドタキャンを防ぐため、当日の2時間前に自動でリマインドメッセージを送信します。</p>
         </section>
 
         <section>
-            <h2>なぜ、採用がうまくいくのか？</h2>
-            <h3>1. 「待たせない」が勝負の分かれ目</h3>
-            <p>応募者が離脱する最大理由は「返信が遅い」「質問が多い」こと。即座にフォームへ誘導し、意欲が高いまま情報を取得します。</p>
-            <h3>2. 取りこぼしを物理的に防ぐ</h3>
-            <p>忙しい時間帯の応募も自動案内が対応。接客中でも機会損失が発生しません。</p>
-            <h3>3. 最初のヒアリングを自動化</h3>
-            <p>不毛な質問ラリーをカットし、あなたは「面接日時の確定」という最も重要な業務にだけ集中できます。</p>
-        </section>
-
-        <section class="bg-gray">
             <h2>他の手法と何が違うのか？</h2>
             <table class="comparison-table">
                 <tr><th>特徴</th><th>一般的なLINE運用</th><td>当サービス</td></tr>
@@ -710,10 +568,8 @@
                 <tr><th>フォーム</th><td>固定項目</td><td>自由カスタム</td></tr>
                 <tr><th>コスト</th><td>構築費が高い</td><td>初期0円</td></tr>
             </table>
-        </section>
 
-        <section>
-            <h2>こんな店舗様に最適です</h2>
+            <h2 style="margin-top: 50px;">こんな店舗様に最適です</h2>
             <ul>
                 <li>飲食店・カフェ</li>
                 <li>キャバクラ・ラウンジ</li>
@@ -758,15 +614,15 @@
                     <p style="font-size: 13px; color: #666;">契約期間の縛りなし</p>
                 </div>
             </div>
+
+            <div style="margin-top: 40px;">
+                <h2>なぜ、導入費が無料なのか？</h2>
+                <p>「システムを作って終わり」ではなく、<strong>「長くお付き合いできるパートナー」</strong>でありたいと考えているからです。</p>
+                <p>まずは初期費用なしで使っていただき、その「便利さ」と「楽さ」を実感していただきたいのです。</p>
+            </div>
         </section>
 
         <section>
-            <h2>なぜ、導入費が無料なのか？</h2>
-            <p>「システムを作って終わり」ではなく、<strong>「長くお付き合いできるパートナー」</strong>でありたいと考えているからです。</p>
-            <p>まずは初期費用なしで使っていただき、その「便利さ」と「楽さ」を実感していただきたいのです。</p>
-        </section>
-
-        <section class="bg-gray">
             <h2>よくあるご質問</h2>
             <div class="faq-item"><div class="faq-q">完全自動ですか？</div><div class="faq-a">いいえ。信頼関係構築のため、最終的な「面接確定」は手動です。</div></div>
             <div class="faq-item"><div class="faq-q">PCは必要ですか？</div><div class="faq-a">不要です。スマホだけですべて管理できます。</div></div>
