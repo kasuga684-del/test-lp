@@ -338,6 +338,23 @@
         .badge-blue { background-color: #4285f4; }
         .badge-gray { background-color: #999; }
 
+        /* --- 開発者プロフィール --- */
+        .profile-section { padding-top: 10px; padding-bottom: 40px; }
+        .profile-box {
+            background: white; border: 1px solid #eee; border-radius: 15px; padding: 25px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 10px;
+        }
+        .profile-img-area { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .profile-img { 
+            width: 70px; height: 70px; border-radius: 50%; object-fit: cover; 
+            border: 2px solid var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .profile-name-tag { font-size: 12px; color: #888; margin-bottom: 2px; }
+        .profile-name { font-size: 18px; font-weight: bold; color: #333; }
+        .profile-text { font-size: 14px; line-height: 1.8; color: #444; }
+        .profile-text p { margin-bottom: 1em; }
+        .profile-text p:last-child { margin-bottom: 0; }
+
         /* スクロール誘導のヒント */
         .scroll-hint {
             position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
@@ -709,6 +726,26 @@
             <div class="faq-item"><div class="faq-q">完全自動ですか？</div><div class="faq-a">いいえ。信頼関係構築のため、最終的な「面接確定」は手動です。</div></div>
             <div class="faq-item"><div class="faq-q">PCは必要ですか？</div><div class="faq-a">不要です。スマホだけですべて管理できます。</div></div>
             <div class="faq-item"><div class="faq-q">すぐ使えますか？</div><div class="faq-a">はい。情報受領後、最短10分で設定完了します。</div></div>
+        </section>
+
+        <section class="profile-section">
+            <h2>最後に</h2>
+            <div class="profile-box">
+                <div class="profile-img-area">
+                    <img src="./dZBkvTpJ_400x400.jpg" alt="開発者・奄美" class="profile-img">
+                    <div>
+                        <div class="profile-name-tag">開発者</div>
+                        <div class="profile-name">奄美</div>
+                    </div>
+                </div>
+                <div class="profile-text">
+                    <p>ここまでお読みいただき、ありがとうございます。</p>
+                    <p>最近は似たような「LINEシステム」を見かける機会も増えてきましたが、今回ご紹介した仕組みは、長年この業界に携わり、現場の悩みを誰よりも知っている私・奄美だからこそ作れたシステムです。</p>
+                    <p>店舗様ごとに抱える課題は本当にさまざまですが、このシステムは、用途に合わせて柔軟にカスタマイズできるため、どんな業態にも合わせて運用できます。</p>
+                    <p>まずは一度、お試し感覚で触っていただければ、その便利さを実感していただけると思います。</p>
+                    <p>今後ともどうぞよろしくお願いいたします。</p>
+                </div>
+            </div>
         </section>
 
         <section style="padding-bottom: 40px; text-align: center;">
