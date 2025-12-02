@@ -277,6 +277,20 @@
             content: ""; position: absolute; top: 10px; left: -6px;
             border-width: 6px 6px 6px 0; border-style: solid; border-color: transparent white transparent transparent;
         }
+
+        /* --- 追加：送信メッセージ用 --- */
+        .chat-bubble-sent {
+            background: var(--accent-color); /* アクセントカラーの青 */
+            color: white;
+            display: inline-block;
+            text-align: left;
+        }
+        .chat-bubble-sent::after {
+            left: auto; right: -6px;
+            border-width: 6px 0 6px 6px;
+            border-color: transparent transparent transparent var(--accent-color); /* 本体の色に合わせる */
+        }
+
         .rich-menu { height: 110px; display: flex; border-top: 1px solid #ddd; }
         .rich-btn-left { flex: 1; background: var(--rich-pink-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; border-right: 1px solid #ebdada; }
         .rich-btn-right { flex: 1; background: var(--rich-brown); display: flex; flex-direction: column; align-items: center; justify-content: center; }
@@ -675,6 +689,21 @@
 
             <h3>4. 面接2時間前のリマインド通知</h3>
             <p>うっかり忘れやドタキャンを防ぐため、当日の2時間前に自動でリマインドメッセージを送信します。</p>
+            <div class="phone-mockup" style="height: 300px; margin-top: 20px;">
+                <div class="chat-screen" style="justify-content: flex-start;">
+                    <div class="chat-msg-area" style="padding-top: 20px;">
+                        <div style="text-align: right; margin-bottom: 10px;">
+                            <div class="chat-bubble chat-bubble-sent">
+                                こんにちは！<br>本日は予定通り面接にお越しいただけますか？😊
+                            </div>
+                            <span style="font-size: 10px; color: #fff; display: block; margin-top: 2px; margin-right: 5px;">既読 11:00</span>
+                        </div>
+                    </div>
+                    <div style="height: 50px; background: #f0f0f0; border-top: 1px solid #ddd; display:flex; align-items:center; padding:0 10px; color:#999; font-size:12px; position:absolute; bottom:0; width:100%;">
+                        メッセージを入力...
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section>
