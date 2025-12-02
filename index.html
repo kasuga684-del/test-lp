@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>求人専用 自動公式LINE | 店舗向け採用効率化ツール</title>
+    <title>スマート求人公式LINE | 店舗向け採用効率化ツール</title>
     <style>
         /* --- 基本設定 --- */
         :root {
@@ -98,11 +98,11 @@
         .faq-q::before { content: "Q."; margin-right: 10px; color: var(--primary-color); }
         .faq-a { font-size: 15px; color: var(--text-main); padding-left: 25px; }
 
-        /* --- スマホモックアップ（さらに圧縮版） --- */
+        /* --- スマホモックアップ（圧縮・スクロール版） --- */
         .phone-mockup {
             width: 100%; 
-            max-width: 250px; /* ★さらに圧縮！ */
-            height: 500px;    /* ★高さ固定（これ以上は隠れる） */
+            max-width: 250px; 
+            height: 500px;
             margin: 30px auto;
             border: 10px solid #333;
             border-radius: 25px; 
@@ -112,10 +112,8 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* 枠からはみ出た分を隠す */
+            overflow: hidden; 
         }
-        
-        /* ノッチ */
         .phone-mockup::before {
             content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
             width: 35%; height: 18px; background: #333;
@@ -123,7 +121,7 @@
         }
 
         .mockup-header {
-            flex-shrink: 0; /* ヘッダーは縮まない */
+            flex-shrink: 0;
             background: #fff; border-bottom: 1px solid #eee;
             padding: 30px 10px 10px; text-align: center; font-size: 11px; color: var(--form-accent); font-weight: bold;
         }
@@ -132,12 +130,10 @@
             padding: 15px; 
             background: #fff0f5; 
             flex-grow: 1; 
-            overflow-y: scroll; /* ★スクロール可能にする */
-            /* スクロールバーを非表示にする（見た目重視） */
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none;  /* IE */
+            overflow-y: scroll;
+            scrollbar-width: none;
         }
-        .mockup-body::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+        .mockup-body::-webkit-scrollbar { display: none; }
         
         .mockup-input-group { margin-bottom: 10px; background: white; padding: 8px; border-radius: 6px; border: 1px solid #fce4ec; }
         
@@ -154,7 +150,6 @@
         .mockup-row { display: flex; gap: 8px; }
         .mockup-col { flex: 1; }
 
-        /* 日付入力風デザイン */
         .date-range { display: flex; align-items: center; gap: 4px; font-size: 10px; color: #888; }
         .date-box { flex: 1; border: 1px solid #ddd; padding: 6px; border-radius: 4px; background: #fff; text-align: center; }
 
@@ -206,7 +201,7 @@
         
         <header class="hero">
             <span class="hero-tag">初期導入費0円で最短即日スタート</span>
-            <h1>忙しい営業中も、深夜の寝ている間も。<br>応募者の対応・管理は<br>「求人専用LINE」にお任せ</h1>
+            <h1>忙しい営業中も、深夜の寝ている間も。<br>応募者の対応・管理は<br>「スマート求人公式LINE」にお任せ</h1>
             <p>質問ラリーなどの無駄なやり取りを「最小限」に。<br>応募から面接日時の確定まで、スマホ1台で完結。</p>
             <a href="#contact" class="btn-cta">
                 導入費0円で今すぐ申し込む
@@ -230,7 +225,7 @@
 
         <section>
             <h2>導入後の未来</h2>
-            <p class="text-center">この「求人専用 自動公式LINE」で、<br>採用業務は劇的に変わります。</p>
+            <p class="text-center">この「スマート求人公式LINE」で、<br>採用業務は劇的に変わります。</p>
             <ul>
                 <li><strong>自動あいさつで即レス</strong>：24時間365日、応募導線が途切れません。</li>
                 <li><strong>やり取りは「最小限」に</strong>：必要な情報は最初に入力してもらうため、何度も質問する必要なし。</li>
@@ -458,7 +453,7 @@
         </section>
 
         <footer style="background: #333; color: white; padding: 20px; text-align: center; margin-bottom: 60px;">
-            <p style="font-size: 12px;">&copy; 求人専用 自動公式LINE All Rights Reserved.</p>
+            <p style="font-size: 12px;">&copy; スマート求人公式LINE All Rights Reserved.</p>
         </footer>
 
         <div class="sticky-footer" id="contact">
