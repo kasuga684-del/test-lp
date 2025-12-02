@@ -7,14 +7,14 @@
     <style>
         /* --- 基本設定 --- */
         :root {
-            --primary-color: #06c755; /* LINE風グリーン */
+            --primary-color: #06c755; /* LINE風グリーン（LP全体） */
             --primary-dark: #05a546;
             --accent-color: #1e3a8a; /* 信頼のネイビー */
+            --form-accent: #d81b60;  /* フォーム用ピンク（画像に合わせる） */
             --bg-light: #f3f4f6;
             --text-main: #333333;
-            --text-light: #666666;
             --white: #ffffff;
-            --alert-red: #ef4444;
+            --sheet-green: #107c41;
         }
 
         * {
@@ -38,342 +38,143 @@
             padding-bottom: 80px;
         }
 
-        section {
-            padding: 40px 20px;
-            border-bottom: 1px solid #eeeeee;
-        }
-
+        section { padding: 40px 20px; border-bottom: 1px solid #eeeeee; }
+        
         h2 {
-            font-size: 24px;
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--accent-color);
-            position: relative;
-            padding-bottom: 15px;
+            font-size: 24px; text-align: center; margin-bottom: 30px; color: var(--accent-color);
+            position: relative; padding-bottom: 15px;
         }
-
         h2::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary-color);
+            content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 60px; height: 3px; background-color: var(--primary-color);
         }
 
         h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: var(--accent-color);
-            border-left: 5px solid var(--primary-color);
-            padding-left: 10px;
+            font-size: 18px; margin-bottom: 15px; color: var(--accent-color);
+            border-left: 5px solid var(--primary-color); padding-left: 10px;
         }
 
-        p {
-            margin-bottom: 1.5em;
-            font-size: 16px;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 1.5em;
-        }
-
-        li::before {
-            content: "✔";
-            color: var(--primary-color);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .text-center { text-align: center; }
-        .text-red { color: var(--alert-red); font-weight: bold; }
+        p { margin-bottom: 1.5em; font-size: 16px; }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 10px; position: relative; padding-left: 1.5em; }
+        li::before { content: "✔"; color: var(--primary-color); font-weight: bold; position: absolute; left: 0; }
+        
         .bg-gray { background-color: var(--bg-light); }
+        .text-center { text-align: center; }
+        .text-red { color: #ef4444; font-weight: bold; }
 
         /* --- ファーストビュー --- */
-        .hero {
-            background: var(--accent-color);
-            color: var(--white);
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 28px;
-            font-weight: bold;
-            line-height: 1.4;
-            margin-bottom: 20px;
-        }
-
-        .hero-tag {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
+        .hero { background: var(--accent-color); color: var(--white); padding: 60px 20px; text-align: center; }
+        .hero h1 { font-size: 28px; font-weight: bold; line-height: 1.4; margin-bottom: 20px; }
+        .hero-tag { display: inline-block; background-color: var(--primary-color); color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 14px; margin-bottom: 15px; font-weight: bold; }
 
         /* --- CTAボタン --- */
         .btn-cta {
-            display: block;
-            width: 100%;
-            max-width: 350px;
-            margin: 0 auto;
-            background-color: var(--primary-color);
-            color: var(--white);
-            text-align: center;
-            padding: 18px;
-            font-size: 20px;
-            font-weight: bold;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(6, 199, 85, 0.4);
-            transition: all 0.3s;
-            border: 2px solid var(--white);
+            display: block; width: 100%; max-width: 350px; margin: 0 auto;
+            background-color: var(--primary-color); color: var(--white); text-align: center;
+            padding: 18px; font-size: 20px; font-weight: bold; border-radius: 50px; text-decoration: none;
+            box-shadow: 0 4px 10px rgba(6, 199, 85, 0.4); border: 2px solid var(--white);
         }
-
-        .btn-cta:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-sub-text {
-            font-size: 12px;
-            margin-top: 5px;
-            display: block;
-            color: var(--white);
-        }
+        .btn-sub-text { font-size: 12px; margin-top: 5px; display: block; color: var(--white); }
 
         /* --- Before（悩み） --- */
-        .problem-box {
-            background-color: var(--white);
-            border: 2px solid #ddd;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-        
-        .problem-list li::before {
-            content: "✖";
-            color: #888;
-        }
+        .problem-box { background-color: var(--white); border: 2px solid #ddd; padding: 20px; border-radius: 10px; margin-top: 20px; }
+        .problem-list li::before { content: "✖"; color: #888; }
 
         /* --- 比較表 --- */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: var(--white);
-        }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--white); }
+        .comparison-table th, .comparison-table td { border: 1px solid #ddd; padding: 12px; font-size: 14px; text-align: left; }
+        .comparison-table th { background-color: #f8f9fa; width: 30%; }
+        .comparison-table td:last-child { background-color: #e8f5e9; font-weight: bold; color: var(--text-main); }
 
-        .comparison-table th, .comparison-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            font-size: 14px;
-            text-align: left;
-        }
-
-        .comparison-table th {
-            background-color: #f8f9fa;
-            width: 30%;
-        }
-        
-        .comparison-table td:last-child {
-            background-color: #e8f5e9;
-            font-weight: bold;
-            color: var(--text-main);
-        }
-
-        /* --- 料金セクション --- */
-        .pricing-box {
-            background-color: var(--white);
-            border: 3px solid var(--primary-color);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .price-label {
-            background: var(--primary-color);
-            color: white;
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 5px 15px;
-            border-bottom-left-radius: 10px;
-            font-size: 12px;
-        }
-
-        .price-amount {
-            font-size: 32px;
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-
-        .price-sub {
-            font-size: 12px;
-            color: var(--text-light);
-        }
+        /* --- 料金 --- */
+        .pricing-box { background-color: var(--white); border: 3px solid var(--primary-color); border-radius: 15px; padding: 30px; text-align: center; position: relative; overflow: hidden; }
+        .price-label { background: var(--primary-color); color: white; position: absolute; top: 0; right: 0; padding: 5px 15px; border-bottom-left-radius: 10px; font-size: 12px; }
+        .price-amount { font-size: 32px; font-weight: bold; color: var(--accent-color); }
 
         /* --- FAQ --- */
-        .faq-item {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-        }
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .faq-q { font-weight: bold; color: var(--accent-color); margin-bottom: 10px; display: flex; }
+        .faq-q::before { content: "Q."; margin-right: 10px; color: var(--primary-color); }
+        .faq-a { font-size: 15px; color: var(--text-main); padding-left: 25px; }
 
-        .faq-q {
-            font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-            display: flex;
-        }
-        
-        .faq-q::before {
-            content: "Q.";
-            margin-right: 10px;
-            color: var(--primary-color);
-        }
-
-        .faq-a {
-            font-size: 15px;
-            color: var(--text-main);
-            padding-left: 25px;
-        }
-
-        /* --- スマホモックアップ（CSSで描画） --- */
+        /* --- スマホモックアップ（画像に合わせてカスタマイズ） --- */
         .phone-mockup {
-            width: 100%;
-            max-width: 320px;
-            margin: 30px auto;
-            border: 12px solid #333;
-            border-radius: 30px;
-            overflow: hidden;
-            background: #fff;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-            font-family: sans-serif;
-            position: relative;
+            width: 100%; max-width: 320px; margin: 30px auto;
+            border: 12px solid #333; border-radius: 30px; overflow: hidden;
+            background: #fff; box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            font-family: sans-serif; position: relative;
         }
-        
-        /* ノッチ */
         .phone-mockup::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40%;
-            height: 20px;
-            background: #333;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            z-index: 10;
+            content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 40%; height: 20px; background: #333;
+            border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; z-index: 10;
         }
-
         .mockup-header {
-            background: var(--primary-color);
-            color: white;
-            padding: 35px 15px 15px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 16px;
+            background: #fff; border-bottom: 1px solid #eee;
+            padding: 35px 15px 10px; text-align: center; font-size: 12px; color: #666;
         }
-
-        .mockup-body {
-            padding: 20px;
-            background: #f8f9fa;
-        }
-
-        .mockup-input-group {
-            margin-bottom: 15px;
-        }
-
-        .mockup-label {
-            font-size: 12px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-            display: block;
-        }
+        .mockup-body { padding: 20px; background: #fff0f5; /* 薄いピンク背景 */ min-height: 400px; }
         
-        .mockup-tag {
-            background: #ff4d4f;
-            color: white;
-            font-size: 10px;
-            padding: 2px 5px;
-            border-radius: 3px;
-            margin-left: 5px;
-            vertical-align: middle;
+        .mockup-input-group { margin-bottom: 15px; background: white; padding: 10px; border-radius: 8px; border: 1px solid #fce4ec; }
+        
+        .mockup-label {
+            font-size: 12px; font-weight: bold; color: var(--form-accent);
+            margin-bottom: 5px; display: flex; align-items: center;
         }
+        .mockup-label i { margin-right: 5px; font-style: normal; }
+        
+        .mockup-input, .mockup-select {
+            width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;
+            font-size: 13px; background: white; color: #555;
+        }
+        .mockup-row { display: flex; gap: 10px; }
+        .mockup-col { flex: 1; }
 
-        .mockup-input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 13px;
-            background: white;
-            color: #555;
-        }
+        /* 日付入力風デザイン */
+        .date-range { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #888; }
+        .date-box { flex: 1; border: 1px solid #ddd; padding: 8px; border-radius: 4px; background: #fff; text-align: center; }
 
         .mockup-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 12px;
-            border-radius: 6px;
-            font-weight: bold;
-            margin-top: 10px;
-            text-align: center;
-            font-size: 14px;
-            display: block;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: var(--form-accent); color: white; border: none; width: 100%;
+            padding: 12px; border-radius: 6px; font-weight: bold; margin-top: 10px;
+            text-align: center; font-size: 14px; display: block;
         }
 
-        /* --- 固定フッター --- */
+        /* --- スプレッドシートモックアップ --- */
+        .sheet-mockup {
+            border: 1px solid #ddd; border-radius: 8px; overflow: hidden;
+            background: white; margin: 20px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .sheet-header-bar {
+            background-color: var(--sheet-green); color: white; padding: 10px 15px;
+            font-weight: bold; font-size: 14px; display: flex; align-items: center;
+        }
+        .sheet-icon {
+            display: inline-block; width: 20px; height: 20px; background: white;
+            color: var(--sheet-green); text-align: center; line-height: 20px;
+            border-radius: 3px; margin-right: 10px; font-weight: bold; font-size: 12px;
+        }
+        .sheet-scroll-area { overflow-x: auto; white-space: nowrap; }
+        .sheet-table { width: 100%; border-collapse: collapse; font-size: 11px; font-family: Arial, sans-serif; min-width: 600px; }
+        .sheet-table th {
+            background-color: #f3f3f3; color: #555; font-weight: bold; text-align: left;
+            border: 1px solid #e0e0e0; padding: 8px;
+        }
+        .sheet-table td { border: 1px solid #e0e0e0; padding: 8px; color: #333; }
+        .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 10px; color: white; }
+        .badge-red { background-color: #ea4335; }
+        .badge-blue { background-color: #4285f4; }
+        .badge-gray { background-color: #999; }
+
+        /* 固定フッター */
         .sticky-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 15px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background-color: rgba(255, 255, 255, 0.95); padding: 15px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1000;
+            display: flex; justify-content: center;
         }
-        
-        .sticky-footer .btn-cta {
-            margin: 0;
-            width: 100%;
-            max-width: 600px;
-            font-size: 18px;
-            padding: 15px;
-            box-shadow: none;
-            border: none;
-        }
-
-        @media (max-width: 400px) {
-            .hero h1 { font-size: 24px; }
-            h2 { font-size: 22px; }
-            .price-amount { font-size: 28px; }
-        }
+        .sticky-footer .btn-cta { margin: 0; width: 100%; max-width: 600px; font-size: 18px; padding: 15px; box-shadow: none; border: none; }
     </style>
 </head>
 <body>
@@ -424,27 +225,65 @@
             <p>LINE追加した瞬間、自動でエントリーフォームを送信。応募者の熱が冷める前に対応を開始します。</p>
 
             <h3>2. 応募フォームで必要事項を一括取得</h3>
-            <p>名前、年齢、希望日時など、採用に必要な情報をフォームで一括回収。ちまちまとLINEで聞き出す手間をゼロにします。</p>
+            <p>名前、年齢、サイズ、希望期間など、採用に必要な情報をフォームで一括回収。ちまちまとLINEで聞き出す手間をゼロにします。</p>
 
             <div class="phone-mockup">
-                <div class="mockup-header">求人応募フォーム</div>
+                <div class="mockup-header">春谷 ひとみ 様 ログイン中</div>
                 <div class="mockup-body">
+                    
                     <div class="mockup-input-group">
-                        <label class="mockup-label">お名前<span class="mockup-tag">必須</span></label>
-                        <div class="mockup-input">例：山田 太郎</div>
+                        <label class="mockup-label"><i>🔍</i>どの求人サイトを見ましたか？</label>
+                        <select class="mockup-select"><option>選択してください</option></select>
                     </div>
+
                     <div class="mockup-input-group">
-                        <label class="mockup-label">ご年齢<span class="mockup-tag">必須</span></label>
-                        <div class="mockup-input">例：25歳</div>
+                        <label class="mockup-label"><i>👤</i>お名前</label>
+                        <input type="text" class="mockup-input" placeholder="仮名でもOK">
                     </div>
+
                     <div class="mockup-input-group">
-                        <label class="mockup-label">電話番号<span class="mockup-tag">必須</span></label>
-                        <div class="mockup-input">例：090-1234-5678</div>
+                        <label class="mockup-label"><i>📅</i>出稼ぎ期間</label>
+                        <div class="date-range">
+                            <div class="date-box">年/月/日</div>
+                            <span>〜</span>
+                            <div class="date-box">年/月/日</div>
+                        </div>
+                        <div style="text-align:right; font-size:10px; color:#d81b60; margin-top:5px;">計 0 日間</div>
                     </div>
+
                     <div class="mockup-input-group">
-                        <label class="mockup-label">面接希望日時 (第1希望)</label>
-                        <div class="mockup-input">📅 2025/12/10 14:00</div>
+                        <label class="mockup-label"><i>📍</i>お住まい（県・市まで）</label>
+                        <input type="text" class="mockup-input" placeholder="例：大阪府大阪市">
                     </div>
+
+                    <div class="mockup-row">
+                        <div class="mockup-col mockup-input-group">
+                            <label class="mockup-label"><i>🎂</i>年齢</label>
+                            <select class="mockup-select"><option>選択</option></select>
+                        </div>
+                        <div class="mockup-col mockup-input-group">
+                            <label class="mockup-label"><i>📏</i>身長</label>
+                            <div style="display:flex; align-items:center;">
+                                <select class="mockup-select"><option>選択</option></select>
+                                <span style="font-size:10px; margin-left:2px;">cm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mockup-row">
+                        <div class="mockup-col mockup-input-group">
+                            <label class="mockup-label"><i>⚖️</i>体重</label>
+                            <div style="display:flex; align-items:center;">
+                                <select class="mockup-select"><option>選択</option></select>
+                                <span style="font-size:10px; margin-left:2px;">kg</span>
+                            </div>
+                        </div>
+                        <div class="mockup-col mockup-input-group">
+                            <label class="mockup-label"><i>❤️</i>カップ</label>
+                            <select class="mockup-select"><option>選択</option></select>
+                        </div>
+                    </div>
+
                     <button class="mockup-btn">送信する</button>
                 </div>
             </div>
@@ -454,6 +293,52 @@
             <h3>4. スプレッドシートへ自動保存</h3>
             <p>情報は自動的にGoogleスプレッドシートへ蓄積。過去ログを遡って探す必要はありません。</p>
 
+            <div class="sheet-mockup">
+                <div class="sheet-header-bar">
+                    <span class="sheet-icon">田</span>
+                    応募者管理シート
+                </div>
+                <div class="sheet-scroll-area">
+                    <table class="sheet-table">
+                        <tr>
+                            <th>タイムスタンプ</th>
+                            <th>サイト名</th>
+                            <th>お名前</th>
+                            <th>出稼ぎ期間</th>
+                            <th>お住まい</th>
+                            <th>年齢/身長/etc</th>
+                            <th>ステータス</th>
+                        </tr>
+                        <tr>
+                            <td>12/10 10:05</td>
+                            <td>〇〇求人</td>
+                            <td>春谷 ひとみ</td>
+                            <td>12/20〜12/25</td>
+                            <td>大阪府大阪市</td>
+                            <td>22歳 / 160cm / 45kg / D</td>
+                            <td><span class="badge badge-red">未対応</span></td>
+                        </tr>
+                        <tr>
+                            <td>12/10 12:30</td>
+                            <td>バニラ</td>
+                            <td>鈴木 ありさ</td>
+                            <td>12/28〜1/3</td>
+                            <td>東京都新宿区</td>
+                            <td>24歳 / 158cm / 48kg / E</td>
+                            <td><span class="badge badge-blue">対応済</span></td>
+                        </tr>
+                        <tr>
+                            <td>12/11 09:15</td>
+                            <td>ナイトワーク</td>
+                            <td>田中 みな</td>
+                            <td>1/10〜1/15</td>
+                            <td>福岡県福岡市</td>
+                            <td>20歳 / 162cm / 50kg / C</td>
+                            <td><span class="badge badge-gray">面接確</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
             <h3>5. 面接2時間前のリマインド通知</h3>
             <p>うっかり忘れやドタキャンを防ぐため、当日の2時間前に自動でリマインドメッセージを送信します。</p>
 
@@ -463,14 +348,10 @@
 
         <section>
             <h2>なぜ、採用がうまくいくのか？</h2>
-            <p>理由は、<strong>応募者の心理</strong>と<strong>店舗の現状</strong>のギャップを埋めるからです。</p>
-            
             <h3>1. 「待たせない」が勝負の分かれ目</h3>
             <p>応募者が離脱する最大理由は「返信が遅い」「質問が多い」こと。即座にフォームへ誘導し、意欲が高いまま情報を取得します。</p>
-            
             <h3>2. 取りこぼしを物理的に防ぐ</h3>
             <p>忙しい時間帯の応募も自動案内が対応。接客中でも機会損失が発生しません。</p>
-            
             <h3>3. 最初のヒアリングを自動化</h3>
             <p>不毛な質問ラリーをカットし、あなたは「面接日時の確定」という最も重要な業務にだけ集中できます。</p>
         </section>
@@ -478,15 +359,88 @@
         <section class="bg-gray">
             <h2>他の手法と何が違うのか？</h2>
             <table class="comparison-table">
-                <tr>
-                    <th>特徴</th>
-                    <th>一般的なLINE運用</th>
-                    <td>当サービス</td>
-                </tr>
-                <tr>
-                    <th>導入</th>
-                    <td>設定が複雑・数日</td>
-                    <td>最短10分・即日</td>
-                </tr>
-                <tr>
-                    <th>フォーム
+                <tr><th>特徴</th><th>一般的なLINE運用</th><td>当サービス</td></tr>
+                <tr><th>導入</th><td>設定が複雑・数日</td><td>最短10分・即日</td></tr>
+                <tr><th>フォーム</th><td>固定項目</td><td>自由カスタム</td></tr>
+                <tr><th>コスト</th><td>構築費が高い</td><td>初期0円</td></tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>こんな店舗様に最適です</h2>
+            <ul>
+                <li>飲食店・カフェ</li>
+                <li>キャバクラ・ラウンジ</li>
+                <li>風俗店・デリヘル</li>
+                <li>ガールズバー</li>
+                <li>エステ・リラクゼーション</li>
+                <li>その他、スタッフ募集中の店舗</li>
+            </ul>
+        </section>
+
+        <section class="bg-gray">
+            <h2>導入後の変化（実績例）</h2>
+            <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                <p><strong>■ 応募対応の手間が約70%減少</strong><br>情報の確認と日程調整のみになり、1人あたり数分で完了するようになりました。</p>
+            </div>
+            <div style="background: white; padding: 15px; border-radius: 8px;">
+                <p><strong>■ キャンセル率が大幅に低下</strong><br>リマインド通知のおかげで、「忘れていた」という当日キャンセルがゼロに。</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>導入までの流れ</h2>
+            <ol style="padding-left: 20px;">
+                <li><strong>STEP 1：お申し込み</strong><br>店舗名や、フォームに入れたい項目をLINEでお送りください。</li>
+                <li><strong>STEP 2：設定（弊社作業）</strong><br>頂いた情報をもとに弊社で設定します。最短10分、難しい作業は不要です。</li>
+                <li><strong>STEP 3：運用スタート</strong><br>すぐにお使いいただけます。</li>
+            </ol>
+        </section>
+
+        <section class="bg-gray" id="price">
+            <h2>料金プラン</h2>
+            <div class="pricing-box">
+                <span class="price-label">Web限定</span>
+                <div style="margin-bottom: 20px; border-bottom: 1px dashed #ddd; padding-bottom: 10px;">
+                    <p>初期導入費（構築・設定費）</p>
+                    <p class="price-amount text-red">0円</p>
+                    <p style="font-size: 12px; color: #666;">通常5万円〜の構築費が無料</p>
+                </div>
+                <div>
+                    <p>月額費用</p>
+                    <p class="price-amount">8,800円<span style="font-size:16px; color:#333;">(税込)</span></p>
+                    <p style="font-size: 12px; color: #666;">契約期間の縛りなし</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>なぜ、導入費が無料なのか？</h2>
+            <p>「システムを作って終わり」ではなく、<strong>「長くお付き合いできるパートナー」</strong>でありたいと考えているからです。</p>
+            <p>まずは初期費用なしで使っていただき、その「便利さ」と「楽さ」を実感していただきたいのです。</p>
+        </section>
+
+        <section class="bg-gray">
+            <h2>よくあるご質問</h2>
+            <div class="faq-item"><div class="faq-q">完全自動ですか？</div><div class="faq-a">いいえ。信頼関係構築のため、最終的な「面接確定」は手動です。</div></div>
+            <div class="faq-item"><div class="faq-q">PCは必要ですか？</div><div class="faq-a">不要です。スマホだけですべて管理できます。</div></div>
+            <div class="faq-item"><div class="faq-q">すぐ使えますか？</div><div class="faq-a">はい。情報受領後、最短10分で設定完了します。</div></div>
+        </section>
+
+        <section style="padding-bottom: 40px; text-align: center;">
+            <h2 style="border: none;">あなたの店舗の求人対応を、<br>今日からラクにしませんか？</h2>
+            <p>まずは初期費用0円で、その効果を体感してください。</p>
+            <div style="height: 20px;"></div>
+        </section>
+
+        <footer style="background: #333; color: white; padding: 20px; text-align: center; margin-bottom: 60px;">
+            <p style="font-size: 12px;">&copy; 求人専用 自動公式LINE All Rights Reserved.</p>
+        </footer>
+
+        <div class="sticky-footer" id="contact">
+            <a href="#" class="btn-cta">導入費0円で今すぐスタート</a>
+        </div>
+
+    </div>
+</body>
+</html>
