@@ -123,6 +123,31 @@
             border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; z-index: 10;
         }
 
+        /* スクロール誘導のヒント */
+        .scroll-hint {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            pointer-events: none; /* クリックを邪魔しない */
+            animation: bounce 2s infinite;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+            40% {transform: translateX(-50%) translateY(-5px);}
+            60% {transform: translateX(-50%) translateY(-3px);}
+        }
+
         /* --- トーク画面・リッチメニュー --- */
         .chat-screen {
             background-color: #7294c2;
@@ -158,7 +183,8 @@
             padding: 15px; 
             background: #fff0f5; 
             flex-grow: 1; 
-            overflow-y: auto; /* ★スクロール可能にする */
+            overflow-y: auto; 
+            padding-bottom: 50px; /* スクロールヒントとかぶらないよう余白 */
         }
         .mockup-body::-webkit-scrollbar { width: 4px; }
         .mockup-body::-webkit-scrollbar-track { background: #fff0f5; }
@@ -193,7 +219,7 @@
         .sheet-header-bar { background-color: var(--sheet-green); color: white; padding: 10px 15px; font-weight: bold; font-size: 14px; display: flex; align-items: center; }
         .sheet-icon { display: inline-block; width: 20px; height: 20px; background: white; color: var(--sheet-green); text-align: center; line-height: 20px; border-radius: 3px; margin-right: 10px; font-weight: bold; font-size: 12px; }
         .sheet-scroll-area { overflow-x: auto; white-space: nowrap; }
-        .sheet-table { width: 100%; border-collapse: collapse; font-size: 11px; font-family: Arial, sans-serif; min-width: 600px; }
+        .sheet-table { width: 100%; border-collapse: collapse; font-size: 11px; font-family: Arial, sans-serif; min-width: 900px; /* 横幅を広げてスクロールさせる */ }
         .sheet-table th { background-color: #f3f3f3; color: #555; font-weight: bold; text-align: left; border: 1px solid #e0e0e0; padding: 8px; }
         .sheet-table td { border: 1px solid #e0e0e0; padding: 8px; color: #333; }
         .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 10px; color: white; }
@@ -230,7 +256,6 @@
                         <div class="chat-bubble">友達追加ありがとうございます！✨</div>
                         <div class="chat-bubble">ご希望の働き方を、下のメニューから選んでください👇</div>
                     </div>
-                    
                     <div class="rich-menu">
                         <div class="rich-btn-left">
                             <span class="rich-title-left">在籍希望の方</span>
@@ -283,6 +308,7 @@
 
             <div class="phone-mockup">
                 <div class="mockup-header">〇〇 〇〇 様 ログイン中</div>
+                
                 <div class="mockup-body">
                     
                     <div class="mockup-input-group">
@@ -388,9 +414,14 @@
                     </div>
 
                     <button class="mockup-btn">送信する</button>
-                    <div style="height: 30px;"></div>
+                    
                 </div>
-            </div>
+                
+                <div class="scroll-hint">
+                    <span>👇 スクロールして確認</span>
+                </div>
+                </div>
+
             <h3>3. 店舗専用にフォームを自由カスタム</h3>
             <p>「経験の有無」「写真の添付」など、お店の採用基準に合わせて項目を自由に設定可能です。</p>
 
@@ -406,38 +437,54 @@
                     <table class="sheet-table">
                         <tr>
                             <th>タイムスタンプ</th>
-                            <th>サイト名</th>
+                            <th>サイト</th>
                             <th>お名前</th>
-                            <th>出稼ぎ期間</th>
+                            <th>期間</th>
                             <th>お住まい</th>
-                            <th>年齢/身長/etc</th>
+                            <th>年齢/サイズ</th>
+                            <th>希望金額</th>
+                            <th>経験(エステ/出稼ぎ)</th>
+                            <th>刺青</th>
+                            <th>PR・質問</th>
                             <th>ステータス</th>
                         </tr>
                         <tr>
                             <td>12/10 10:05</td>
                             <td>〇〇求人</td>
                             <td>〇〇 〇〇</td>
-                            <td>12/20〜12/25</td>
-                            <td>大阪府大阪市</td>
-                            <td>22歳 / 160cm / 45kg / D</td>
+                            <td>12/20〜</td>
+                            <td>大阪市</td>
+                            <td>22/160/D</td>
+                            <td>3万〜</td>
+                            <td>無 / 無</td>
+                            <td>無</td>
+                            <td>特になし</td>
                             <td><span class="badge badge-red">未対応</span></td>
                         </tr>
                         <tr>
                             <td>12/10 12:30</td>
                             <td>バニラ</td>
                             <td>△△ △△</td>
-                            <td>12/28〜1/3</td>
-                            <td>東京都新宿区</td>
-                            <td>24歳 / 158cm / 48kg / E</td>
+                            <td>12/28〜</td>
+                            <td>新宿区</td>
+                            <td>24/158/E</td>
+                            <td>5万〜</td>
+                            <td>有 / 有</td>
+                            <td>有(背中)</td>
+                            <td>寮について...</td>
                             <td><span class="badge badge-blue">対応済</span></td>
                         </tr>
                         <tr>
                             <td>12/11 09:15</td>
-                            <td>ナイトワーク</td>
+                            <td>ナイト</td>
                             <td>□□ □□</td>
-                            <td>1/10〜1/15</td>
-                            <td>福岡県福岡市</td>
-                            <td>20歳 / 162cm / 50kg / C</td>
+                            <td>1/10〜</td>
+                            <td>福岡市</td>
+                            <td>20/162/C</td>
+                            <td>お任せ</td>
+                            <td>無 / 有</td>
+                            <td>無</td>
+                            <td>頑張ります</td>
                             <td><span class="badge badge-gray">面接確</span></td>
                         </tr>
                     </table>
