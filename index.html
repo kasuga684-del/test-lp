@@ -28,10 +28,10 @@
 
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            line-height: 1.5; /* 行間を少し詰める */
+            line-height: 1.5;
             color: var(--text-main);
             background-color: #eeeeee;
-            font-size: 16px; /* 基本文字サイズ */
+            font-size: 16px;
         }
 
         .container {
@@ -39,16 +39,15 @@
             margin: 0 auto;
             background-color: var(--white);
             box-shadow: 0 0 20px rgba(0,0,0,0.05);
-            padding-bottom: 90px; /* フッターとかぶらないよう余白増 */
+            padding-bottom: 90px;
         }
 
-        /* セクションの余白を詰める */
         section { padding: 30px 15px; border-bottom: 1px solid #eeeeee; }
         
         h2 {
-            font-size: 22px; /* 少し小さくして圧迫感を減らす */
+            font-size: 22px; 
             text-align: center; 
-            margin-bottom: 20px; /* 余白削減 */
+            margin-bottom: 20px; 
             color: var(--accent-color);
             position: relative; 
             padding-bottom: 10px;
@@ -68,7 +67,7 @@
             margin-top: 5px;
         }
 
-        p { margin-bottom: 1em; font-size: 15px; } /* 文字サイズ調整 */
+        p { margin-bottom: 1em; font-size: 15px; }
         
         ul { list-style: none; padding: 0; }
         li { margin-bottom: 8px; position: relative; padding-left: 1.4em; font-size: 15px; }
@@ -116,10 +115,10 @@
         /* --- スマホモックアップ --- */
         .phone-mockup {
             width: 100%; 
-            max-width: 280px;  /* 少し大きく */
+            max-width: 280px; 
             height: 480px;
             margin: 20px auto;
-            border: 8px solid #333; /* 枠を少し細くして画面を広く */
+            border: 8px solid #333;
             border-radius: 20px; 
             background: #fff; 
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
@@ -146,7 +145,7 @@
         }
         .chat-msg-area { padding: 35px 10px 10px; }
         .chat-bubble {
-            background: white; padding: 8px 12px; border-radius: 10px; font-size: 12px; /* 文字サイズUP */
+            background: white; padding: 8px 12px; border-radius: 10px; font-size: 12px;
             position: relative; margin-bottom: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
         .chat-bubble::after {
@@ -161,7 +160,7 @@
         .rich-btn-inner-brown { background: var(--rich-brown); color: white; font-size: 10px; padding: 3px 8px; border-radius: 20px; }
         .rich-btn-inner-white { background: white; color: var(--rich-brown); font-size: 10px; padding: 3px 8px; border-radius: 20px; }
 
-        /* --- フォーム画面（文字サイズUP） --- */
+        /* --- フォーム画面 --- */
         .mockup-header {
             flex-shrink: 0; background: #fff; border-bottom: 1px solid #eee;
             padding: 25px 10px 8px; text-align: center; font-size: 12px; color: var(--form-accent); font-weight: bold;
@@ -173,7 +172,7 @@
         
         .mockup-input, .mockup-select, .mockup-textarea { 
             width: 100%; padding: 6px; border: 1px solid #ddd; border-radius: 4px; 
-            font-size: 12px; /* 入力文字サイズUP */
+            font-size: 12px; 
             background: white; color: #333; box-sizing: border-box;
         }
         .mockup-textarea { height: 50px; resize: none; font-family: sans-serif; }
@@ -184,10 +183,38 @@
         .mockup-note { font-size: 10px; }
         .mockup-note-red { font-size: 10px; padding: 5px; }
 
-        /* --- スプレッドシート（文字サイズUP） --- */
-        .sheet-mockup { margin: 15px 0; }
-        .sheet-table { font-size: 12px; min-width: 600px; } /* 文字サイズUP */
-        .sheet-table th, .sheet-table td { padding: 6px 8px; }
+        /* --- スプレッドシート（修正：文字崩れ防止） --- */
+        .sheet-mockup { 
+            margin: 15px 0; 
+            border: 1px solid #ddd; border-radius: 8px; overflow: hidden; 
+            background: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        }
+        .sheet-header-bar { background-color: var(--sheet-green); color: white; padding: 10px 15px; font-weight: bold; font-size: 14px; display: flex; align-items: center; }
+        .sheet-icon { display: inline-block; width: 20px; height: 20px; background: white; color: var(--sheet-green); text-align: center; line-height: 20px; border-radius: 3px; margin-right: 10px; font-weight: bold; font-size: 12px; }
+        
+        /* 横スクロールエリア */
+        .sheet-scroll-area { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 5px; }
+        
+        /* テーブル本体 */
+        .sheet-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            font-size: 12px; 
+            min-width: 800px; /* ここを広げて余裕を持たせる */
+        }
+        .sheet-table th, .sheet-table td { 
+            border: 1px solid #e0e0e0; 
+            padding: 8px 10px; 
+            white-space: nowrap; /* これで勝手な改行を禁止 */
+            text-align: left;
+            color: #333;
+        }
+        .sheet-table th { background-color: #f3f3f3; color: #555; font-weight: bold; }
+        
+        .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 10px; color: white; }
+        .badge-red { background-color: #ea4335; }
+        .badge-blue { background-color: #4285f4; }
+        .badge-gray { background-color: #999; }
 
         /* スクロール誘導のヒント */
         .scroll-hint {
@@ -207,13 +234,13 @@
         .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); padding: 12px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1000; display: flex; justify-content: center; }
         .sticky-footer .btn-cta { margin: 0; width: 100%; max-width: 600px; font-size: 18px; padding: 14px; }
 
-        /* --- シナリオ図解（文字サイズ・余白調整） --- */
+        /* --- シナリオ図解 --- */
         .scenario-section { background: #eefbf3; text-align: center; padding: 25px 10px; }
         .scenario-container {
             display: flex; justify-content: space-between; gap: 10px; margin-bottom: 15px;
         }
         .scenario-box {
-            background: white; border: 2px solid #ddd; border-radius: 10px; padding: 10px; width: 48%; /* 横幅いっぱいに */
+            background: white; border: 2px solid #ddd; border-radius: 10px; padding: 10px; width: 48%;
             position: relative; display: flex; flex-direction: column; align-items: center;
         }
         .scenario-title { font-size: 13px; font-weight: bold; margin-bottom: 8px; color: #555; }
