@@ -324,6 +324,7 @@
             margin: 20px 0; 
             border: 1px solid #ddd; border-radius: 10px; overflow: hidden; 
             background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+            position: relative; /* スクロールヒントの配置基準 */
         }
         .sheet-header-bar { background-color: var(--sheet-green); color: white; padding: 12px 15px; font-weight: bold; font-size: 14px; display: flex; align-items: center; }
         .sheet-icon { display: inline-block; width: 20px; height: 20px; background: white; color: var(--sheet-green); text-align: center; line-height: 20px; border-radius: 3px; margin-right: 10px; font-weight: bold; font-size: 12px; }
@@ -333,6 +334,20 @@
         .sheet-table th, .sheet-table td { border: 1px solid #e0e0e0; padding: 8px 10px; white-space: nowrap; text-align: left; color: #333; }
         .sheet-table th { background-color: #f3f3f3; color: #555; font-weight: bold; }
         
+        /* スプレッドシート用のスクロールヒント */
+        .sheet-scroll-hint {
+            position: absolute; bottom: 15px; right: 20px;
+            background: rgba(0,0,0,0.8); color: white; padding: 6px 12px;
+            border-radius: 20px; font-size: 11px; z-index: 10;
+            display: flex; align-items: center; gap: 5px;
+            pointer-events: none; /* クリックを邪魔しない */
+            animation: side-bounce 1.5s infinite;
+        }
+        @keyframes side-bounce {
+            0%, 100% { transform: translateX(0); opacity: 0.9; }
+            50% { transform: translateX(5px); opacity: 1; }
+        }
+
         .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 10px; color: white; }
         .badge-red { background-color: #ea4335; }
         .badge-blue { background-color: #4285f4; }
@@ -355,7 +370,7 @@
         .profile-text p { margin-bottom: 1em; }
         .profile-text p:last-child { margin-bottom: 0; }
 
-        /* スクロール誘導のヒント */
+        /* スクロール誘導のヒント（縦） */
         .scroll-hint {
             position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
             background: rgba(0,0,0,0.8); color: white; padding: 6px 12px;
@@ -652,6 +667,9 @@
                             <td>お任せ</td><td>無 / 有</td><td>無</td><td>頑張ります</td><td><span class="badge badge-gray">面接確</span></td>
                         </tr>
                     </table>
+                </div>
+                <div class="sheet-scroll-hint">
+                    <span>👉 横へスクロール</span>
                 </div>
             </div>
 
