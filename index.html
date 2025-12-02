@@ -98,47 +98,64 @@
         .faq-q::before { content: "Q."; margin-right: 10px; color: var(--primary-color); }
         .faq-a { font-size: 15px; color: var(--text-main); padding-left: 25px; }
 
-        /* --- スマホモックアップ（サイズ調整版） --- */
+        /* --- スマホモックアップ（さらに圧縮版） --- */
         .phone-mockup {
             width: 100%; 
-            max-width: 280px; /* ★サイズを少し小さくしました（320px→280px） */
+            max-width: 250px; /* ★さらに圧縮！ */
+            height: 500px;    /* ★高さ固定（これ以上は隠れる） */
             margin: 30px auto;
-            border: 10px solid #333; /* 枠も少し細くしてスッキリさせました */
+            border: 10px solid #333;
             border-radius: 25px; 
-            overflow: hidden;
             background: #fff; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             font-family: sans-serif; 
             position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* 枠からはみ出た分を隠す */
         }
+        
+        /* ノッチ */
         .phone-mockup::before {
             content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
             width: 35%; height: 18px; background: #333;
             border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; z-index: 10;
         }
+
         .mockup-header {
+            flex-shrink: 0; /* ヘッダーは縮まない */
             background: #fff; border-bottom: 1px solid #eee;
             padding: 30px 10px 10px; text-align: center; font-size: 11px; color: var(--form-accent); font-weight: bold;
         }
-        .mockup-body { padding: 15px; background: #fff0f5; min-height: 380px; }
+
+        .mockup-body { 
+            padding: 15px; 
+            background: #fff0f5; 
+            flex-grow: 1; 
+            overflow-y: scroll; /* ★スクロール可能にする */
+            /* スクロールバーを非表示にする（見た目重視） */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE */
+        }
+        .mockup-body::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
         
-        .mockup-input-group { margin-bottom: 12px; background: white; padding: 8px; border-radius: 6px; border: 1px solid #fce4ec; }
+        .mockup-input-group { margin-bottom: 10px; background: white; padding: 8px; border-radius: 6px; border: 1px solid #fce4ec; }
         
         .mockup-label {
-            font-size: 11px; font-weight: bold; color: var(--form-accent);
+            font-size: 10px; font-weight: bold; color: var(--form-accent);
             margin-bottom: 4px; display: flex; align-items: center;
         }
         .mockup-label i { margin-right: 4px; font-style: normal; }
         
         .mockup-input, .mockup-select {
             width: 100%; padding: 6px; border: 1px solid #ddd; border-radius: 4px;
-            font-size: 12px; background: white; color: #555;
+            font-size: 11px; background: white; color: #555;
         }
         .mockup-row { display: flex; gap: 8px; }
         .mockup-col { flex: 1; }
 
         /* 日付入力風デザイン */
-        .date-range { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #888; }
+        .date-range { display: flex; align-items: center; gap: 4px; font-size: 10px; color: #888; }
         .date-box { flex: 1; border: 1px solid #ddd; padding: 6px; border-radius: 4px; background: #fff; text-align: center; }
 
         .mockup-btn {
@@ -291,6 +308,7 @@
                     </div>
 
                     <button class="mockup-btn">送信する</button>
+                    <div style="height: 50px;"></div>
                 </div>
             </div>
             <h3>3. 店舗専用にフォームを自由カスタム</h3>
