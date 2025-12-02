@@ -101,11 +101,11 @@
         .faq-q::before { content: "Q."; margin-right: 10px; color: var(--primary-color); }
         .faq-a { font-size: 15px; color: var(--text-main); padding-left: 25px; }
 
-        /* --- スマホモックアップ（共通） --- */
+        /* --- スマホモックアップ（スクロール仕様） --- */
         .phone-mockup {
             width: 100%; 
-            max-width: 250px; 
-            height: 500px;
+            max-width: 260px;  /* 実際のスマホに近い幅 */
+            height: 480px;     /* ★高さを固定して、中身が溢れるようにする */
             margin: 30px auto;
             border: 10px solid #333;
             border-radius: 25px; 
@@ -123,9 +123,9 @@
             border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; z-index: 10;
         }
 
-        /* --- トーク画面・リッチメニュー用スタイル --- */
+        /* --- トーク画面・リッチメニュー --- */
         .chat-screen {
-            background-color: #7294c2; /* LINEトーク背景色 */
+            background-color: #7294c2;
             flex-grow: 1;
             position: relative;
             display: flex;
@@ -134,82 +134,49 @@
         }
         .chat-msg-area { padding: 40px 10px 10px; }
         .chat-bubble {
-            background: white;
-            padding: 10px;
-            border-radius: 10px;
-            font-size: 11px;
-            position: relative;
-            margin-bottom: 10px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            background: white; padding: 10px; border-radius: 10px; font-size: 11px;
+            position: relative; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
         .chat-bubble::after {
             content: ""; position: absolute; top: 10px; left: -6px;
-            border-width: 6px 6px 6px 0; border-style: solid;
-            border-color: transparent white transparent transparent;
+            border-width: 6px 6px 6px 0; border-style: solid; border-color: transparent white transparent transparent;
         }
-        
-        /* リッチメニュー再現 */
-        .rich-menu {
-            height: 120px;
-            display: flex;
-            border-top: 1px solid #ddd;
-        }
-        .rich-btn-left {
-            flex: 1;
-            background: var(--rich-pink-bg);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-right: 1px solid #ebdada;
-        }
-        .rich-btn-right {
-            flex: 1;
-            background: var(--rich-brown);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .rich-title-left { font-size: 14px; font-weight: bold; color: var(--rich-brown); margin-bottom: 5px; }
-        .rich-title-right { font-size: 14px; font-weight: bold; color: white; margin-bottom: 5px; }
+        .rich-menu { height: 120px; display: flex; border-top: 1px solid #ddd; }
+        .rich-btn-left { flex: 1; background: var(--rich-pink-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; border-right: 1px solid #ebdada; }
+        .rich-btn-right { flex: 1; background: var(--rich-brown); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .rich-title-left { font-size: 13px; font-weight: bold; color: var(--rich-brown); margin-bottom: 5px; }
+        .rich-title-right { font-size: 13px; font-weight: bold; color: white; margin-bottom: 5px; }
+        .rich-btn-inner-brown { background: var(--rich-brown); color: white; font-size: 9px; padding: 4px 8px; border-radius: 20px; }
+        .rich-btn-inner-white { background: white; color: var(--rich-brown); font-size: 9px; padding: 4px 8px; border-radius: 20px; }
 
-        .rich-btn-inner-brown {
-            background: var(--rich-brown); color: white;
-            font-size: 9px; padding: 4px 8px; border-radius: 20px;
-        }
-        .rich-btn-inner-white {
-            background: white; color: var(--rich-brown);
-            font-size: 9px; padding: 4px 8px; border-radius: 20px;
-        }
-
-
-        /* --- フォーム画面用スタイル --- */
+        /* --- フォーム画面 --- */
         .mockup-header {
-            flex-shrink: 0;
-            background: #fff; border-bottom: 1px solid #eee;
+            flex-shrink: 0; background: #fff; border-bottom: 1px solid #eee;
             padding: 30px 10px 10px; text-align: center; font-size: 11px; color: var(--form-accent); font-weight: bold;
         }
         .mockup-body { 
             padding: 15px; 
             background: #fff0f5; 
             flex-grow: 1; 
-            overflow-y: scroll;
-            scrollbar-width: none;
+            overflow-y: auto; /* ★スクロール可能にする */
         }
-        .mockup-body::-webkit-scrollbar { display: none; }
-        .mockup-input-group { margin-bottom: 10px; background: white; padding: 8px; border-radius: 6px; border: 1px solid #fce4ec; }
+        /* スクロールバーのデザイン（Webkit） */
+        .mockup-body::-webkit-scrollbar { width: 4px; }
+        .mockup-body::-webkit-scrollbar-track { background: #fff0f5; }
+        .mockup-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 2px; }
+
+        .mockup-input-group { margin-bottom: 12px; background: white; padding: 10px; border-radius: 6px; border: 1px solid #fce4ec; }
         .mockup-label { font-size: 10px; font-weight: bold; color: var(--form-accent); margin-bottom: 4px; display: flex; align-items: center; }
         .mockup-label i { margin-right: 4px; font-style: normal; }
-        .mockup-input, .mockup-select { width: 100%; padding: 6px; border: 1px solid #ddd; border-radius: 4px; font-size: 11px; background: white; color: #555; }
+        .mockup-input, .mockup-select { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 11px; background: white; color: #555; }
         .mockup-row { display: flex; gap: 8px; }
         .mockup-col { flex: 1; }
         .date-range { display: flex; align-items: center; gap: 4px; font-size: 10px; color: #888; }
         .date-box { flex: 1; border: 1px solid #ddd; padding: 6px; border-radius: 4px; background: #fff; text-align: center; }
-        .mockup-btn { background: var(--form-accent); color: white; border: none; width: 100%; padding: 10px; border-radius: 6px; font-weight: bold; margin-top: 8px; text-align: center; font-size: 13px; display: block; }
+        .mockup-btn { background: var(--form-accent); color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-weight: bold; margin-top: 15px; text-align: center; font-size: 13px; display: block; cursor: pointer; }
+        .mockup-note { font-size: 9px; color: #ef4444; margin-top: 10px; line-height: 1.4; }
 
-        /* --- スプレッドシートモックアップ --- */
+        /* --- スプレッドシート --- */
         .sheet-mockup { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background: white; margin: 20px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .sheet-header-bar { background-color: var(--sheet-green); color: white; padding: 10px 15px; font-weight: bold; font-size: 14px; display: flex; align-items: center; }
         .sheet-icon { display: inline-block; width: 20px; height: 20px; background: white; color: var(--sheet-green); text-align: center; line-height: 20px; border-radius: 3px; margin-right: 10px; font-weight: bold; font-size: 12px; }
@@ -245,8 +212,7 @@
             <h2>直感的なリッチメニューで<br>迷わず応募フォームへ</h2>
             <p class="text-center">友達追加後の「何をしていいかわからない」を解消。<br>目的別のボタンでスムーズに応募へ誘導します。</p>
             
-            <div class="phone-mockup">
-                <div class="chat-screen">
+            <div class="phone-mockup" style="height: 400px;"> <div class="chat-screen">
                     <div class="chat-msg-area">
                         <div class="chat-bubble">友達追加ありがとうございます！✨</div>
                         <div class="chat-bubble">ご希望の働き方を、下のメニューから選んでください👇</div>
@@ -265,6 +231,7 @@
                 </div>
             </div>
         </section>
+
         <section class="bg-gray">
             <h2>こんな「求人の悩み」<br>抱えていませんか？</h2>
             <div class="problem-box">
@@ -358,8 +325,13 @@
                         </div>
                     </div>
 
+                    <div class="mockup-note">
+                        ※今の正確な体重を記入ください。<br>
+                        ※誤差が±3kg以上あると保証の対象外となります。
+                    </div>
+
                     <button class="mockup-btn">送信する</button>
-                    <div style="height: 50px;"></div>
+                    <div style="height: 30px;"></div>
                 </div>
             </div>
             <h3>3. 店舗専用にフォームを自由カスタム</h3>
