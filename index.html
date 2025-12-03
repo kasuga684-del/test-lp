@@ -158,27 +158,26 @@
             width: 30px; height: 52px; background: white; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
         }
 
-        /* --- 追加：少し大きいスマホアイコン（中） --- */
+        /* --- 少し大きいスマホアイコン（中） --- */
         .medium-phone {
-            width: 50px; height: 84px; /* サイズアップ */
+            width: 50px; height: 84px;
             background: #333; border-radius: 10px;
             position: relative;
             display: flex; align-items: center; justify-content: center;
             box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-            margin: 0 auto 8px; /* 中央揃えと下のマージン */
+            margin: 0 auto 8px;
         }
         .medium-phone::before {
             content: ""; position: absolute; top: 3px; left: 50%; transform: translateX(-50%);
             width: 30%; height: 3px; background: #555; border-radius: 2px;
         }
         .medium-phone-screen {
-            width: 42px; height: 74px; /* 画面サイズもアップ */
+            width: 42px; height: 74px;
             background: white; border-radius: 6px;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 4px; /* アイコンとテキストの間隔 */
+            gap: 4px;
             padding: 4px 0;
         }
-        /* スマホ画面内のテキスト用スタイル */
         .phone-screen-text {
             font-size: 8px; font-weight: bold; line-height: 1.2; text-align: center; color: #333;
         }
@@ -428,6 +427,56 @@
         .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); padding: 15px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1000; display: flex; justify-content: center; backdrop-filter: blur(5px); }
         .sticky-footer .btn-cta { margin: 0; width: 100%; max-width: 600px; font-size: 18px; padding: 14px; }
 
+        /* --- 追加：カスタマイズ強調のヒント --- */
+        .feature-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: fit-content; /* コンテンツ幅に合わせる */
+            margin: 0 auto 30px;
+        }
+        .custom-hint {
+            position: absolute;
+            background: var(--main-gradient);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+            z-index: 20;
+            white-space: nowrap;
+            text-align: center;
+        }
+        /* 吹き出しのしっぽ */
+        .custom-hint::after {
+            content: ''; position: absolute; width: 0; height: 0; border-style: solid;
+        }
+
+        /* リッチメニュー用（右側から矢印） */
+        .hint-rich-menu { top: 280px; right: -25px; }
+        .hint-rich-menu::after {
+            left: -10px; top: 50%; transform: translateY(-50%);
+            border-width: 10px 15px 10px 0;
+            border-color: transparent #8a2be2 transparent transparent;
+        }
+
+        /* 応募フォーム用（左側から矢印） */
+        .hint-form { top: 150px; left: -25px; }
+        .hint-form::after {
+            right: -10px; top: 50%; transform: translateY(-50%);
+            border-width: 10px 0 10px 15px;
+            border-color: transparent transparent transparent #4169e1;
+        }
+
+        /* スプレッドシート用（右上から矢印） */
+        .hint-sheet { top: -20px; right: 20px; }
+        .hint-sheet::after {
+            bottom: -10px; left: 50%; transform: translateX(-50%);
+            border-width: 15px 10px 0 10px;
+            border-color: #8a2be2 transparent transparent transparent;
+        }
+
     </style>
 </head>
 <body>
@@ -498,7 +547,7 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
+                    </div>
 
                     <div style="font-size:16px; color:#ccc;">or</div>
 
@@ -514,7 +563,7 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
+                    </div>
 
                 </div>
                 
@@ -562,166 +611,188 @@
             
             <h3>1. 直感的なリッチメニュー</h3>
             <p>友達追加後の「何をしていいかわからない」を解消。目的別のボタンでスムーズに応募フォームへ誘導します。</p>
-            <div class="phone-mockup" style="height: 380px;"> 
-                <div class="chat-screen">
-                    <div class="chat-msg-area">
-                        <div class="chat-bubble">友達追加ありがとうございます！✨</div>
-                        <div class="chat-bubble">ご希望の働き方を、下のメニューから選んでください👇</div>
+            <div style="text-align: center;">
+                <div class="feature-container">
+                    <div class="phone-mockup" style="height: 380px;"> 
+                        <div class="chat-screen">
+                            <div class="chat-msg-area">
+                                <div class="chat-bubble">友達追加ありがとうございます！✨</div>
+                                <div class="chat-bubble">ご希望の働き方を、下のメニューから選んでください👇</div>
+                            </div>
+                            <div class="rich-menu">
+                                <div class="rich-btn-left">
+                                    <span class="rich-title-left">在籍希望の方</span>
+                                    <span class="rich-btn-inner-brown">面接予約はこちら</span>
+                                </div>
+                                <div class="rich-btn-right">
+                                    <span class="rich-title-right">出稼ぎ希望の方</span>
+                                    <span class="rich-btn-inner-white">面接予約はこちら</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="rich-menu">
-                        <div class="rich-btn-left">
-                            <span class="rich-title-left">在籍希望の方</span>
-                            <span class="rich-btn-inner-brown">面接予約はこちら</span>
-                        </div>
-                        <div class="rich-btn-right">
-                            <span class="rich-title-right">出稼ぎ希望の方</span>
-                            <span class="rich-btn-inner-white">面接予約はこちら</span>
-                        </div>
+                    <div class="custom-hint hint-rich-menu">
+                        メニューボタンの<br>カスタマイズ可能！
                     </div>
                 </div>
             </div>
 
             <h3>2. 応募フォームで必要事項を一括取得</h3>
             <p>名前、年齢、サイズ、希望期間など、採用に必要な情報をフォームで一括回収。ちまちまとLINEで聞き出す手間をゼロにします。</p>
-
-            <div class="phone-mockup">
-                <div class="mockup-header">〇〇 〇〇 様 ログイン中</div>
-                <div class="mockup-body">
-                    
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>🔍</i>どの求人サイトを見ましたか？</label>
-                        <select class="mockup-select"><option>選択してください</option></select>
-                    </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>👤</i>お名前</label>
-                        <input type="text" class="mockup-input" placeholder="仮名でもOK">
-                    </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>📅</i>出稼ぎ期間</label>
-                        <div class="date-range">
-                            <div class="date-box">年/月/日</div><span>〜</span><div class="date-box">年/月/日</div>
-                        </div>
-                        <div style="text-align:right; font-size:11px; color:var(--form-accent); margin-top:5px;">計 0 日間</div>
-                    </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>📍</i>お住まい（県・市まで）</label>
-                        <input type="text" class="mockup-input" placeholder="例：大阪府大阪市">
-                    </div>
-
-                    <div class="mockup-row">
-                        <div class="mockup-col mockup-input-group">
-                            <label class="mockup-label"><i>🎂</i>年齢</label>
-                            <select class="mockup-select"><option>選択</option></select>
-                        </div>
-                        <div class="mockup-col mockup-input-group">
-                            <label class="mockup-label"><i>📏</i>身長</label>
-                            <div style="display:flex; align-items:center;">
-                                <select class="mockup-select"><option>選択</option></select>
-                                <span style="font-size:11px; margin-left:2px;">cm</span>
+            
+            <div style="text-align: center;">
+                <div class="feature-container">
+                    <div class="phone-mockup">
+                        <div class="mockup-header">〇〇 〇〇 様 ログイン中</div>
+                        <div class="mockup-body">
+                            
+                            <div class="mockup-input-group">
+                                <label class="mockup-label"><i>🔍</i>どの求人サイトを見ましたか？</label>
+                                <select class="mockup-select"><option>選択してください</option></select>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="mockup-row">
-                        <div class="mockup-col mockup-input-group">
-                            <label class="mockup-label"><i>⚖️</i>体重</label>
-                            <div style="display:flex; align-items:center;">
-                                <select class="mockup-select"><option>選択</option></select>
-                                <span style="font-size:11px; margin-left:2px;">kg</span>
+                            <div class="mockup-input-group">
+                                <label class="mockup-label"><i>👤</i>お名前</label>
+                                <input type="text" class="mockup-input" placeholder="仮名でもOK">
                             </div>
+
+                            <div class="mockup-input-group">
+                                <label class="mockup-label"><i>📅</i>出稼ぎ期間</label>
+                                <div class="date-range">
+                                    <div class="date-box">年/月/日</div><span>〜</span><div class="date-box">年/月/日</div>
+                                </div>
+                                <div style="text-align:right; font-size:11px; color:var(--form-accent); margin-top:5px;">計 0 日間</div>
+                            </div>
+
+                            <div class="mockup-input-group">
+                                <label class="mockup-label"><i>📍</i>お住まい（県・市まで）</label>
+                                <input type="text" class="mockup-input" placeholder="例：大阪府大阪市">
+                            </div>
+
+                            <div class="mockup-row">
+                                <div class="mockup-col mockup-input-group">
+                                    <label class="mockup-label"><i>🎂</i>年齢</label>
+                                    <select class="mockup-select"><option>選択</option></select>
+                                </div>
+                                <div class="mockup-col mockup-input-group">
+                                    <label class="mockup-label"><i>📏</i>身長</label>
+                                    <div style="display:flex; align-items:center;">
+                                        <select class="mockup-select"><option>選択</option></select>
+                                        <span style="font-size:11px; margin-left:2px;">cm</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mockup-row">
+                                <div class="mockup-col mockup-input-group">
+                                    <label class="mockup-label"><i>⚖️</i>体重</label>
+                                    <div style="display:flex; align-items:center;">
+                                        <select class="mockup-select"><option>選択</option></select>
+                                        <span style="font-size:11px; margin-left:2px;">kg</span>
+                                    </div>
+                                </div>
+                                <div class="mockup-col mockup-input-group">
+                                    <label class="mockup-label"><i>❤️</i>カップ</label>
+                                    <select class="mockup-select"><option>選択</option></select>
+                                </div>
+                            </div>
+
+                            <div class="mockup-input-group">
+                                <label class="mockup-label"><i>💰</i>1日の希望金額</label>
+                                <select class="mockup-select"><option>選択してください</option></select>
+                            </div>
+
+                            <div class="mockup-input-group">
+                                <label class="mockup-label"><i>💆‍♀️</i>エステ経験</label>
+                                <div class="radio-group">
+                                    <label class="radio-item"><input type="radio" name="esthe"> 有る</label>
+                                    <label class="radio-item"><input type="radio" name="esthe" checked> 無し</label>
+                                </div>
+                                <div class="mockup-note">※メンズエステ・風俗エステなど</div>
+                            </div>
+
+                            <div class="mockup-input-group">
+                                <label class="mockup-label"><i>🧳</i>出稼ぎ経験</label>
+                                <div class="radio-group">
+                                    <label class="radio-item"><input type="radio" name="dekasegi"> 有る</label>
+                                    <label class="radio-item"><input type="radio" name="dekasegi" checked> 無し</label>
+                                </div>
+                                <input type="text" class="mockup-input" style="margin-top:5px;" placeholder="有る場合は高知での経験をご記入下さい">
+                            </div>
+
+                            <div class="mockup-input-group">
+                                <label class="mockup-label"><i>🕒</i>希望待機時間</label>
+                                <select class="mockup-select"><option>選択してください</option></select>
+                            </div>
+
+                            <div class="mockup-input-group">
+                                <label class="mockup-label"><i>🖌️</i>刺青・傷・妊娠線</label>
+                                <div class="radio-group">
+                                    <label class="radio-item"><input type="radio" name="tattoo"> 有る</label>
+                                    <label class="radio-item"><input type="radio" name="tattoo" checked> 無し</label>
+                                </div>
+                                <div class="mockup-note" style="color:#ef4444; background:#fff0f0; padding:4px; border-radius:4px; margin-top:5px;">
+                                    ※有る方は、送信後にLINEで写真の添付をお願いします。
+                                </div>
+                            </div>
+
+                            <div class="mockup-input-group">
+                                <label class="mockup-label"><i>🌟</i>長所・性格・ご質問など</label>
+                                <textarea class="mockup-textarea" placeholder="明るい性格です、マッサージが得意です。&#10;お給料のことや寮のことで質問があります。&#10;など、ご自由にどうぞ♪"></textarea>
+                            </div>
+
+                            <div class="mockup-note-red">
+                                ※今の正確な体重を記入ください。<br>
+                                ※誤差が±3kg以上あると保証の対象外となります。
+                            </div>
+
+                            <button class="mockup-btn">送信する</button>
+                            
                         </div>
-                        <div class="mockup-col mockup-input-group">
-                            <label class="mockup-label"><i>❤️</i>カップ</label>
-                            <select class="mockup-select"><option>選択</option></select>
-                        </div>
+                        <div class="scroll-hint"><span>👇 スクロールして確認</span></div>
                     </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>💰</i>1日の希望金額</label>
-                        <select class="mockup-select"><option>選択してください</option></select>
+                    <div class="custom-hint hint-form">
+                        応募項目の<br>カスタマイズ可能！
                     </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>💆‍♀️</i>エステ経験</label>
-                        <div class="radio-group">
-                            <label class="radio-item"><input type="radio" name="esthe"> 有る</label>
-                            <label class="radio-item"><input type="radio" name="esthe" checked> 無し</label>
-                        </div>
-                        <div class="mockup-note">※メンズエステ・風俗エステなど</div>
-                    </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>🧳</i>出稼ぎ経験</label>
-                        <div class="radio-group">
-                            <label class="radio-item"><input type="radio" name="dekasegi"> 有る</label>
-                            <label class="radio-item"><input type="radio" name="dekasegi" checked> 無し</label>
-                        </div>
-                        <input type="text" class="mockup-input" style="margin-top:5px;" placeholder="有る場合は高知での経験をご記入下さい">
-                    </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>🕒</i>希望待機時間</label>
-                        <select class="mockup-select"><option>選択してください</option></select>
-                    </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>🖌️</i>刺青・傷・妊娠線</label>
-                        <div class="radio-group">
-                            <label class="radio-item"><input type="radio" name="tattoo"> 有る</label>
-                            <label class="radio-item"><input type="radio" name="tattoo" checked> 無し</label>
-                        </div>
-                        <div class="mockup-note" style="color:#ef4444; background:#fff0f0; padding:4px; border-radius:4px; margin-top:5px;">
-                            ※有る方は、送信後にLINEで写真の添付をお願いします。
-                        </div>
-                    </div>
-
-                    <div class="mockup-input-group">
-                        <label class="mockup-label"><i>🌟</i>長所・性格・ご質問など</label>
-                        <textarea class="mockup-textarea" placeholder="明るい性格です、マッサージが得意です。&#10;お給料のことや寮のことで質問があります。&#10;など、ご自由にどうぞ♪"></textarea>
-                    </div>
-
-                    <div class="mockup-note-red">
-                        ※今の正確な体重を記入ください。<br>
-                        ※誤差が±3kg以上あると保証の対象外となります。
-                    </div>
-
-                    <button class="mockup-btn">送信する</button>
-                    
                 </div>
-                <div class="scroll-hint"><span>👇 スクロールして確認</span></div>
             </div>
 
             <h3>3. Excel(スプレッドシート)へ自動保存</h3>
             <p>情報は自動的にExcel（Googleスプレッドシート）へ蓄積。過去ログを遡って探す必要はありません。</p>
-            <div class="sheet-mockup">
-                <div class="sheet-header-bar">
-                    <span class="sheet-icon">田</span>応募者管理シート
-                </div>
-                <div class="sheet-scroll-area">
-                    <table class="sheet-table">
-                        <tr>
-                            <th>タイムスタンプ</th><th>サイト</th><th>お名前</th><th>期間</th><th>お住まい</th><th>年齢/サイズ</th>
-                            <th>希望金額</th><th>経験(エステ/出稼ぎ)</th><th>刺青</th><th>PR・質問</th><th>ステータス</th>
-                        </tr>
-                        <tr>
-                            <td>12/10 10:05</td><td>〇〇求人</td><td>〇〇 〇〇</td><td>12/20〜</td><td>大阪市</td><td>22/160/D</td>
-                            <td>3万〜</td><td>無 / 無</td><td>無</td><td>特になし</td><td><span class="badge badge-red">未対応</span></td>
-                        </tr>
-                        <tr>
-                            <td>12/10 12:30</td><td>バニラ</td><td>△△ △△</td><td>12/28〜</td><td>新宿区</td><td>24/158/E</td>
-                            <td>5万〜</td><td>有 / 有</td><td>有(背中)</td><td>寮について...</td><td><span class="badge badge-blue">対応済</span></td>
-                        </tr>
-                        <tr>
-                            <td>12/11 09:15</td><td>ナイト</td><td>□□ □□</td><td>1/10〜</td><td>福岡市</td><td>20/162/C</td>
-                            <td>お任せ</td><td>無 / 有</td><td>無</td><td>頑張ります</td><td><span class="badge badge-gray">面接確</span></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="sheet-scroll-hint">
-                    <span>👉 横へスクロール</span>
+            
+            <div style="text-align: center;">
+                <div class="feature-container">
+                    <div class="sheet-mockup">
+                        <div class="sheet-header-bar">
+                            <span class="sheet-icon">田</span>応募者管理シート
+                        </div>
+                        <div class="sheet-scroll-area">
+                            <table class="sheet-table">
+                                <tr>
+                                    <th>タイムスタンプ</th><th>サイト</th><th>お名前</th><th>期間</th><th>お住まい</th><th>年齢/サイズ</th>
+                                    <th>希望金額</th><th>経験(エステ/出稼ぎ)</th><th>刺青</th><th>PR・質問</th><th>ステータス</th>
+                                </tr>
+                                <tr>
+                                    <td>12/10 10:05</td><td>〇〇求人</td><td>〇〇 〇〇</td><td>12/20〜</td><td>大阪市</td><td>22/160/D</td>
+                                    <td>3万〜</td><td>無 / 無</td><td>無</td><td>特になし</td><td><span class="badge badge-red">未対応</span></td>
+                                </tr>
+                                <tr>
+                                    <td>12/10 12:30</td><td>バニラ</td><td>△△ △△</td><td>12/28〜</td><td>新宿区</td><td>24/158/E</td>
+                                    <td>5万〜</td><td>有 / 有</td><td>有(背中)</td><td>寮について...</td><td><span class="badge badge-blue">対応済</span></td>
+                                </tr>
+                                <tr>
+                                    <td>12/11 09:15</td><td>ナイト</td><td>□□ □□</td><td>1/10〜</td><td>福岡市</td><td>20/162/C</td>
+                                    <td>お任せ</td><td>無 / 有</td><td>無</td><td>頑張ります</td><td><span class="badge badge-gray">面接確</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="sheet-scroll-hint">
+                            <span>👉 横へスクロール</span>
+                        </div>
+                    </div>
+                    <div class="custom-hint hint-sheet">
+                        応募フォームの<br>項目に連動！
+                    </div>
                 </div>
             </div>
 
