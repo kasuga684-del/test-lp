@@ -147,16 +147,42 @@
             gap: 8px; height: auto; margin-top: 5px; margin-bottom: 10px;
         }
         
-        /* 簡易スマホアイコン */
+        /* 簡易スマホアイコン（小） */
         .mini-phone {
             width: 36px; height: 60px; background: #333; border-radius: 8px; position: relative;
             display: flex; align-items: center; justify-content: center;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        .mini-phone::before { width: 30%; height: 3px; top: 2px; }
+        .mini-phone::before { content: ""; position: absolute; top: 2px; left: 50%; transform: translateX(-50%); width: 30%; height: 3px; background: #555; border-radius: 2px; }
         .mini-phone-screen {
             width: 30px; height: 52px; background: white; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
         }
+
+        /* --- 追加：少し大きいスマホアイコン（中） --- */
+        .medium-phone {
+            width: 50px; height: 84px; /* サイズアップ */
+            background: #333; border-radius: 10px;
+            position: relative;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            margin: 0 auto 8px; /* 中央揃えと下のマージン */
+        }
+        .medium-phone::before {
+            content: ""; position: absolute; top: 3px; left: 50%; transform: translateX(-50%);
+            width: 30%; height: 3px; background: #555; border-radius: 2px;
+        }
+        .medium-phone-screen {
+            width: 42px; height: 74px; /* 画面サイズもアップ */
+            background: white; border-radius: 6px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 4px; /* アイコンとテキストの間隔 */
+            padding: 4px 0;
+        }
+        /* スマホ画面内のテキスト用スタイル */
+        .phone-screen-text {
+            font-size: 8px; font-weight: bold; line-height: 1.2; text-align: center; color: #333;
+        }
+
         .app-icon { width: 18px; height: 18px; border-radius: 5px; font-size: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
         .icon-green { background-color: #06c755; }
         .icon-pink { background-color: #d81b60; }
@@ -461,22 +487,34 @@
                 <div class="scenario-img-area" style="height: auto; align-items: center; margin-bottom:5px;">
                     
                     <div style="text-align:center; width: 45%;">
-                        <div style="display:flex; justify-content:center; gap:5px; margin-bottom:5px;">
-                            <div class="app-icon icon-pink">籍</div>
-                            <div class="app-icon icon-green">公</div>
+                        <div class="medium-phone">
+                            <div class="medium-phone-screen">
+                                <div style="display:flex; gap:4px;">
+                                    <div class="app-icon icon-pink">籍</div>
+                                    <div class="app-icon icon-green">公</div>
+                                </div>
+                                <div class="phone-screen-text">
+                                    在籍LINE<br>＆<br>公式求人LINE
+                                </div>
+                            </div>
                         </div>
-                        <span style="font-size:11px; font-weight:bold; line-height:1.2;">在籍LINE<br>＆ 公式求人LINE</span>
-                    </div>
+                        </div>
 
                     <div style="font-size:16px; color:#ccc;">or</div>
 
                     <div style="text-align:center; width: 45%;">
-                        <div style="display:flex; justify-content:center; gap:5px; margin-bottom:5px;">
-                            <div class="app-icon icon-blue">私</div>
-                            <div class="app-icon icon-green">公</div>
+                        <div class="medium-phone">
+                            <div class="medium-phone-screen">
+                                <div style="display:flex; gap:4px;">
+                                    <div class="app-icon icon-blue">私</div>
+                                    <div class="app-icon icon-green">公</div>
+                                </div>
+                                <div class="phone-screen-text">
+                                    個人LINE<br>＆<br>公式求人LINE
+                                </div>
+                            </div>
                         </div>
-                        <span style="font-size:11px; font-weight:bold; line-height:1.2;">個人LINE<br>＆ 公式求人LINE</span>
-                    </div>
+                        </div>
 
                 </div>
                 
