@@ -7,36 +7,25 @@
     <style>
         /* --- 基本設定（モダン・グラデーション） --- */
         :root {
-            /* メインのグラデーション（紫〜青） */
             --main-gradient: linear-gradient(135deg, #8a2be2 0%, #4169e1 100%);
-            /* ボタン用の少し明るいグラデーション */
             --btn-gradient: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
-            
-            --accent-color: #4169e1; /* テキストのアクセント色（青） */
-            --form-accent: #8a2be2;  /* フォームのアクセント色（紫） */
-            
-            --bg-light: #f8faff;     /* 背景を少し青みがかった白に */
+            --accent-color: #4169e1;
+            --form-accent: #8a2be2;
+            --bg-light: #f8faff;
             --text-main: #222222;
             --white: #ffffff;
-            
-            /* スプレッドシート用 */
             --sheet-green: #107c41;
-            /* リッチメニュー用 */
-            --rich-brown: #6d5656; 
+            --rich-brown: #6d5656;
             --rich-pink-bg: linear-gradient(135deg, #fff5f0 0%, #fcece8 100%);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
             line-height: 1.6;
             color: var(--text-main);
-            background-color: #f0f2f5; 
+            background-color: #f0f2f5;
             font-size: 16px;
         }
 
@@ -44,50 +33,34 @@
             max-width: 600px;
             margin: 0 auto;
             background-color: var(--white);
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1); 
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
             padding-bottom: 90px;
+            position: relative; /* モーダル配置用 */
         }
 
         section { padding: 35px 15px; border-bottom: 1px solid #f0f2f5; }
         
         h2 {
-            font-size: 24px; 
-            text-align: center; 
-            margin-bottom: 25px; 
-            color: #333;
-            position: relative; 
-            padding-bottom: 15px;
-            line-height: 1.4;
-            font-weight: bold;
+            font-size: 24px; text-align: center; margin-bottom: 25px; color: #333;
+            position: relative; padding-bottom: 15px; line-height: 1.4; font-weight: bold;
         }
         h2::after {
             content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 60px; height: 4px; 
-            background: var(--main-gradient); 
-            border-radius: 2px;
+            width: 60px; height: 4px; background: var(--main-gradient); border-radius: 2px;
         }
 
         h3 {
-            font-size: 18px; 
-            margin-bottom: 15px; 
-            color: #333;
-            border-left: 5px solid;
-            border-image: var(--main-gradient) 1; 
-            padding-left: 12px;
-            margin-top: 25px; 
-            font-weight: bold;
+            font-size: 18px; margin-bottom: 15px; color: #333;
+            border-left: 5px solid; border-image: var(--main-gradient) 1;
+            padding-left: 12px; margin-top: 25px; font-weight: bold;
         }
 
         p { margin-bottom: 1em; font-size: 15px; }
-        
         ul { list-style: none; padding: 0; }
         li { margin-bottom: 8px; position: relative; padding-left: 1.5em; font-size: 15px; }
         li::before { 
-            content: "✔"; 
-            background: var(--main-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold; position: absolute; left: 0; top: 0; 
+            content: "✔"; background: var(--main-gradient); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; font-weight: bold; position: absolute; left: 0; top: 0; 
         }
         
         .bg-gray { background-color: var(--bg-light); }
@@ -96,25 +69,14 @@
 
         /* --- ファーストビュー --- */
         .hero { 
-            background: var(--main-gradient); 
-            color: var(--white); 
-            padding: 50px 15px; 
-            text-align: center; 
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
+            background: var(--main-gradient); color: var(--white); padding: 50px 15px; 
+            text-align: center; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
         }
         .hero h1 { font-size: 26px; font-weight: bold; line-height: 1.4; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
         .hero-tag { 
-            display: inline-block; 
-            background: rgba(255,255,255,0.2); 
-            border: 1px solid rgba(255,255,255,0.4);
-            color: var(--white); 
-            padding: 5px 15px; 
-            border-radius: 20px; 
-            font-size: 13px; 
-            margin-bottom: 15px; 
-            font-weight: bold; 
-            backdrop-filter: blur(5px);
+            display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4);
+            color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 13px; margin-bottom: 15px; 
+            font-weight: bold; backdrop-filter: blur(5px);
         }
 
         /* --- CTAボタン --- */
@@ -126,28 +88,25 @@
             box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4);
             border: 2px solid rgba(255,255,255,0.8);
             transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer; /* クリックできるカーソルに */
         }
         .btn-cta:active { transform: translateY(2px); box-shadow: 0 4px 10px rgba(138, 43, 226, 0.4); }
         .btn-sub-text { font-size: 12px; margin-top: 4px; display: block; color: rgba(255,255,255,0.9); }
 
-        /* --- シナリオ図解（モダン風） --- */
+        /* --- シナリオ図解 --- */
         .scenario-section { background: #f0f2f5; text-align: center; padding: 30px 10px; }
-        .scenario-container {
-            display: flex; justify-content: space-between; gap: 10px; margin-bottom: 20px;
-        }
+        .scenario-container { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 20px; }
         .scenario-box {
             background: white; border: 2px solid #eee; border-radius: 15px; padding: 15px 10px; width: 48%;
             position: relative; display: flex; flex-direction: column; align-items: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         .scenario-title { font-size: 13px; font-weight: bold; margin-bottom: 10px; color: #555; }
-        
         .scenario-img-area {
-            display: flex; justify-content: center; align-items: flex-end; 
-            gap: 8px; height: auto; margin-top: 5px; margin-bottom: 10px;
+            display: flex; justify-content: center; align-items: flex-end; gap: 8px; height: auto; margin-top: 5px; margin-bottom: 10px;
         }
         
-        /* 簡易スマホアイコン（小） */
+        /* 簡易スマホアイコン */
         .mini-phone {
             width: 36px; height: 60px; background: #333; border-radius: 8px; position: relative;
             display: flex; align-items: center; justify-content: center;
@@ -158,29 +117,22 @@
             width: 30px; height: 52px; background: white; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
         }
 
-        /* --- 少し大きいスマホアイコン（中） --- */
+        /* 中サイズスマホアイコン */
         .medium-phone {
-            width: 50px; height: 84px;
-            background: #333; border-radius: 10px;
-            position: relative;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-            margin: 0 auto 8px;
+            width: 50px; height: 84px; background: #333; border-radius: 10px;
+            position: relative; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2); margin: 0 auto 8px;
         }
         .medium-phone::before {
             content: ""; position: absolute; top: 3px; left: 50%; transform: translateX(-50%);
             width: 30%; height: 3px; background: #555; border-radius: 2px;
         }
         .medium-phone-screen {
-            width: 42px; height: 74px;
-            background: white; border-radius: 6px;
+            width: 42px; height: 74px; background: white; border-radius: 6px;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 4px;
-            padding: 4px 0;
+            gap: 4px; padding: 4px 0;
         }
-        .phone-screen-text {
-            font-size: 8px; font-weight: bold; line-height: 1.2; text-align: center; color: #333;
-        }
+        .phone-screen-text { font-size: 8px; font-weight: bold; line-height: 1.2; text-align: center; color: #333; }
 
         .app-icon { width: 18px; height: 18px; border-radius: 5px; font-size: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
         .icon-green { background-color: #06c755; }
@@ -189,20 +141,14 @@
 
         .scenario-arrow { 
             font-size: 24px; font-weight: bold; margin: 5px 0;
-            background: var(--main-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: var(--main-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         
-        /* 解決後のボックス */
         .solution-box {
-            background: white; 
-            border: 3px solid transparent;
+            background: white; border: 3px solid transparent;
             background-image: linear-gradient(var(--white), var(--white)), var(--main-gradient);
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
-            border-radius: 15px; padding: 20px 15px;
-            width: 100%; margin: 0 auto; position: relative;
+            background-origin: border-box; background-clip: padding-box, border-box;
+            border-radius: 15px; padding: 20px 15px; width: 100%; margin: 0 auto; position: relative;
             box-shadow: 0 8px 20px rgba(138, 43, 226, 0.15);
         }
         .solution-tag {
@@ -217,10 +163,7 @@
 
         /* --- Before（悩み） --- */
         .problem-box { background-color: var(--white); border: 2px solid #eee; padding: 20px; border-radius: 15px; margin-top: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .problem-list li::before { 
-            content: "✖"; 
-            background: none; -webkit-text-fill-color: #888; color: #888;
-        }
+        .problem-list li::before { content: "✖"; background: none; -webkit-text-fill-color: #888; color: #888; }
 
         /* --- 比較表 --- */
         .comparison-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 20px 0; background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
@@ -231,32 +174,25 @@
 
         /* --- 料金 --- */
         .pricing-box { 
-            background-color: var(--white); 
-            border: 3px solid transparent;
+            background-color: var(--white); border: 3px solid transparent;
             background-image: linear-gradient(var(--white), var(--white)), var(--main-gradient);
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
+            background-origin: border-box; background-clip: padding-box, border-box;
             border-radius: 20px; padding: 30px; text-align: center; position: relative; overflow: hidden; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         .price-label { 
-            background: var(--main-gradient); 
-            color: white; position: absolute; top: 0; right: 0; padding: 5px 15px; border-bottom-left-radius: 15px; font-size: 12px; font-weight: bold;
+            background: var(--main-gradient); color: white; position: absolute; top: 0; right: 0; padding: 5px 15px; border-bottom-left-radius: 15px; font-size: 12px; font-weight: bold;
         }
         .price-amount { 
-            font-size: 40px; font-weight: bold; 
-            background: var(--main-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.2; 
+            font-size: 40px; font-weight: bold; background: var(--main-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; 
         }
 
         /* --- FAQ --- */
         .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
         .faq-q { font-weight: bold; color: #333; margin-bottom: 8px; display: flex; font-size: 16px; align-items: flex-start; }
         .faq-q::before { 
-            content: "Q."; margin-right: 10px; margin-top: 2px;
-            color: white; background: var(--main-gradient);
+            content: "Q."; margin-right: 10px; margin-top: 2px; color: white; background: var(--main-gradient);
             min-width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
             border-radius: 50%; font-size: 14px;
         }
@@ -264,34 +200,20 @@
 
         /* --- スマホモックアップ --- */
         .phone-mockup {
-            width: 100%; 
-            max-width: 280px; 
-            height: 480px;
-            margin: 30px auto;
-            border: 10px solid #333;
-            border-radius: 30px; 
-            background: #fff; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            font-family: sans-serif; 
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden; 
+            width: 100%; max-width: 280px; height: 480px; margin: 30px auto;
+            border: 10px solid #333; border-radius: 30px; background: #fff; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2); font-family: sans-serif; 
+            position: relative; display: flex; flex-direction: column; overflow: hidden; 
         }
         .phone-mockup::before {
             content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-            width: 40%; height: 18px; background: #333;
-            border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; z-index: 10;
+            width: 40%; height: 18px; background: #333; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; z-index: 10;
         }
 
-        /* --- トーク画面・リッチメニュー --- */
+        /* --- トーク画面 --- */
         .chat-screen {
-            background-color: #7294c2;
-            flex-grow: 1;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background-color: #7294c2; flex-grow: 1; position: relative;
+            display: flex; flex-direction: column; justify-content: space-between;
         }
         .chat-msg-area { padding: 40px 10px 10px; }
         .chat-bubble {
@@ -302,18 +224,12 @@
             content: ""; position: absolute; top: 10px; left: -6px;
             border-width: 6px 6px 6px 0; border-style: solid; border-color: transparent white transparent transparent;
         }
-
-        /* --- 追加：送信メッセージ用 --- */
         .chat-bubble-sent {
-            background: var(--accent-color); /* アクセントカラーの青 */
-            color: white;
-            display: inline-block;
-            text-align: left;
+            background: var(--accent-color); color: white; display: inline-block; text-align: left;
         }
         .chat-bubble-sent::after {
-            left: auto; right: -6px;
-            border-width: 6px 0 6px 6px;
-            border-color: transparent transparent transparent var(--accent-color); /* 本体の色に合わせる */
+            left: auto; right: -6px; border-width: 6px 0 6px 6px;
+            border-color: transparent transparent transparent var(--accent-color);
         }
 
         .rich-menu { height: 110px; display: flex; border-top: 1px solid #ddd; }
@@ -335,10 +251,8 @@
         .mockup-label { font-size: 12px; font-weight: bold; color: var(--form-accent); margin-bottom: 5px; display: flex; align-items: center; }
         
         .mockup-input, .mockup-select, .mockup-textarea { 
-            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; 
-            font-size: 13px; 
-            background: #fdfdfd; color: #333; box-sizing: border-box;
-            transition: border-color 0.2s;
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; 
+            background: #fdfdfd; color: #333; box-sizing: border-box; transition: border-color 0.2s;
         }
         .mockup-input:focus, .mockup-select:focus, .mockup-textarea:focus { outline: none; border-color: var(--accent-color); }
         .mockup-textarea { height: 60px; resize: none; font-family: sans-serif; }
@@ -347,9 +261,8 @@
         .date-range { display: flex; align-items: center; gap: 4px; font-size: 12px; color: #666; }
         .date-box { flex: 1; border: 1px solid #ddd; padding: 8px; border-radius: 6px; background: #fff; text-align: center; }
         .mockup-btn { 
-            background: var(--btn-gradient); 
-            color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; margin-top: 15px; font-size: 15px; 
-            box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3);
+            background: var(--btn-gradient); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; 
+            font-weight: bold; margin-top: 15px; font-size: 15px; box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3);
         }
         
         .radio-group { display: flex; gap: 10px; align-items: center; font-size: 13px; color: #555; }
@@ -360,10 +273,8 @@
 
         /* --- スプレッドシート --- */
         .sheet-mockup { 
-            margin: 20px 0; 
-            border: 1px solid #ddd; border-radius: 10px; overflow: hidden; 
-            background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
-            position: relative; /* スクロールヒントの配置基準 */
+            margin: 20px 0; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; 
+            background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative;
         }
         .sheet-header-bar { background-color: var(--sheet-green); color: white; padding: 12px 15px; font-weight: bold; font-size: 14px; display: flex; align-items: center; }
         .sheet-icon { display: inline-block; width: 20px; height: 20px; background: white; color: var(--sheet-green); text-align: center; line-height: 20px; border-radius: 3px; margin-right: 10px; font-weight: bold; font-size: 12px; }
@@ -373,13 +284,11 @@
         .sheet-table th, .sheet-table td { border: 1px solid #e0e0e0; padding: 8px 10px; white-space: nowrap; text-align: left; color: #333; }
         .sheet-table th { background-color: #f3f3f3; color: #555; font-weight: bold; }
         
-        /* スプレッドシート用のスクロールヒント */
         .sheet-scroll-hint {
             position: absolute; bottom: 15px; right: 20px;
             background: rgba(0,0,0,0.8); color: white; padding: 6px 12px;
             border-radius: 20px; font-size: 11px; z-index: 10;
-            display: flex; align-items: center; gap: 5px;
-            pointer-events: none; /* クリックを邪魔しない */
+            display: flex; align-items: center; gap: 5px; pointer-events: none;
             animation: side-bounce 1.5s infinite;
         }
         @keyframes side-bounce {
@@ -423,59 +332,74 @@
             60% {transform: translateX(-50%) translateY(-3px);}
         }
 
+        /* カスタマイズ強調のヒント */
+        .feature-container {
+            position: relative; display: inline-block; width: 100%; max-width: fit-content; margin: 0 auto 30px;
+        }
+        .custom-hint {
+            position: absolute; background: var(--main-gradient); color: white;
+            padding: 12px 18px; border-radius: 30px; font-size: 14px; font-weight: bold;
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4); z-index: 20; white-space: nowrap; text-align: center;
+        }
+        .custom-hint::after { content: ''; position: absolute; width: 0; height: 0; border-style: solid; }
+        .hint-rich-menu { top: 280px; right: -25px; }
+        .hint-rich-menu::after { left: -10px; top: 50%; transform: translateY(-50%); border-width: 10px 15px 10px 0; border-color: transparent #8a2be2 transparent transparent; }
+        .hint-form { top: 150px; left: -25px; }
+        .hint-form::after { right: -10px; top: 50%; transform: translateY(-50%); border-width: 10px 0 10px 15px; border-color: transparent transparent transparent #4169e1; }
+        .hint-sheet { top: -20px; right: 20px; }
+        .hint-sheet::after { bottom: -10px; left: 50%; transform: translateX(-50%); border-width: 15px 10px 0 10px; border-color: #8a2be2 transparent transparent transparent; }
+
         /* 固定フッター */
         .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); padding: 15px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1000; display: flex; justify-content: center; backdrop-filter: blur(5px); }
         .sticky-footer .btn-cta { margin: 0; width: 100%; max-width: 600px; font-size: 18px; padding: 14px; }
 
-        /* --- 追加：カスタマイズ強調のヒント --- */
-        .feature-container {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-            max-width: fit-content; /* コンテンツ幅に合わせる */
-            margin: 0 auto 30px;
+        /* --- モーダル（申し込みフォーム） --- */
+        .modal-overlay {
+            display: none; /* デフォルトは非表示 */
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); z-index: 2000;
+            align-items: center; justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(3px);
         }
-        .custom-hint {
-            position: absolute;
-            background: var(--main-gradient);
-            color: white;
-            padding: 12px 18px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
-            z-index: 20;
-            white-space: nowrap;
-            text-align: center;
+        .modal-content {
+            background: white; width: 100%; max-width: 500px;
+            border-radius: 15px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: modalFadeIn 0.3s ease-out;
+            max-height: 90vh; /* 画面からはみ出さない */
+            display: flex; flex-direction: column;
         }
-        /* 吹き出しのしっぽ */
-        .custom-hint::after {
-            content: ''; position: absolute; width: 0; height: 0; border-style: solid;
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        /* リッチメニュー用（右側から矢印） */
-        .hint-rich-menu { top: 280px; right: -25px; }
-        .hint-rich-menu::after {
-            left: -10px; top: 50%; transform: translateY(-50%);
-            border-width: 10px 15px 10px 0;
-            border-color: transparent #8a2be2 transparent transparent;
+        .modal-header {
+            background: var(--main-gradient); padding: 15px; text-align: center; color: white; position: relative;
         }
-
-        /* 応募フォーム用（左側から矢印） */
-        .hint-form { top: 150px; left: -25px; }
-        .hint-form::after {
-            right: -10px; top: 50%; transform: translateY(-50%);
-            border-width: 10px 0 10px 15px;
-            border-color: transparent transparent transparent #4169e1;
+        .modal-title { font-size: 18px; font-weight: bold; }
+        .modal-close {
+            position: absolute; top: 15px; right: 15px; color: white; font-size: 24px; cursor: pointer; line-height: 1;
         }
-
-        /* スプレッドシート用（右上から矢印） */
-        .hint-sheet { top: -20px; right: 20px; }
-        .hint-sheet::after {
-            bottom: -10px; left: 50%; transform: translateX(-50%);
-            border-width: 15px 10px 0 10px;
-            border-color: #8a2be2 transparent transparent transparent;
+        .modal-body {
+            padding: 20px; overflow-y: auto; /* 長い場合はスクロール */
         }
+        .form-group { margin-bottom: 15px; }
+        .form-label { display: block; font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #333; }
+        .badge-required { background: #ff4d4f; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-left: 5px; vertical-align: text-bottom; }
+        .form-input {
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; /* スマホで拡大しないサイズ */
+            background: #f9f9f9;
+        }
+        .form-input:focus { border-color: var(--accent-color); outline: none; background: white; }
+        .checkbox-group { display: flex; gap: 15px; margin-top: 5px; }
+        .checkbox-item { display: flex; align-items: center; gap: 5px; font-size: 14px; cursor: pointer; }
+        .submit-btn {
+            background: var(--btn-gradient); color: white; border: none; width: 100%; padding: 15px;
+            font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3);
+        }
+        .submit-btn:hover { opacity: 0.9; }
 
     </style>
 </head>
@@ -487,7 +411,7 @@
             <span class="hero-tag">初期導入費0円で最短即日スタート</span>
             <h1>忙しい営業中も、深夜の寝ている間も。<br>応募者の対応・管理は<br>「スマート求人公式LINE」にお任せ</h1>
             <p>質問ラリーなどの無駄なやり取りを「最小限」に。<br>応募から面接日時の確定まで、スマホ1台で完結。</p>
-            <a href="#contact" class="btn-cta">
+            <a onclick="openModal()" class="btn-cta">
                 導入費0円で今すぐ申し込む
                 <span class="btn-sub-text">※まずは無料でご相談ください</span>
             </a>
@@ -534,7 +458,6 @@
             <div class="solution-box">
                 <span class="solution-tag">スマートに振り分け</span>
                 <div class="scenario-img-area" style="height: auto; align-items: center; margin-bottom:5px;">
-                    
                     <div style="text-align:center; width: 45%;">
                         <div class="medium-phone">
                             <div class="medium-phone-screen">
@@ -542,15 +465,11 @@
                                     <div class="app-icon icon-pink">籍</div>
                                     <div class="app-icon icon-green">公</div>
                                 </div>
-                                <div class="phone-screen-text">
-                                    在籍LINE<br>＆<br>公式求人LINE
-                                </div>
+                                <div class="phone-screen-text">在籍LINE<br>＆<br>公式求人LINE</div>
                             </div>
                         </div>
                     </div>
-
                     <div style="font-size:16px; color:#ccc;">or</div>
-
                     <div style="text-align:center; width: 45%;">
                         <div class="medium-phone">
                             <div class="medium-phone-screen">
@@ -558,24 +477,15 @@
                                     <div class="app-icon icon-blue">私</div>
                                     <div class="app-icon icon-green">公</div>
                                 </div>
-                                <div class="phone-screen-text">
-                                    個人LINE<br>＆<br>公式求人LINE
-                                </div>
+                                <div class="phone-screen-text">個人LINE<br>＆<br>公式求人LINE</div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-                
                 <p style="font-size:13px; margin-top:5px; line-height:1.4;">
-                    公式LINEアプリを使えば、<br>
-                    <strong>「1台のスマホ」</strong>で完全に切り分けて管理可能です。
+                    公式LINEアプリを使えば、<br><strong>「1台のスマホ」</strong>で完全に切り分けて管理可能です。
                 </p>
-
-                <div class="strong-message">
-                    もし携帯2台契約されていたら、<br>
-                    1台は解約して下さい！！！
-                </div>
+                <div class="strong-message">もし携帯2台契約されていたら、<br>1台は解約して下さい！！！</div>
             </div>
         </section>
 
@@ -631,9 +541,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="custom-hint hint-rich-menu">
-                        メニューボタンの<br>カスタマイズ可能！
-                    </div>
+                    <div class="custom-hint hint-rich-menu">メニューボタンの<br>カスタマイズ可能！</div>
                 </div>
             </div>
 
@@ -651,139 +559,50 @@
                     <div class="phone-mockup">
                         <div class="mockup-header">〇〇 〇〇 様 ログイン中</div>
                         <div class="mockup-body">
-                            <div class="mockup-input-group">
-                                <label class="mockup-label"><i>🔍</i>どの求人サイトを見ましたか？</label>
-                                <select class="mockup-select"><option>選択してください</option></select>
-                            </div>
-                            <div class="mockup-input-group">
-                                <label class="mockup-label"><i>👤</i>お名前</label>
-                                <input type="text" class="mockup-input" placeholder="仮名でもOK">
-                            </div>
-                            <div class="mockup-input-group">
-                                <label class="mockup-label"><i>📅</i>出稼ぎ期間</label>
-                                <div class="date-range">
-                                    <div class="date-box">年/月/日</div><span>〜</span><div class="date-box">年/月/日</div>
-                                </div>
-                                <div style="text-align:right; font-size:11px; color:var(--form-accent); margin-top:5px;">計 0 日間</div>
-                            </div>
-                            <div class="mockup-input-group">
-                                <label class="mockup-label"><i>📍</i>お住まい（県・市まで）</label>
-                                <input type="text" class="mockup-input" placeholder="例：大阪府大阪市">
+                            <div class="mockup-input-group"><label class="mockup-label"><i>🔍</i>どの求人サイトを見ましたか？</label><select class="mockup-select"><option>選択してください</option></select></div>
+                            <div class="mockup-input-group"><label class="mockup-label"><i>👤</i>お名前</label><input type="text" class="mockup-input" placeholder="仮名でもOK"></div>
+                            <div class="mockup-input-group"><label class="mockup-label"><i>📅</i>出稼ぎ期間</label><div class="date-range"><div class="date-box">年/月/日</div><span>〜</span><div class="date-box">年/月/日</div></div><div style="text-align:right; font-size:11px; color:var(--form-accent); margin-top:5px;">計 0 日間</div></div>
+                            <div class="mockup-input-group"><label class="mockup-label"><i>📍</i>お住まい（県・市まで）</label><input type="text" class="mockup-input" placeholder="例：大阪府大阪市"></div>
+                            <div class="mockup-row">
+                                <div class="mockup-col mockup-input-group"><label class="mockup-label"><i>🎂</i>年齢</label><select class="mockup-select"><option>選択</option></select></div>
+                                <div class="mockup-col mockup-input-group"><label class="mockup-label"><i>📏</i>身長</label><div style="display:flex; align-items:center;"><select class="mockup-select"><option>選択</option></select><span style="font-size:11px; margin-left:2px;">cm</span></div></div>
                             </div>
                             <div class="mockup-row">
-                                <div class="mockup-col mockup-input-group">
-                                    <label class="mockup-label"><i>🎂</i>年齢</label>
-                                    <select class="mockup-select"><option>選択</option></select>
-                                </div>
-                                <div class="mockup-col mockup-input-group">
-                                    <label class="mockup-label"><i>📏</i>身長</label>
-                                    <div style="display:flex; align-items:center;">
-                                        <select class="mockup-select"><option>選択</option></select>
-                                        <span style="font-size:11px; margin-left:2px;">cm</span>
-                                    </div>
-                                </div>
+                                <div class="mockup-col mockup-input-group"><label class="mockup-label"><i>⚖️</i>体重</label><div style="display:flex; align-items:center;"><select class="mockup-select"><option>選択</option></select><span style="font-size:11px; margin-left:2px;">kg</span></div></div>
+                                <div class="mockup-col mockup-input-group"><label class="mockup-label"><i>❤️</i>カップ</label><select class="mockup-select"><option>選択</option></select></div>
                             </div>
-                            <div class="mockup-row">
-                                <div class="mockup-col mockup-input-group">
-                                    <label class="mockup-label"><i>⚖️</i>体重</label>
-                                    <div style="display:flex; align-items:center;">
-                                        <select class="mockup-select"><option>選択</option></select>
-                                        <span style="font-size:11px; margin-left:2px;">kg</span>
-                                    </div>
-                                </div>
-                                <div class="mockup-col mockup-input-group">
-                                    <label class="mockup-label"><i>❤️</i>カップ</label>
-                                    <select class="mockup-select"><option>選択</option></select>
-                                </div>
-                            </div>
-                            <div class="mockup-input-group">
-                                <label class="mockup-label"><i>💰</i>1日の希望金額</label>
-                                <select class="mockup-select"><option>選択してください</option></select>
-                            </div>
-                            <div class="mockup-input-group">
-                                <label class="mockup-label"><i>💆‍♀️</i>エステ経験</label>
-                                <div class="radio-group">
-                                    <label class="radio-item"><input type="radio" name="esthe"> 有る</label>
-                                    <label class="radio-item"><input type="radio" name="esthe" checked> 無し</label>
-                                </div>
-                                <div class="mockup-note">※メンズエステ・風俗エステなど</div>
-                            </div>
-                            <div class="mockup-input-group">
-                                <label class="mockup-label"><i>🧳</i>出稼ぎ経験</label>
-                                <div class="radio-group">
-                                    <label class="radio-item"><input type="radio" name="dekasegi"> 有る</label>
-                                    <label class="radio-item"><input type="radio" name="dekasegi" checked> 無し</label>
-                                </div>
-                                <input type="text" class="mockup-input" style="margin-top:5px;" placeholder="有る場合は高知での経験をご記入下さい">
-                            </div>
-                            <div class="mockup-input-group">
-                                <label class="mockup-label"><i>🕒</i>希望待機時間</label>
-                                <select class="mockup-select"><option>選択してください</option></select>
-                            </div>
-                            <div class="mockup-input-group">
-                                <label class="mockup-label"><i>🖌️</i>刺青・傷・妊娠線</label>
-                                <div class="radio-group">
-                                    <label class="radio-item"><input type="radio" name="tattoo"> 有る</label>
-                                    <label class="radio-item"><input type="radio" name="tattoo" checked> 無し</label>
-                                </div>
-                                <div class="mockup-note" style="color:#ef4444; background:#fff0f0; padding:4px; border-radius:4px; margin-top:5px;">
-                                    ※有る方は、送信後にLINEで写真の添付をお願いします。
-                                </div>
-                            </div>
-                            <div class="mockup-input-group">
-                                <label class="mockup-label"><i>🌟</i>長所・性格・ご質問など</label>
-                                <textarea class="mockup-textarea" placeholder="明るい性格です、マッサージが得意です。&#10;お給料のことや寮のことで質問があります。&#10;など、ご自由にどうぞ♪"></textarea>
-                            </div>
-                            <div class="mockup-note-red">
-                                ※今の正確な体重を記入ください。<br>
-                                ※誤差が±3kg以上あると保証の対象外となります。
-                            </div>
+                            <div class="mockup-input-group"><label class="mockup-label"><i>💰</i>1日の希望金額</label><select class="mockup-select"><option>選択してください</option></select></div>
+                            <div class="mockup-input-group"><label class="mockup-label"><i>💆‍♀️</i>エステ経験</label><div class="radio-group"><label class="radio-item"><input type="radio" name="esthe"> 有る</label><label class="radio-item"><input type="radio" name="esthe" checked> 無し</label></div><div class="mockup-note">※メンズエステ・風俗エステなど</div></div>
+                            <div class="mockup-input-group"><label class="mockup-label"><i>🧳</i>出稼ぎ経験</label><div class="radio-group"><label class="radio-item"><input type="radio" name="dekasegi"> 有る</label><label class="radio-item"><input type="radio" name="dekasegi" checked> 無し</label></div><input type="text" class="mockup-input" style="margin-top:5px;" placeholder="有る場合は高知での経験をご記入下さい"></div>
+                            <div class="mockup-input-group"><label class="mockup-label"><i>🕒</i>希望待機時間</label><select class="mockup-select"><option>選択してください</option></select></div>
+                            <div class="mockup-input-group"><label class="mockup-label"><i>🖌️</i>刺青・傷・妊娠線</label><div class="radio-group"><label class="radio-item"><input type="radio" name="tattoo"> 有る</label><label class="radio-item"><input type="radio" name="tattoo" checked> 無し</label></div><div class="mockup-note" style="color:#ef4444; background:#fff0f0; padding:4px; border-radius:4px; margin-top:5px;">※有る方は、送信後にLINEで写真の添付をお願いします。</div></div>
+                            <div class="mockup-input-group"><label class="mockup-label"><i>🌟</i>長所・性格・ご質問など</label><textarea class="mockup-textarea" placeholder="明るい性格です、マッサージが得意です。&#10;お給料のことや寮のことで質問があります。&#10;など、ご自由にどうぞ♪"></textarea></div>
+                            <div class="mockup-note-red">※今の正確な体重を記入ください。<br>※誤差が±3kg以上あると保証の対象外となります。</div>
                             <button class="mockup-btn">送信する</button>
                         </div>
                         <div class="scroll-hint"><span>👇 スクロールして確認</span></div>
                     </div>
-                    <div class="custom-hint hint-form">
-                        応募項目の<br>カスタマイズ可能！
-                    </div>
+                    <div class="custom-hint hint-form">応募項目の<br>カスタマイズ可能！</div>
                 </div>
             </div>
 
             <h3>3. Excel(スプレッドシート)へ自動保存</h3>
             <p>情報は自動的にExcel（Googleスプレッドシート）へ蓄積。過去ログを遡って探す必要はありません。</p>
-            
             <div style="text-align: center;">
                 <div class="feature-container">
                     <div class="sheet-mockup">
-                        <div class="sheet-header-bar">
-                            <span class="sheet-icon">田</span>応募者管理シート
-                        </div>
+                        <div class="sheet-header-bar"><span class="sheet-icon">田</span>応募者管理シート</div>
                         <div class="sheet-scroll-area">
                             <table class="sheet-table">
-                                <tr>
-                                    <th>タイムスタンプ</th><th>サイト</th><th>お名前</th><th>期間</th><th>お住まい</th><th>年齢/サイズ</th>
-                                    <th>希望金額</th><th>経験(エステ/出稼ぎ)</th><th>刺青</th><th>PR・質問</th><th>ステータス</th>
-                                </tr>
-                                <tr>
-                                    <td>12/10 10:05</td><td>〇〇求人</td><td>〇〇 〇〇</td><td>12/20〜</td><td>大阪市</td><td>22/160/D</td>
-                                    <td>3万〜</td><td>無 / 無</td><td>無</td><td>特になし</td><td><span class="badge badge-red">未対応</span></td>
-                                </tr>
-                                <tr>
-                                    <td>12/10 12:30</td><td>バニラ</td><td>△△ △△</td><td>12/28〜</td><td>新宿区</td><td>24/158/E</td>
-                                    <td>5万〜</td><td>有 / 有</td><td>有(背中)</td><td>寮について...</td><td><span class="badge badge-blue">対応済</span></td>
-                                </tr>
-                                <tr>
-                                    <td>12/11 09:15</td><td>ナイト</td><td>□□ □□</td><td>1/10〜</td><td>福岡市</td><td>20/162/C</td>
-                                    <td>お任せ</td><td>無 / 有</td><td>無</td><td>頑張ります</td><td><span class="badge badge-gray">面接確</span></td>
-                                </tr>
+                                <tr><th>タイムスタンプ</th><th>サイト</th><th>お名前</th><th>期間</th><th>お住まい</th><th>年齢/サイズ</th><th>希望金額</th><th>経験(エステ/出稼ぎ)</th><th>刺青</th><th>PR・質問</th><th>ステータス</th></tr>
+                                <tr><td>12/10 10:05</td><td>〇〇求人</td><td>〇〇 〇〇</td><td>12/20〜</td><td>大阪市</td><td>22/160/D</td><td>3万〜</td><td>無 / 無</td><td>無</td><td>特になし</td><td><span class="badge badge-red">未対応</span></td></tr>
+                                <tr><td>12/10 12:30</td><td>バニラ</td><td>△△ △△</td><td>12/28〜</td><td>新宿区</td><td>24/158/E</td><td>5万〜</td><td>有 / 有</td><td>有(背中)</td><td>寮について...</td><td><span class="badge badge-blue">対応済</span></td></tr>
+                                <tr><td>12/11 09:15</td><td>ナイト</td><td>□□ □□</td><td>1/10〜</td><td>福岡市</td><td>20/162/C</td><td>お任せ</td><td>無 / 有</td><td>無</td><td>頑張ります</td><td><span class="badge badge-gray">面接確</span></td></tr>
                             </table>
                         </div>
-                        <div class="sheet-scroll-hint">
-                            <span>👉 横へスクロール</span>
-                        </div>
+                        <div class="sheet-scroll-hint"><span>👉 横へスクロール</span></div>
                     </div>
-                    <div class="custom-hint hint-sheet">
-                        応募フォームの<br>項目に連動！
-                    </div>
+                    <div class="custom-hint hint-sheet">応募フォームの<br>項目に連動！</div>
                 </div>
             </div>
 
@@ -793,15 +612,11 @@
                 <div class="chat-screen" style="justify-content: flex-start;">
                     <div class="chat-msg-area" style="padding-top: 20px;">
                         <div style="text-align: right; margin-bottom: 10px;">
-                            <div class="chat-bubble chat-bubble-sent">
-                                こんにちは！<br>本日は予定通り面接にお越しいただけますか？😊
-                            </div>
+                            <div class="chat-bubble chat-bubble-sent">こんにちは！<br>本日は予定通り面接にお越しいただけますか？😊</div>
                             <span style="font-size: 10px; color: #fff; display: block; margin-top: 2px; margin-right: 5px;">既読 11:00</span>
                         </div>
                     </div>
-                    <div style="height: 50px; background: #f0f0f0; border-top: 1px solid #ddd; display:flex; align-items:center; padding:0 10px; color:#999; font-size:12px; position:absolute; bottom:0; width:100%;">
-                        メッセージを入力...
-                    </div>
+                    <div style="height: 50px; background: #f0f0f0; border-top: 1px solid #ddd; display:flex; align-items:center; padding:0 10px; color:#999; font-size:12px; position:absolute; bottom:0; width:100%;">メッセージを入力...</div>
                 </div>
             </div>
         </section>
@@ -872,25 +687,15 @@
             <h2>よくあるご質問</h2>
             <div class="faq-item">
                 <div class="faq-q">完全自動で対応してくれるんですか？</div>
-                <div class="faq-a">
-                    完全自動ではありません。<br><br>
-                    面接日時の最終確定は、店舗様と応募者様との手動でのやり取りになります。<br>
-                    ただし、それ以外の流れはほぼ自動化されているのでご安心ください。
-                </div>
+                <div class="faq-a">完全自動ではありません。<br><br>面接日時の最終確定は、店舗様と応募者様との手動でのやり取りになります。<br>ただし、それ以外の流れはほぼ自動化されているのでご安心ください。</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q">カスタマイズや追加の要望は有料になりますか？</div>
-                <div class="faq-a">
-                    いいえ、追加料金は一切不要です。<br><br>
-                    月額料金の中で、店舗様のご要望には喜んで対応させていただきます。
-                </div>
+                <div class="faq-a">いいえ、追加料金は一切不要です。<br><br>月額料金の中で、店舗様のご要望には喜んで対応させていただきます。</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q">パソコンからでも使えますか？</div>
-                <div class="faq-a">
-                    はい、PCでも問題なくご利用できます。<br><br>
-                    操作方法は通常のLINEと変わらないため、すぐに使いこなしていただけます。
-                </div>
+                <div class="faq-a">はい、PCでも問題なくご利用できます。<br><br>操作方法は通常のLINEと変わらないため、すぐに使いこなしていただけます。</div>
             </div>
         </section>
 
@@ -898,7 +703,7 @@
             <h2>最後に</h2>
             <div class="profile-box">
                 <div class="profile-img-area">
-                    <img src="dZBkvTpJ_400x400.jpg" alt="開発者・奄美" class="profile-img">
+                    <img src="amami.jpg" alt="開発者・奄美" class="profile-img">
                     <div>
                         <div class="profile-name-tag">開発者</div>
                         <div class="profile-name">奄美</div>
@@ -925,9 +730,72 @@
         </footer>
 
         <div class="sticky-footer" id="contact">
-            <a href="#" class="btn-cta">導入費0円で今すぐスタート</a>
+            <a onclick="openModal()" class="btn-cta">導入費0円で今すぐスタート</a>
+        </div>
+
+        <div id="modal" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">お申し込みフォーム</div>
+                    <div class="modal-close" onclick="closeModal()">×</div>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="alert('送信機能は設定が必要です。次にLINE Notifyの設定を行います！'); return false;">
+                        <div class="form-group">
+                            <label class="form-label">お名前<span class="badge-required">必須</span></label>
+                            <input type="text" class="form-input" placeholder="例：山田 太郎" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">店舗名<span class="badge-required">必須</span></label>
+                            <input type="text" class="form-input" placeholder="例：Club Amami" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">地域<span class="badge-required">必須</span></label>
+                            <input type="text" class="form-input" placeholder="例：大阪府大阪市" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">お電話番号</label>
+                            <input type="tel" class="form-input" placeholder="090-1234-5678">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">メールアドレス</label>
+                            <input type="email" class="form-input" placeholder="example@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">LINE ID</label>
+                            <input type="text" class="form-input" placeholder="LINE IDがあれば記入">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">ご希望の連絡方法</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox" name="contact" value="tel"> 電話</label>
+                                <label class="checkbox-item"><input type="checkbox" name="contact" value="email"> メール</label>
+                                <label class="checkbox-item"><input type="checkbox" name="contact" value="line"> LINE</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">送信する</button>
+                    </form>
+                </div>
+            </div>
         </div>
 
     </div>
+
+    <script>
+        // モーダル操作用のスクリプト
+        function openModal() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+        // 外側クリックで閉じる
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
