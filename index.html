@@ -35,7 +35,7 @@
             background-color: var(--white);
             box-shadow: 0 5px 25px rgba(0,0,0,0.1);
             padding-bottom: 90px;
-            position: relative; /* モーダル配置用 */
+            position: relative;
         }
 
         section { padding: 35px 15px; border-bottom: 1px solid #f0f2f5; }
@@ -88,7 +88,7 @@
             box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4);
             border: 2px solid rgba(255,255,255,0.8);
             transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer; /* クリックできるカーソルに */
+            cursor: pointer;
         }
         .btn-cta:active { transform: translateY(2px); box-shadow: 0 4px 10px rgba(138, 43, 226, 0.4); }
         .btn-sub-text { font-size: 12px; margin-top: 4px; display: block; color: rgba(255,255,255,0.9); }
@@ -367,8 +367,7 @@
             border-radius: 15px; overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             animation: modalFadeIn 0.3s ease-out;
-            max-height: 90vh; /* 画面からはみ出さない */
-            display: flex; flex-direction: column;
+            max-height: 90vh; display: flex; flex-direction: column;
         }
         @keyframes modalFadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -382,13 +381,13 @@
             position: absolute; top: 15px; right: 15px; color: white; font-size: 24px; cursor: pointer; line-height: 1;
         }
         .modal-body {
-            padding: 20px; overflow-y: auto; /* 長い場合はスクロール */
+            padding: 20px; overflow-y: auto;
         }
         .form-group { margin-bottom: 15px; }
         .form-label { display: block; font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #333; }
         .badge-required { background: #ff4d4f; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-left: 5px; vertical-align: text-bottom; }
         .form-input {
-            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; /* スマホで拡大しないサイズ */
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px;
             background: #f9f9f9;
         }
         .form-input:focus { border-color: var(--accent-color); outline: none; background: white; }
@@ -703,7 +702,7 @@
             <h2>最後に</h2>
             <div class="profile-box">
                 <div class="profile-img-area">
-                    <img src="amami.jpg" alt="開発者・奄美" class="profile-img">
+                    <img src="dZBkvTpJ_400x400.jpg" alt="開発者・奄美" class="profile-img">
                     <div>
                         <div class="profile-name-tag">開発者</div>
                         <div class="profile-name">奄美</div>
@@ -751,7 +750,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label">地域<span class="badge-required">必須</span></label>
-                            <input type="text" class="form-input" placeholder="例：大阪府大阪市" required>
+                            <input type="text" class="form-input" placeholder="例：大阪府" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label">お電話番号</label>
