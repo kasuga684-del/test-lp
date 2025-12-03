@@ -253,14 +253,14 @@
 
         /* --- FAQ --- */
         .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        .faq-q { font-weight: bold; color: #333; margin-bottom: 8px; display: flex; font-size: 16px; align-items: center; }
+        .faq-q { font-weight: bold; color: #333; margin-bottom: 8px; display: flex; font-size: 16px; align-items: flex-start; }
         .faq-q::before { 
-            content: "Q."; margin-right: 10px; 
+            content: "Q."; margin-right: 10px; margin-top: 2px;
             color: white; background: var(--main-gradient);
-            width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
+            min-width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
             border-radius: 50%; font-size: 14px;
         }
-        .faq-a { font-size: 15px; color: var(--text-main); padding-left: 34px; }
+        .faq-a { font-size: 15px; color: var(--text-main); padding-left: 34px; line-height: 1.7; }
 
         /* --- スマホモックアップ --- */
         .phone-mockup {
@@ -645,17 +645,14 @@
                     <div class="phone-mockup">
                         <div class="mockup-header">〇〇 〇〇 様 ログイン中</div>
                         <div class="mockup-body">
-                            
                             <div class="mockup-input-group">
                                 <label class="mockup-label"><i>🔍</i>どの求人サイトを見ましたか？</label>
                                 <select class="mockup-select"><option>選択してください</option></select>
                             </div>
-
                             <div class="mockup-input-group">
                                 <label class="mockup-label"><i>👤</i>お名前</label>
                                 <input type="text" class="mockup-input" placeholder="仮名でもOK">
                             </div>
-
                             <div class="mockup-input-group">
                                 <label class="mockup-label"><i>📅</i>出稼ぎ期間</label>
                                 <div class="date-range">
@@ -663,12 +660,10 @@
                                 </div>
                                 <div style="text-align:right; font-size:11px; color:var(--form-accent); margin-top:5px;">計 0 日間</div>
                             </div>
-
                             <div class="mockup-input-group">
                                 <label class="mockup-label"><i>📍</i>お住まい（県・市まで）</label>
                                 <input type="text" class="mockup-input" placeholder="例：大阪府大阪市">
                             </div>
-
                             <div class="mockup-row">
                                 <div class="mockup-col mockup-input-group">
                                     <label class="mockup-label"><i>🎂</i>年齢</label>
@@ -682,7 +677,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="mockup-row">
                                 <div class="mockup-col mockup-input-group">
                                     <label class="mockup-label"><i>⚖️</i>体重</label>
@@ -696,12 +690,10 @@
                                     <select class="mockup-select"><option>選択</option></select>
                                 </div>
                             </div>
-
                             <div class="mockup-input-group">
                                 <label class="mockup-label"><i>💰</i>1日の希望金額</label>
                                 <select class="mockup-select"><option>選択してください</option></select>
                             </div>
-
                             <div class="mockup-input-group">
                                 <label class="mockup-label"><i>💆‍♀️</i>エステ経験</label>
                                 <div class="radio-group">
@@ -710,7 +702,6 @@
                                 </div>
                                 <div class="mockup-note">※メンズエステ・風俗エステなど</div>
                             </div>
-
                             <div class="mockup-input-group">
                                 <label class="mockup-label"><i>🧳</i>出稼ぎ経験</label>
                                 <div class="radio-group">
@@ -719,12 +710,10 @@
                                 </div>
                                 <input type="text" class="mockup-input" style="margin-top:5px;" placeholder="有る場合は高知での経験をご記入下さい">
                             </div>
-
                             <div class="mockup-input-group">
                                 <label class="mockup-label"><i>🕒</i>希望待機時間</label>
                                 <select class="mockup-select"><option>選択してください</option></select>
                             </div>
-
                             <div class="mockup-input-group">
                                 <label class="mockup-label"><i>🖌️</i>刺青・傷・妊娠線</label>
                                 <div class="radio-group">
@@ -735,19 +724,15 @@
                                     ※有る方は、送信後にLINEで写真の添付をお願いします。
                                 </div>
                             </div>
-
                             <div class="mockup-input-group">
                                 <label class="mockup-label"><i>🌟</i>長所・性格・ご質問など</label>
                                 <textarea class="mockup-textarea" placeholder="明るい性格です、マッサージが得意です。&#10;お給料のことや寮のことで質問があります。&#10;など、ご自由にどうぞ♪"></textarea>
                             </div>
-
                             <div class="mockup-note-red">
                                 ※今の正確な体重を記入ください。<br>
                                 ※誤差が±3kg以上あると保証の対象外となります。
                             </div>
-
                             <button class="mockup-btn">送信する</button>
-                            
                         </div>
                         <div class="scroll-hint"><span>👇 スクロールして確認</span></div>
                     </div>
@@ -879,9 +864,28 @@
 
         <section>
             <h2>よくあるご質問</h2>
-            <div class="faq-item"><div class="faq-q">完全自動ですか？</div><div class="faq-a">いいえ。信頼関係構築のため、最終的な「面接確定」は手動です。</div></div>
-            <div class="faq-item"><div class="faq-q">PCは必要ですか？</div><div class="faq-a">不要です。スマホだけですべて管理できます。</div></div>
-            <div class="faq-item"><div class="faq-q">すぐ使えますか？</div><div class="faq-a">はい。情報受領後、最短10分で設定完了します。</div></div>
+            <div class="faq-item">
+                <div class="faq-q">完全自動で対応してくれるんですか？</div>
+                <div class="faq-a">
+                    完全自動ではありません。<br><br>
+                    面接日時の最終確定は、店舗様と応募者様との手動でのやり取りになります。<br>
+                    ただし、それ以外の流れはほぼ自動化されているのでご安心ください。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">カスタマイズや追加の要望は有料になりますか？</div>
+                <div class="faq-a">
+                    いいえ、追加料金は一切不要です。<br><br>
+                    月額料金の中で、店舗様のご要望には喜んで対応させていただきます。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">パソコンからでも使えますか？</div>
+                <div class="faq-a">
+                    はい、PCでも問題なくご利用できます。<br><br>
+                    操作方法は通常のLINEと変わらないため、すぐに使いこなしていただけます。
+                </div>
+            </div>
         </section>
 
         <section class="profile-section">
