@@ -8,11 +8,7 @@
         /* --- 基本設定（モダン・グラデーション） --- */
         :root {
             --main-gradient: linear-gradient(135deg, #8a2be2 0%, #4169e1 100%);
-            /* ボタン用：より鮮やかで立体的なグラデーション */
-            --btn-gradient: linear-gradient(to bottom, #a855f7 0%, #3b82f6 100%);
-            --btn-shadow: 0 6px 0 #2c5282, 0 15px 20px rgba(0,0,0,0.2);
-            --btn-active-shadow: 0 2px 0 #2c5282, 0 5px 10px rgba(0,0,0,0.2);
-            
+            --btn-gradient: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
             --accent-color: #4169e1;
             --form-accent: #8a2be2;
             --bg-light: #f8faff;
@@ -38,14 +34,14 @@
             margin: 0 auto;
             background-color: var(--white);
             box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-            padding-bottom: 100px;
+            padding-bottom: 90px;
             position: relative;
         }
 
-        section { padding: 40px 15px; border-bottom: 1px solid #f0f2f5; }
+        section { padding: 35px 15px; border-bottom: 1px solid #f0f2f5; }
         
         h2 {
-            font-size: 24px; text-align: center; margin-bottom: 30px; color: #333;
+            font-size: 24px; text-align: center; margin-bottom: 25px; color: #333;
             position: relative; padding-bottom: 15px; line-height: 1.4; font-weight: bold;
         }
         h2::after {
@@ -54,14 +50,14 @@
         }
 
         h3 {
-            font-size: 19px; margin-bottom: 15px; color: #333;
-            border-left: 6px solid; border-image: var(--main-gradient) 1;
-            padding-left: 12px; margin-top: 30px; font-weight: bold;
+            font-size: 18px; margin-bottom: 15px; color: #333;
+            border-left: 5px solid; border-image: var(--main-gradient) 1;
+            padding-left: 12px; margin-top: 25px; font-weight: bold;
         }
 
-        p { margin-bottom: 1.2em; font-size: 15px; }
+        p { margin-bottom: 1em; font-size: 15px; }
         ul { list-style: none; padding: 0; }
-        li { margin-bottom: 10px; position: relative; padding-left: 1.5em; font-size: 15px; }
+        li { margin-bottom: 8px; position: relative; padding-left: 1.5em; font-size: 15px; }
         li::before { 
             content: "✔"; background: var(--main-gradient); -webkit-background-clip: text;
             -webkit-text-fill-color: transparent; font-weight: bold; position: absolute; left: 0; top: 0; 
@@ -73,62 +69,29 @@
 
         /* --- ファーストビュー --- */
         .hero { 
-            background: var(--main-gradient); color: var(--white); padding: 50px 15px 60px; 
-            text-align: center; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
+            background: var(--main-gradient); color: var(--white); padding: 50px 15px; 
+            text-align: center; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
         }
-        .hero h1 { font-size: 26px; font-weight: bold; line-height: 1.4; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .hero h1 { font-size: 26px; font-weight: bold; line-height: 1.4; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
         .hero-tag { 
             display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4);
             color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 13px; margin-bottom: 15px; 
             font-weight: bold; backdrop-filter: blur(5px);
         }
 
-        /* --- 超強化版 CTAボタン --- */
-        .cta-wrapper {
-            text-align: center; margin: 30px 0; position: relative;
-        }
-        /* 吹き出し */
-        .cta-balloon {
-            display: inline-block; background: #ffeb3b; color: #333; font-size: 12px; font-weight: bold;
-            padding: 5px 15px; border-radius: 20px; position: absolute; top: -25px; left: 50%;
-            transform: translateX(-50%); box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            animation: bounce-balloon 2s infinite; z-index: 10; white-space: nowrap;
-        }
-        .cta-balloon::after {
-            content: ""; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
-            border-width: 6px 6px 0; border-style: solid; border-color: #ffeb3b transparent transparent;
-        }
-        @keyframes bounce-balloon {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-5px); }
-        }
-
+        /* --- CTAボタン --- */
         .btn-cta {
-            display: block; width: 94%; max-width: 450px; margin: 0 auto;
+            display: block; width: 100%; max-width: 400px; margin: 0 auto;
             background: var(--btn-gradient); 
             color: var(--white); text-align: center;
-            padding: 18px 10px; font-size: 20px; font-weight: bold; border-radius: 100px; text-decoration: none;
-            box-shadow: var(--btn-shadow);
-            border: 2px solid rgba(255,255,255,0.4);
-            transition: all 0.1s; position: relative; overflow: hidden;
-            cursor: pointer; letter-spacing: 0.05em;
+            padding: 16px; font-size: 18px; font-weight: bold; border-radius: 50px; text-decoration: none;
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4);
+            border: 2px solid rgba(255,255,255,0.8);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
         }
-        .btn-cta:active { transform: translateY(4px); box-shadow: var(--btn-active-shadow); }
-        
-        /* 光るアニメーション */
-        .btn-cta::after {
-            content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
-            transform: skewX(-20deg); animation: shine 3s infinite;
-        }
-        @keyframes shine {
-            0% { left: -100%; }
-            20% { left: 100%; }
-            100% { left: 100%; }
-        }
-        
-        .btn-main-text { display: block; line-height: 1.2; }
-        .btn-sub-text { font-size: 13px; margin-top: 4px; display: block; color: rgba(255,255,255,0.95); font-weight: normal; }
+        .btn-cta:active { transform: translateY(2px); box-shadow: 0 4px 10px rgba(138, 43, 226, 0.4); }
+        .btn-sub-text { font-size: 12px; margin-top: 4px; display: block; color: rgba(255,255,255,0.9); }
 
         /* --- シナリオ図解 --- */
         .scenario-section { background: #f0f2f5; text-align: center; padding: 30px 10px; }
@@ -143,21 +106,32 @@
             display: flex; justify-content: center; align-items: flex-end; gap: 8px; height: auto; margin-top: 5px; margin-bottom: 10px;
         }
         
-        /* スマホアイコン類 */
+        /* 簡易スマホアイコン */
         .mini-phone {
             width: 36px; height: 60px; background: #333; border-radius: 8px; position: relative;
-            display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         .mini-phone::before { content: ""; position: absolute; top: 2px; left: 50%; transform: translateX(-50%); width: 30%; height: 3px; background: #555; border-radius: 2px; }
-        .mini-phone-screen { width: 30px; height: 52px; background: white; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+        .mini-phone-screen {
+            width: 30px; height: 52px; background: white; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+        }
 
+        /* 中サイズスマホアイコン */
         .medium-phone {
             width: 50px; height: 84px; background: #333; border-radius: 10px;
             position: relative; display: flex; align-items: center; justify-content: center;
             box-shadow: 0 5px 10px rgba(0,0,0,0.2); margin: 0 auto 8px;
         }
-        .medium-phone::before { content: ""; position: absolute; top: 3px; left: 50%; transform: translateX(-50%); width: 30%; height: 3px; background: #555; border-radius: 2px; }
-        .medium-phone-screen { width: 42px; height: 74px; background: white; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 4px 0; }
+        .medium-phone::before {
+            content: ""; position: absolute; top: 3px; left: 50%; transform: translateX(-50%);
+            width: 30%; height: 3px; background: #555; border-radius: 2px;
+        }
+        .medium-phone-screen {
+            width: 42px; height: 74px; background: white; border-radius: 6px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 4px; padding: 4px 0;
+        }
         .phone-screen-text { font-size: 8px; font-weight: bold; line-height: 1.2; text-align: center; color: #333; }
 
         .app-icon { width: 18px; height: 18px; border-radius: 5px; font-size: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
@@ -611,9 +585,9 @@
         <section>
             <h2>導入までの流れ</h2>
             <ol style="padding-left: 20px;">
-                <li><strong>STEP 1：お申し込み</strong><br>店舗名や、フォームに入れたい項目をLINEでお送りください。</li>
-                <li><strong>STEP 2：設定（弊社作業）</strong><br>頂いた情報をもとに弊社で設定します。最短10分、難しい作業は不要です。</li>
-                <li><strong>STEP 3：運用スタート</strong><br>すぐにお使いいただけます。</li>
+                <li><strong>STEP 1：お申し込み</strong><br>応募フォームを入力していただき送信してください。</li>
+                <li><strong>STEP 2：設定（弊社作業）</strong><br>まずはお電話で改めてシステムの詳細をお伝えした上で、必要項目等の打合せをさせていただきます。その後、店舗様用にカスタマイズした「スマート求人公式LINE」をお渡しします。</li>
+                <li><strong>STEP 3：運用スタート</strong><br>マニュアルもお渡ししますので、すぐにお使いいただけます。</li>
             </ol>
         </section>
 
