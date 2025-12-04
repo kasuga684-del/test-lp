@@ -5,14 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>スマート求人公式LINE | 店舗向け採用効率化ツール</title>
     <style>
-        /* --- 基本設定 --- */
+        /* --- 基本設定（モダン・グラデーション） --- */
         :root {
             --main-gradient: linear-gradient(135deg, #8a2be2 0%, #4169e1 100%);
-            /* ボタン用：より鮮やかで立体的なグラデーション */
-            --btn-gradient: linear-gradient(to bottom, #a855f7 0%, #3b82f6 100%);
-            --btn-shadow: 0 6px 0 #2c5282, 0 15px 20px rgba(0,0,0,0.2); /* 立体的な影 */
-            --btn-active-shadow: 0 2px 0 #2c5282, 0 5px 10px rgba(0,0,0,0.2);
-            
+            --btn-gradient: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
             --accent-color: #4169e1;
             --form-accent: #8a2be2;
             --bg-light: #f8faff;
@@ -38,14 +34,14 @@
             margin: 0 auto;
             background-color: var(--white);
             box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-            padding-bottom: 100px; /* フッターとかぶらないよう余白増 */
+            padding-bottom: 90px;
             position: relative;
         }
 
-        section { padding: 40px 15px; border-bottom: 1px solid #f0f2f5; }
+        section { padding: 35px 15px; border-bottom: 1px solid #f0f2f5; }
         
         h2 {
-            font-size: 24px; text-align: center; margin-bottom: 30px; color: #333;
+            font-size: 24px; text-align: center; margin-bottom: 25px; color: #333;
             position: relative; padding-bottom: 15px; line-height: 1.4; font-weight: bold;
         }
         h2::after {
@@ -54,14 +50,14 @@
         }
 
         h3 {
-            font-size: 19px; margin-bottom: 15px; color: #333;
-            border-left: 6px solid; border-image: var(--main-gradient) 1;
-            padding-left: 12px; margin-top: 30px; font-weight: bold;
+            font-size: 18px; margin-bottom: 15px; color: #333;
+            border-left: 5px solid; border-image: var(--main-gradient) 1;
+            padding-left: 12px; margin-top: 25px; font-weight: bold;
         }
 
-        p { margin-bottom: 1.2em; font-size: 15px; }
+        p { margin-bottom: 1em; font-size: 15px; }
         ul { list-style: none; padding: 0; }
-        li { margin-bottom: 10px; position: relative; padding-left: 1.5em; font-size: 15px; }
+        li { margin-bottom: 8px; position: relative; padding-left: 1.5em; font-size: 15px; }
         li::before { 
             content: "✔"; background: var(--main-gradient); -webkit-background-clip: text;
             -webkit-text-fill-color: transparent; font-weight: bold; position: absolute; left: 0; top: 0; 
@@ -73,62 +69,29 @@
 
         /* --- ファーストビュー --- */
         .hero { 
-            background: var(--main-gradient); color: var(--white); padding: 50px 15px 60px; 
-            text-align: center; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
+            background: var(--main-gradient); color: var(--white); padding: 50px 15px; 
+            text-align: center; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
         }
-        .hero h1 { font-size: 26px; font-weight: bold; line-height: 1.4; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .hero h1 { font-size: 26px; font-weight: bold; line-height: 1.4; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
         .hero-tag { 
             display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4);
             color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 13px; margin-bottom: 15px; 
             font-weight: bold; backdrop-filter: blur(5px);
         }
 
-        /* --- 超強化版 CTAボタン --- */
-        .cta-wrapper {
-            text-align: center; margin: 30px 0; position: relative;
-        }
-        /* 吹き出し */
-        .cta-balloon {
-            display: inline-block; background: #ffeb3b; color: #333; font-size: 12px; font-weight: bold;
-            padding: 5px 15px; border-radius: 20px; position: absolute; top: -25px; left: 50%;
-            transform: translateX(-50%); box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            animation: bounce-balloon 2s infinite; z-index: 10; white-space: nowrap;
-        }
-        .cta-balloon::after {
-            content: ""; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
-            border-width: 6px 6px 0; border-style: solid; border-color: #ffeb3b transparent transparent;
-        }
-        @keyframes bounce-balloon {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-5px); }
-        }
-
+        /* --- CTAボタン --- */
         .btn-cta {
-            display: block; width: 94%; max-width: 450px; margin: 0 auto;
+            display: block; width: 100%; max-width: 400px; margin: 0 auto;
             background: var(--btn-gradient); 
             color: var(--white); text-align: center;
-            padding: 18px 10px; font-size: 20px; font-weight: bold; border-radius: 100px; text-decoration: none;
-            box-shadow: var(--btn-shadow);
-            border: 2px solid rgba(255,255,255,0.4);
-            transition: all 0.1s; position: relative; overflow: hidden;
-            cursor: pointer; letter-spacing: 0.05em;
+            padding: 16px; font-size: 18px; font-weight: bold; border-radius: 50px; text-decoration: none;
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4);
+            border: 2px solid rgba(255,255,255,0.8);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
         }
-        .btn-cta:active { transform: translateY(4px); box-shadow: var(--btn-active-shadow); }
-        
-        /* 光るアニメーション */
-        .btn-cta::after {
-            content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
-            transform: skewX(-20deg); animation: shine 3s infinite;
-        }
-        @keyframes shine {
-            0% { left: -100%; }
-            20% { left: 100%; }
-            100% { left: 100%; }
-        }
-        
-        .btn-main-text { display: block; line-height: 1.2; }
-        .btn-sub-text { font-size: 13px; margin-top: 4px; display: block; color: rgba(255,255,255,0.95); font-weight: normal; }
+        .btn-cta:active { transform: translateY(2px); box-shadow: 0 4px 10px rgba(138, 43, 226, 0.4); }
+        .btn-sub-text { font-size: 12px; margin-top: 4px; display: block; color: rgba(255,255,255,0.9); }
 
         /* --- シナリオ図解 --- */
         .scenario-section { background: #f0f2f5; text-align: center; padding: 30px 10px; }
@@ -143,21 +106,32 @@
             display: flex; justify-content: center; align-items: flex-end; gap: 8px; height: auto; margin-top: 5px; margin-bottom: 10px;
         }
         
-        /* スマホアイコン類 */
+        /* 簡易スマホアイコン */
         .mini-phone {
             width: 36px; height: 60px; background: #333; border-radius: 8px; position: relative;
-            display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         .mini-phone::before { content: ""; position: absolute; top: 2px; left: 50%; transform: translateX(-50%); width: 30%; height: 3px; background: #555; border-radius: 2px; }
-        .mini-phone-screen { width: 30px; height: 52px; background: white; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+        .mini-phone-screen {
+            width: 30px; height: 52px; background: white; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+        }
 
+        /* 中サイズスマホアイコン */
         .medium-phone {
             width: 50px; height: 84px; background: #333; border-radius: 10px;
             position: relative; display: flex; align-items: center; justify-content: center;
             box-shadow: 0 5px 10px rgba(0,0,0,0.2); margin: 0 auto 8px;
         }
-        .medium-phone::before { content: ""; position: absolute; top: 3px; left: 50%; transform: translateX(-50%); width: 30%; height: 3px; background: #555; border-radius: 2px; }
-        .medium-phone-screen { width: 42px; height: 74px; background: white; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 4px 0; }
+        .medium-phone::before {
+            content: ""; position: absolute; top: 3px; left: 50%; transform: translateX(-50%);
+            width: 30%; height: 3px; background: #555; border-radius: 2px;
+        }
+        .medium-phone-screen {
+            width: 42px; height: 74px; background: white; border-radius: 6px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 4px; padding: 4px 0;
+        }
         .phone-screen-text { font-size: 8px; font-weight: bold; line-height: 1.2; text-align: center; color: #333; }
 
         .app-icon { width: 18px; height: 18px; border-radius: 5px; font-size: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
@@ -224,7 +198,7 @@
         }
         .faq-a { font-size: 15px; color: var(--text-main); padding-left: 34px; line-height: 1.7; }
 
-        /* --- スマホモックアップ類 --- */
+        /* --- スマホモックアップ --- */
         .phone-mockup {
             width: 100%; max-width: 280px; height: 480px; margin: 30px auto;
             border: 10px solid #333; border-radius: 30px; background: #fff; 
@@ -235,6 +209,8 @@
             content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
             width: 40%; height: 18px; background: #333; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; z-index: 10;
         }
+
+        /* --- トーク画面 --- */
         .chat-screen {
             background-color: #7294c2; flex-grow: 1; position: relative;
             display: flex; flex-direction: column; justify-content: space-between;
@@ -255,6 +231,7 @@
             left: auto; right: -6px; border-width: 6px 0 6px 6px;
             border-color: transparent transparent transparent var(--accent-color);
         }
+
         .rich-menu { height: 110px; display: flex; border-top: 1px solid #ddd; }
         .rich-btn-left { flex: 1; background: var(--rich-pink-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; border-right: 1px solid #ebdada; }
         .rich-btn-right { flex: 1; background: var(--rich-brown); display: flex; flex-direction: column; align-items: center; justify-content: center; }
@@ -264,18 +241,30 @@
         .rich-btn-inner-white { background: white; color: var(--rich-brown); font-size: 10px; padding: 3px 8px; border-radius: 20px; }
 
         /* --- フォーム画面 --- */
-        .mockup-header { flex-shrink: 0; background: #fff; border-bottom: 1px solid #eee; padding: 30px 10px 10px; text-align: center; font-size: 13px; color: var(--form-accent); font-weight: bold; }
+        .mockup-header {
+            flex-shrink: 0; background: #fff; border-bottom: 1px solid #eee;
+            padding: 30px 10px 10px; text-align: center; font-size: 13px; color: var(--form-accent); font-weight: bold;
+        }
         .mockup-body { padding: 15px; background: #f8faff; flex-grow: 1; overflow-y: auto; padding-bottom: 50px; }
+        
         .mockup-input-group { margin-bottom: 15px; background: white; padding: 12px; border-radius: 10px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .mockup-label { font-size: 12px; font-weight: bold; color: var(--form-accent); margin-bottom: 5px; display: flex; align-items: center; }
-        .mockup-input, .mockup-select, .mockup-textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; background: #fdfdfd; color: #333; box-sizing: border-box; transition: border-color 0.2s; }
+        
+        .mockup-input, .mockup-select, .mockup-textarea { 
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; 
+            background: #fdfdfd; color: #333; box-sizing: border-box; transition: border-color 0.2s;
+        }
         .mockup-input:focus, .mockup-select:focus, .mockup-textarea:focus { outline: none; border-color: var(--accent-color); }
         .mockup-textarea { height: 60px; resize: none; font-family: sans-serif; }
         .mockup-row { display: flex; gap: 8px; }
         .mockup-col { flex: 1; }
         .date-range { display: flex; align-items: center; gap: 4px; font-size: 12px; color: #666; }
         .date-box { flex: 1; border: 1px solid #ddd; padding: 8px; border-radius: 6px; background: #fff; text-align: center; }
-        .mockup-btn { background: var(--btn-gradient); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; margin-top: 15px; font-size: 15px; box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3); }
+        .mockup-btn { 
+            background: var(--btn-gradient); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; 
+            font-weight: bold; margin-top: 15px; font-size: 15px; box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3);
+        }
+        
         .radio-group { display: flex; gap: 10px; align-items: center; font-size: 13px; color: #555; }
         .radio-item { display: flex; align-items: center; gap: 4px; }
         .mockup-note { font-size: 11px; color: #666; margin-top: 5px; }
@@ -283,15 +272,30 @@
         input[type="radio"] { accent-color: var(--form-accent); }
 
         /* --- スプレッドシート --- */
-        .sheet-mockup { margin: 20px 0; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative; }
+        .sheet-mockup { 
+            margin: 20px 0; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; 
+            background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); position: relative;
+        }
         .sheet-header-bar { background-color: var(--sheet-green); color: white; padding: 12px 15px; font-weight: bold; font-size: 14px; display: flex; align-items: center; }
         .sheet-icon { display: inline-block; width: 20px; height: 20px; background: white; color: var(--sheet-green); text-align: center; line-height: 20px; border-radius: 3px; margin-right: 10px; font-weight: bold; font-size: 12px; }
+        
         .sheet-scroll-area { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 5px; }
         .sheet-table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 800px; }
         .sheet-table th, .sheet-table td { border: 1px solid #e0e0e0; padding: 8px 10px; white-space: nowrap; text-align: left; color: #333; }
         .sheet-table th { background-color: #f3f3f3; color: #555; font-weight: bold; }
-        .sheet-scroll-hint { position: absolute; bottom: 15px; right: 20px; background: rgba(0,0,0,0.8); color: white; padding: 6px 12px; border-radius: 20px; font-size: 11px; z-index: 10; display: flex; align-items: center; gap: 5px; pointer-events: none; animation: side-bounce 1.5s infinite; }
-        @keyframes side-bounce { 0%, 100% { transform: translateX(0); opacity: 0.9; } 50% { transform: translateX(5px); opacity: 1; } }
+        
+        .sheet-scroll-hint {
+            position: absolute; bottom: 15px; right: 20px;
+            background: rgba(0,0,0,0.8); color: white; padding: 6px 12px;
+            border-radius: 20px; font-size: 11px; z-index: 10;
+            display: flex; align-items: center; gap: 5px; pointer-events: none;
+            animation: side-bounce 1.5s infinite;
+        }
+        @keyframes side-bounce {
+            0%, 100% { transform: translateX(0); opacity: 0.9; }
+            50% { transform: translateX(5px); opacity: 1; }
+        }
+
         .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 10px; color: white; }
         .badge-red { background-color: #ea4335; }
         .badge-blue { background-color: #4285f4; }
@@ -299,9 +303,15 @@
 
         /* --- 開発者プロフィール --- */
         .profile-section { padding-top: 10px; padding-bottom: 40px; }
-        .profile-box { background: white; border: 1px solid #eee; border-radius: 15px; padding: 25px 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 10px; }
+        .profile-box {
+            background: white; border: 1px solid #eee; border-radius: 15px; padding: 25px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 10px;
+        }
         .profile-img-area { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .profile-img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .profile-img { 
+            width: 70px; height: 70px; border-radius: 50%; object-fit: cover; 
+            border: 2px solid var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
         .profile-name-tag { font-size: 12px; color: #888; margin-bottom: 2px; }
         .profile-name { font-size: 18px; font-weight: bold; color: #333; }
         .profile-text { font-size: 14px; line-height: 1.8; color: #444; }
@@ -309,12 +319,28 @@
         .profile-text p:last-child { margin-bottom: 0; }
 
         /* スクロール誘導のヒント（縦） */
-        .scroll-hint { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: white; padding: 6px 12px; border-radius: 20px; font-size: 11px; z-index: 20; display: flex; align-items: center; gap: 5px; white-space: nowrap; animation: bounce 2s infinite; pointer-events: none; }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);} 40% {transform: translateX(-50%) translateY(-5px);} 60% {transform: translateX(-50%) translateY(-3px);} }
+        .scroll-hint {
+            position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+            background: rgba(0,0,0,0.8); color: white; padding: 6px 12px;
+            border-radius: 20px; font-size: 11px; z-index: 20;
+            display: flex; align-items: center; gap: 5px; white-space: nowrap;
+            animation: bounce 2s infinite; pointer-events: none;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+            40% {transform: translateX(-50%) translateY(-5px);}
+            60% {transform: translateX(-50%) translateY(-3px);}
+        }
 
         /* カスタマイズ強調のヒント */
-        .feature-container { position: relative; display: inline-block; width: 100%; max-width: fit-content; margin: 0 auto 30px; }
-        .custom-hint { position: absolute; background: var(--main-gradient); color: white; padding: 12px 18px; border-radius: 30px; font-size: 14px; font-weight: bold; box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4); z-index: 20; white-space: nowrap; text-align: center; }
+        .feature-container {
+            position: relative; display: inline-block; width: 100%; max-width: fit-content; margin: 0 auto 30px;
+        }
+        .custom-hint {
+            position: absolute; background: var(--main-gradient); color: white;
+            padding: 12px 18px; border-radius: 30px; font-size: 14px; font-weight: bold;
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4); z-index: 20; white-space: nowrap; text-align: center;
+        }
         .custom-hint::after { content: ''; position: absolute; width: 0; height: 0; border-style: solid; }
         .hint-rich-menu { top: 280px; right: -25px; }
         .hint-rich-menu::after { left: -10px; top: 50%; transform: translateY(-50%); border-width: 10px 15px 10px 0; border-color: transparent #8a2be2 transparent transparent; }
@@ -327,22 +353,51 @@
         .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); padding: 15px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1000; display: flex; justify-content: center; backdrop-filter: blur(5px); }
         .sticky-footer .btn-cta { margin: 0; width: 100%; max-width: 600px; font-size: 18px; padding: 14px; }
 
-        /* --- モーダル --- */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(3px); }
-        .modal-content { background: white; width: 100%; max-width: 500px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); animation: modalFadeIn 0.3s ease-out; max-height: 90vh; display: flex; flex-direction: column; }
-        @keyframes modalFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .modal-header { background: var(--main-gradient); padding: 15px; text-align: center; color: white; position: relative; }
+        /* --- モーダル（申し込みフォーム） --- */
+        .modal-overlay {
+            display: none; /* デフォルトは非表示 */
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); z-index: 2000;
+            align-items: center; justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(3px);
+        }
+        .modal-content {
+            background: white; width: 100%; max-width: 500px;
+            border-radius: 15px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: modalFadeIn 0.3s ease-out;
+            max-height: 90vh; display: flex; flex-direction: column;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .modal-header {
+            background: var(--main-gradient); padding: 15px; text-align: center; color: white; position: relative;
+        }
         .modal-title { font-size: 18px; font-weight: bold; }
-        .modal-close { position: absolute; top: 15px; right: 15px; color: white; font-size: 24px; cursor: pointer; line-height: 1; }
-        .modal-body { padding: 20px; overflow-y: auto; }
+        .modal-close {
+            position: absolute; top: 15px; right: 15px; color: white; font-size: 24px; cursor: pointer; line-height: 1;
+        }
+        .modal-body {
+            padding: 20px; overflow-y: auto;
+        }
         .form-group { margin-bottom: 15px; }
         .form-label { display: block; font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #333; }
         .badge-required { background: #ff4d4f; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-left: 5px; vertical-align: text-bottom; }
-        .form-input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; background: #f9f9f9; }
+        .form-input {
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px;
+            background: #f9f9f9;
+        }
         .form-input:focus { border-color: var(--accent-color); outline: none; background: white; }
         .checkbox-group { display: flex; gap: 15px; margin-top: 5px; }
         .checkbox-item { display: flex; align-items: center; gap: 5px; font-size: 14px; cursor: pointer; }
-        .submit-btn { background: var(--btn-gradient); color: white; border: none; width: 100%; padding: 15px; font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 10px; box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3); }
+        .submit-btn {
+            background: var(--btn-gradient); color: white; border: none; width: 100%; padding: 15px;
+            font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer; margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3);
+        }
         .submit-btn:hover { opacity: 0.9; }
 
     </style>
@@ -355,13 +410,10 @@
             <span class="hero-tag">初期導入費0円で最短即日スタート</span>
             <h1>忙しい営業中も、深夜の寝ている間も。<br>応募者の対応・管理は<br>「スマート求人公式LINE」にお任せ</h1>
             <p>質問ラリーなどの無駄なやり取りを「最小限」に。<br>応募から面接日時の確定まで、スマホ1台で完結。</p>
-            <div class="cta-wrapper">
-                <span class="cta-balloon">＼ 30秒で完了 ／</span>
-                <a onclick="openModal()" class="btn-cta">
-                    <span class="btn-main-text">導入費0円で今すぐ申し込む</span>
-                    <span class="btn-sub-text">※まずは無料でご相談ください</span>
-                </a>
-            </div>
+            <a onclick="openModal()" class="btn-cta">
+                導入費0円で今すぐ申し込む
+                <span class="btn-sub-text">※まずは無料でご相談ください</span>
+            </a>
         </header>
 
         <section class="scenario-section">
@@ -461,16 +513,6 @@
                 <li><strong>面接2時間前のリマインド</strong>：ドタキャン率が激減。</li>
                 <li><strong>スマホ1台で完結</strong>：難しいPC操作は不要。</li>
             </ul>
-        </section>
-
-        <section style="background: #eef2ff; border-top: 2px solid #8a2be2; border-bottom: 2px solid #8a2be2;">
-            <h2 style="margin-bottom: 10px; font-size: 20px;">まずは無料相談から<br>始めてみませんか？</h2>
-            <p class="text-center" style="font-size: 14px; margin-bottom: 20px;">あなたの店舗に合わせた<br>最適な設定をご提案します。</p>
-            <div class="cta-wrapper" style="margin: 0;">
-                <a onclick="openModal()" class="btn-cta">
-                    <span class="btn-main-text">導入費0円で今すぐ申し込む</span>
-                </a>
-            </div>
         </section>
 
         <section class="bg-gray">
@@ -668,10 +710,24 @@
                 </div>
                 <div class="profile-text">
                     <p>ここまでお読みいただき、ありがとうございます。</p>
-                    <p>最近は似たような「LINEシステム」を見かける機会も増えてきましたが、今回ご紹介した仕組みは、長年この業界に携わり、現場の悩みを誰よりも知っている私・奄美だからこそ作れたシステムです。</p>
-                    <p>店舗様ごとに抱える課題は本当にさまざまですが、このシステムは、用途に合わせて柔軟にカスタマイズできるため、どんな業態にも合わせて運用できます。</p>
-                    <p>まずは一度、お試し感覚で触っていただければ、その便利さを実感していただけると思います。</p>
-                    <p>今後ともどうぞよろしくお願いいたします。</p>
+                    <p>最近はよく似た「LINEシステム」を見かけるようになりましたが──<br>
+                    “友達追加はされるのに、応募まで全然つながらない”</p>
+                    <p>これは多くの店舗様が必ずぶつかる壁です。<br>
+                    実際に何百人もの応募導線を見てきた私・奄美だからこそ断言できますが、</p>
+                    <p>応募が入らない原因の多くは 「システム自体の仕組みや導線設計」 にあります。<br>
+                    今回ご紹介したシステムは、</p>
+                    <p>ただ友達追加されるだけのLINEではなく、<br>
+                    ✔ 応募者が迷わずステップを進められる<br>
+                    ✔ 店舗様の業態に合わせて最適な導線を自動で作れる<br>
+                    ✔ 面接までスムーズにたどり着くように設計されている<br>
+                    そんな “結果につながる構造” を徹底的に作り込んでいます。</p>
+                    <p>店舗様によって抱える悩みはさまざまですが、<br>
+                    このシステムは 用途や業種に合わせて柔軟にカスタマイズ できるため、<br>
+                    どんな形態の店舗様でも確実に運用できるように仕上げています。</p>
+                    <p>まずは一度、お試し感覚で触れてみてください。</p>
+                    <p>「応募までの流れがこんなにスムーズになるんや！」</p>
+                    <p>と、きっと実感していただけるはずです。<br>
+                    今後ともどうぞよろしくお願いいたします。</p>
                 </div>
             </div>
         </section>
@@ -739,14 +795,12 @@
     </div>
 
     <script>
-        // モーダル操作用のスクリプト
         function openModal() {
             document.getElementById('modal').style.display = 'flex';
         }
         function closeModal() {
             document.getElementById('modal').style.display = 'none';
         }
-        // 外側クリックで閉じる
         window.onclick = function(event) {
             const modal = document.getElementById('modal');
             if (event.target == modal) {
