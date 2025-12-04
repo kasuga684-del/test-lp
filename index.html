@@ -329,13 +329,10 @@
             <span class="hero-tag">初期導入費0円で最短即日スタート</span>
             <h1>忙しい営業中も、深夜の寝ている間も。<br>応募者の対応・管理は<br>「スマート求人公式LINE」にお任せ</h1>
             <p>質問ラリーなどの無駄なやり取りを「最小限」に。<br>応募から面接日時の確定まで、スマホ1台で完結。</p>
-            <div class="cta-wrapper">
-                <span class="cta-balloon">＼ 30秒で完了 ／</span>
-                <a onclick="openModal()" class="btn-cta">
-                    <span class="btn-main-text">導入費0円で今すぐ申し込む</span>
-                    <span class="btn-sub-text">※まずは無料でご相談ください</span>
-                </a>
-            </div>
+            <a onclick="openModal()" class="btn-cta">
+                導入費0円で今すぐ申し込む
+                <span class="btn-sub-text">※まずは無料でご相談ください</span>
+            </a>
         </header>
 
         <section class="scenario-section">
@@ -440,9 +437,9 @@
         <section style="background: #eef2ff; border-top: 2px solid #8a2be2; border-bottom: 2px solid #8a2be2;">
             <h2 style="margin-bottom: 10px; font-size: 20px;">まずは無料相談から<br>始めてみませんか？</h2>
             <p class="text-center" style="font-size: 14px; margin-bottom: 20px;">あなたの店舗に合わせた<br>最適な設定をご提案します。</p>
-            <div class="cta-wrapper" style="margin: 0;">
+            <div style="margin: 0; text-align: center;">
                 <a onclick="openModal()" class="btn-cta">
-                    <span class="btn-main-text">導入費0円で今すぐ申し込む</span>
+                    導入費0円で今すぐ申し込む
                 </a>
             </div>
         </section>
@@ -584,11 +581,20 @@
 
         <section>
             <h2>導入までの流れ</h2>
-            <ol style="padding-left: 20px;">
-                <li><strong>STEP 1：お申し込み</strong><br>応募フォームを入力していただき送信してください。</li>
-                <li><strong>STEP 2：設定（弊社作業）</strong><br>まずはお電話で改めてシステムの詳細をお伝えした上で、必要項目等の打合せをさせていただきます。その後、店舗様用にカスタマイズした「スマート求人公式LINE」をお渡しします。</li>
-                <li><strong>STEP 3：運用スタート</strong><br>マニュアルもお渡ししますので、すぐにお使いいただけます。</li>
-            </ol>
+            <div style="padding-left: 10px;">
+                <div style="margin-bottom: 20px;">
+                    <h3 style="border:none; padding:0; margin-bottom:5px; color:var(--accent-color);">STEP 1：お申し込み</h3>
+                    <p style="font-size:14px; margin:0;">応募フォームを入力していただき送信してください。</p>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <h3 style="border:none; padding:0; margin-bottom:5px; color:var(--accent-color);">STEP 2：設定（弊社作業）</h3>
+                    <p style="font-size:14px; margin:0;">まずはお電話で改めてシステムの詳細をお伝えした上で、必要項目等の打合せをさせていただきます。その後、店舗様用にカスタマイズした「スマート求人公式LINE」をお渡しします。</p>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <h3 style="border:none; padding:0; margin-bottom:5px; color:var(--accent-color);">STEP 3：運用スタート</h3>
+                    <p style="font-size:14px; margin:0;">マニュアルもお渡ししますので、すぐにお使いいただけます。</p>
+                </div>
+            </div>
         </section>
 
         <section class="bg-gray" id="price">
@@ -691,7 +697,7 @@
                     <div class="modal-close" onclick="closeModal()">×</div>
                 </div>
                 <div class="modal-body">
-                    <form onsubmit="alert('送信機能は設定が必要です。次にLINE Notifyの設定を行います！'); return false;">
+                    <form>
                         <div class="form-group">
                             <label class="form-label">お名前<span class="badge-required">必須</span></label>
                             <input type="text" class="form-input" placeholder="例：山田 太郎" required>
@@ -733,14 +739,65 @@
     </div>
 
     <script>
-        // モーダル操作用のスクリプト
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwRRgVraJS2ABKZ2NsYT1hA6mHOgX20IVhhBRs8kfIt57UKbQumr6TQoqBXEOFWI5g/exec";
+
+        const form = document.querySelector('form');
+        const submitBtn = document.querySelector('.submit-btn');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = '送信中...';
+
+            let formData = new FormData(form);
+            let contactMethods = [];
+            document.querySelectorAll('input[name="contact"]:checked').forEach(el => {
+                let val = el.value;
+                if(val === 'tel') val = '電話';
+                if(val === 'email') val = 'メール';
+                if(val === 'line') val = 'LINE';
+                contactMethods.push(val);
+            });
+
+            let data = {
+                name: document.querySelector('input[placeholder*="山田"]').value,
+                store: document.querySelector('input[placeholder*="Club"]').value,
+                region: document.querySelector('input[placeholder*="大阪"]').value,
+                tel: document.querySelector('input[type="tel"]').value,
+                email: document.querySelector('input[type="email"]').value,
+                lineId: document.querySelector('input[placeholder*="LINE ID"]').value,
+                contact: contactMethods.join(', ')
+            };
+
+            const params = new URLSearchParams(data);
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: params
+            })
+            .then(() => {
+                alert('送信が完了しました！\n担当者よりご連絡いたします。');
+                submitBtn.disabled = false;
+                submitBtn.textContent = '送信する';
+                form.reset();
+                closeModal();
+            })
+            .catch(error => {
+                alert('送信に失敗しました。もう一度お試しください。');
+                console.error('Error:', error);
+                submitBtn.disabled = false;
+                submitBtn.textContent = '送信する';
+            });
+        });
+
         function openModal() {
             document.getElementById('modal').style.display = 'flex';
         }
         function closeModal() {
             document.getElementById('modal').style.display = 'none';
         }
-        // 外側クリックで閉じる
         window.onclick = function(event) {
             const modal = document.getElementById('modal');
             if (event.target == modal) {
