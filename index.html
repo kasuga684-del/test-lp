@@ -106,35 +106,49 @@
             display: flex; justify-content: center; align-items: flex-end; gap: 8px; height: auto; margin-top: 5px; margin-bottom: 10px;
         }
         
-        /* 簡易スマホアイコン */
+        /* 簡易スマホアイコン (Small Phone) - サイズアップ */
         .mini-phone {
-            width: 36px; height: 60px; background: #333; border-radius: 8px; position: relative;
+            width: 48px; /* 36pxから拡大 */
+            height: 80px; /* 60pxから拡大 */
+            background: #333; border-radius: 10px; position: relative;
             display: flex; align-items: center; justify-content: center;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        .mini-phone::before { content: ""; position: absolute; top: 2px; left: 50%; transform: translateX(-50%); width: 30%; height: 3px; background: #555; border-radius: 2px; }
+        .mini-phone::before { content: ""; position: absolute; top: 3px; left: 50%; transform: translateX(-50%); width: 30%; height: 3px; background: #555; border-radius: 2px; }
         .mini-phone-screen {
-            width: 30px; height: 52px; background: white; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+            width: 40px; /* 30pxから拡大 */
+            height: 70px; /* 52pxから拡大 */
+            background: white; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
         }
 
-        /* 中サイズスマホアイコン */
+        /* 中サイズスマホアイコン (Medium Phone) - サイズアップ */
         .medium-phone {
-            width: 50px; height: 84px; background: #333; border-radius: 10px;
+            width: 75px; /* 50pxから拡大 */
+            height: 125px; /* 84pxから拡大 */
+            background: #333; border-radius: 14px;
             position: relative; display: flex; align-items: center; justify-content: center;
             box-shadow: 0 5px 10px rgba(0,0,0,0.2); margin: 0 auto 8px;
         }
         .medium-phone::before {
-            content: ""; position: absolute; top: 3px; left: 50%; transform: translateX(-50%);
-            width: 30%; height: 3px; background: #555; border-radius: 2px;
+            content: ""; position: absolute; top: 4px; left: 50%; transform: translateX(-50%);
+            width: 30%; height: 4px; background: #555; border-radius: 2px;
         }
         .medium-phone-screen {
-            width: 42px; height: 74px; background: white; border-radius: 6px;
+            width: 65px; /* 42pxから拡大 */
+            height: 113px; /* 74pxから拡大 */
+            background: white; border-radius: 10px;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 4px; padding: 4px 0;
+            gap: 6px; padding: 4px 0;
         }
-        .phone-screen-text { font-size: 8px; font-weight: bold; line-height: 1.2; text-align: center; color: #333; }
+        /* 画面内テキストも少し大きく */
+        .phone-screen-text { font-size: 11px; font-weight: bold; line-height: 1.3; text-align: center; color: #333; }
 
-        .app-icon { width: 18px; height: 18px; border-radius: 5px; font-size: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        /* アプリアイコンも少し大きく */
+        .app-icon { 
+            width: 24px; height: 24px; /* 18pxから拡大 */
+            border-radius: 6px; font-size: 13px; /* 10pxから拡大 */
+            display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; 
+        }
         .icon-green { background-color: #06c755; }
         .icon-pink { background-color: #d81b60; }
         .icon-blue { background-color: #1e3a8a; }
@@ -545,6 +559,9 @@
                         <div style="text-align: right; margin-bottom: 10px;">
                             <div class="chat-bubble chat-bubble-sent">こんにちは！<br>本日は予定通り面接にお越しいただけますか？😊</div>
                             <span style="font-size: 10px; color: #fff; display: block; margin-top: 2px; margin-right: 5px;">既読 11:00</span>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <div class="chat-bubble">こんにちは！はい、予定通り伺いますのでよろしくお願いします！</div>
                         </div>
                     </div>
                     <div style="height: 50px; background: #f0f0f0; border-top: 1px solid #ddd; display:flex; align-items:center; padding:0 10px; color:#999; font-size:12px; position:absolute; bottom:0; width:100%;">メッセージを入力...</div>
